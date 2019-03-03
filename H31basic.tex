@@ -125,8 +125,62 @@ $f$は$\R$上の実数値$C^1$級関数で任意の$x \in \R$に対して$f(x+1)
   \item[(B)] $f(x) = 0$となる$x \in \R$が存在しない。
 \end{description}
 }
-\begin{sol}
-
+\begin{sol} ${}$
+  \begin{description}
+    \item[(B)$\To$(A)] このときある$\ve > 0$が存在して$\forall x \; f(x)^2 > \ve$が成り立つ。よって
+    \begin{align*}
+            \int_1^{\infty} \f{1}{x^{1+f(x)^2}} \ dx \leq \int_1^{\infty} \f{dx}{x^{1+\ve}}
+            \leq \f{1}{\ve}
+    \end{align*}
+    より積分は有界である。被積分関数は正の値しかとらないので、これで広義積分の収束がいえた。
+    \item[(A)$\To$(B)] 対偶を示そう。$f(a)=0$なる$a$があったとする。周期性から$f(a_1)=0$なる$1 \leq a_1 < 2$がとれる。$n \geq 2$に対し$ n \leq a_n < n+1$を$a_n = a_1 + n-1$で定める。$f(x)=f(x+1)$より、$f$はコンパクト空間$\R / \Z$上の$C^1$級関数である。
+    とくに$f'$は有界であり、$\forall x \; \abs{f'(x)} \leq M$なる$M > 0$をとることができる。したがって平均値の定理を適用することにより、任意の$n$について
+    \[
+    \abs{f(x)} = \abs{f(x) - f(a_n)} \leq M \abs{x - a_n}
+    \]
+    が成り立つことがわかる。ここまでの議論を踏まえると次の補題が示せる。
+\lem{
+ある$r > 0$が存在して、任意の自然数$n \geq 2$に対して
+\[
+\int_{2n-2}^{2n} x^{-f(x)^2} \ dx \geq \f{r}{ \sqrt{\log 2n} }
+\]
+が成り立つ。
+}
+\begin{proof}
+  以下のように計算できる。
+  \begin{align*}
+    \int_{2n-2}^{2n} x^{-f(x)^2} \ dx  &\geq \int_{2n-2}^{2n} \exp \left\{ - (\log x) f(x)^2 \right\} \ dx \\
+    &\geq  \int_{2n-2}^{2n} \exp \left\{ - (\log 2n) f(x)^2 \right\} \ dx \\
+　　&\geq　\int_{a_{2n-2}}^{a_{2n-2}+1} \exp \left\{ - (\log 2n) f(x)^2 \right\} \ dx \\
+　　&\geq  \int_{a_{2n-2}}^{a_{2n-2}+1} \exp \left\{ - M^2(\log 2n) (x-a_{2n-2})^2 \right\} \ dx \\
+　　&\geq  \int_{a_{2n-2}}^{a_{2n-2}+1} \exp \left\{ - (M \sqrt{\log 2n} (x-a_{2n-2}) )^2 \right\} \ dx
+\end{align*}
+変数変換$y=M \sqrt{\log 2n}(x-a_{2n-2})$を行って
+\begin{align*}
+　\int_{2n-2}^{2n} x^{-f(x)^2} \ dx 　&\geq  \f{1}{M \sqrt{\log 2n}} \int_{0}^{M \sqrt{\log 2n} } e^{-y^2} \ dy  \\
+　　&\geq  \f{1}{M \sqrt{\log 2n}} \int_{0}^{M \sqrt{\log 4} } e^{-y^2} \ dy
+  \end{align*}
+  したがって
+  \[
+  r = \f{1}{M} \int_{0}^{M \sqrt{\log 4} } e^{-y^2} \ dy
+  \]
+  とおけばよい。
+\end{proof}
+(A)$\To$(B)の証明に戻る。$R \geq 4$に対し、$4 \leq 2N \leq R$を満たす最大の$N \in \Z$を$N_R$とおく。すると
+\begin{align*}
+  \int_1^R \f{dx}{x^{1+f(x)^2}} &\geq \sum_{n=2}^{N_R} \int_{2n-2}^{2n} \f{dx}{x^{1+f(x)^2}} \\
+  &\geq \sum_{n=2}^{N_R} \f{1}{2n} \int_{2n-2}^{2n} \f{dx}{x^{f(x)^2}} \\
+  &\geq \sum_{n=2}^{N_R} \f{r}{2n \sqrt{\log 2n}}
+\end{align*}
+というように評価できる。さらに$1/x\sqrt{\log x}$は単調減少なので
+\begin{align*}
+\int_1^R \f{dx}{x^{1+f(x)^2}} &\geq r \int_{2}^{N_R+1} \f{dx}{2x \sqrt{\log 2x}}  \\
+&\geq \f{r}{2} \int_{4}^{2N_R+2} \f{dy}{y \sqrt{\log y}}  \\
+&\geq r (\sqrt{\log(2N_R + 2)} - \sqrt{\log 4}) \\
+&\geq r (\sqrt{R} - \sqrt{\log 4})
+\end{align*}
+である。ゆえに結論が従う。
+  \end{description}
 \end{sol}
 
 
