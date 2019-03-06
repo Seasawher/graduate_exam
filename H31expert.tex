@@ -1,5 +1,31 @@
 \bfsection{平成31年度 専門科目}
 
+\bfsubsection{問1}
+\barquo{
+$\R[X,Y]$を変数$X,Y$に関する実数係数の$2$変数多項式環とする。$I$を$X^2 + Y^2$で生成された$\R[X,Y]$のイデアルとする。$A = \R[X,Y]/I $とおく。このとき、以下の問に答えよ。
+\begin{description}
+  \item[(i)] $A$は整域であることを示せ。
+  \item[(ii)] $A$の商体を$K$とおき、$A$の$K$における整閉包を$B$とおく。$A$加群としての$B$の生成系を一組与えよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $\R[X,Y]$はUFDなので、$X^2 + Y^2$が既約元であることを示せばよい。可約であると仮定する。そうするとある実数$a,b,c,d $が存在して$X^2 + Y^2 = (aX + bY)(cX + dY)$が成り立つことになるが、そうすると$ac - 1 = ad + bc = bd - 1 = 0$でなくてはならない。これは$a,b,c,d$が実数であったことに矛盾。よって$X^2 + Y^2$は既約元であり、$I \subset \R[X,Y]$は素イデアル。
+    \item[(ii)] $a = Y/X$とする。$a^2 + 1 = 0$なので$a \in B$である。$B = A[a]$を示そう。それには、$A[a]$が整閉であることを示せば十分である。$\R$代数の準同形$\vp \colon \R[X,\I] \to A[a]$を$\vp(\I)=a, \vp(X)=X$で定める。これはwell-definedであり、あきらかに全射。$f \in \Ker \vp$とする。
+    \[
+    f = \sum_{i=0}^n (a_i+\I b_i) X^i
+    \]
+    と表せる。そうすると
+    \[
+    0 = \sum_{i=0}^n a_i X^i + Y \sum_{i=1}^n b_i X^{i-1}  + b_0 \f{Y}{X}
+    \]
+    である。ここから$f=0$が導かれる。よって$\vp$は同型であり、$A[a] \cong \R[X,\I] \cong \C[X]$である。とくに$A[a]$は整閉だから$B = A[a]$が示された。
+  \end{description}
+\end{sol}
+
+
+
+
 \bfsubsection{問5}
 \barquo{
 $\C$の部分空間
