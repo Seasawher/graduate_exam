@@ -1,0 +1,242 @@
+\documentclass[12pt]{jsarticle}%文字サイズが12ptのjsarticle
+
+\input{preamble.tex}
+
+\begin{document}
+
+\title{半直積とGalois群}
+\author{\url{https://seasawher.hatenablog.com/} \\ @seasawher}
+\date{\today}
+\maketitle
+
+
+\prop{
+(直積の内部特徴づけ)\\
+群$G$とその部分群$N$, $H$があるとする。このとき次は同値。
+\begin{description}
+  \item[(1)] $G$と直積$N \tm H$は自然に同型である。つまり積をとる写像$\vp \colon N \tm H \to G$は群の準同型であって、かつ同型になる。次の図式
+\[
+\xymatrix{
+{} & N \tm H \ar[d]^-{\vp} & {} \\
+N \ar[ru] \ar[r] & G &  H \ar[l] \ar[lu]
+}
+\]
+を可換にするような同型$\vp$があるといってもよい。
+\item[(2)] $N \lhd G$かつ$H \lhd G$であり、かつ$N \cap H = 1$で$NH = G$である。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)$\To$(2)] $q \in N$, $g \in G$が与えられたとする。($n \in N$としないのは、$n$と$h$の形が似ていて間違えやすいため) $\vp$の逆写像$\psi$をとっておく。すると、$\psi(g) = (g_N, g_H)$と表せる。ゆえに
+    \begin{align*}
+      \psi(gqg^{-1}) &= \psi(g) (q,1) \psi(g)^{-1} \\
+      &= (g_N,g_H) (q,1) (g_N^{-1}, g_H^{-1}) \\
+      &= ( g_N q g_N^{-1} , 1)
+    \end{align*}
+    である。したがって$gqg^{-1} = \vp(g_N q g_N^{-1} , 1) \in N$であるから、$N \lhd G$である。同様にして$H \lhd G$もいえる。また、$x \in N \cap H$とすると、$\psi(x) \in N \tm H$は$(1,1)$でなくてはならない。したがって、$x \in \Ker \psi$である。$\psi$は同型だから$x=1$であって、$N \cap H =1$がいえた。
+    さらに、$G = NH$であることはあきらかであろう。
+    \item[(2)$\To$(1)] $N$, $H$は$G$の部分群なので、積をとる写像$\vp \colon N \tm H \to G$が定義できる。$N \lhd G$, $H \lhd G$なので交換子$[N,H]$は$N \cap H$の部分群であるが、$N \cap H = 1$なので$[N,H] = 1$である。よって$N$の元と$H$の元は可換であり、$\vp$は群準同型になる。
+    $N \cap H = 1$より$\vp$は単射であり、$NH=G$より$\vp$は全射である。
+  \end{description}
+\end{proof}
+
+
+\lem{
+(半直積の基本的な性質) \\
+群$N$, $H$と群作用$\Phi \colon  H \to \Aut N$があって、半直積$N \rtimes_{\Phi} H$を考えているとする。$q \in N$, $h \in H$とする。このとき次が成り立つ。
+\begin{description}
+  \item[(1)] 作用成分への射影$N \rtimes_{\Phi} H \to H \st (q,h) \mapsto h$は準同型である。
+  \item[(2)] 正規成分への入射$N \to N \rtimes_{\Phi} H \st q \mapsto (q,1)$は準同型である。
+  \item[(3)] 作用成分への入射$H \to N \rtimes_{\Phi} H \st h \mapsto (1,h)$は準同型である。
+  \item[(4)] $h \in \Ker \Phi$ならば$(q,h) = (1,h)(q,1)$である。
+  \item[(5)] 常に$(q,h) = (q,1)(1,h)$が成り立つ。
+  \item[(6)] 自然な入射と射影は、分裂する短完全列
+  \[
+  \xymatrix{
+  1 \ar[r] & N \ar[r] & N \rtimes_{\Phi} H \ar[r] & H \ar[r] & 1 \\
+  {} & {} & H \ar[u] \ar[ru]_-{1} & {} & {}
+  }
+  \]
+  をなす。
+\end{description}
+}
+\begin{proof}
+  あきらか。
+\end{proof}
+
+
+
+
+\prop{
+(半直積の内部特徴づけ)\\
+群$G$の部分群$N$, $H$が与えられているとする。このとき次は同値。
+\begin{description}
+  \item[(1)] ある群作用$\Phi \colon H \to \Aut N$が存在して、$G$は半直積$N \rtimes_{\Phi} H$と自然に同型である。つまり積をとる写像$\vp \colon N \rtimes_{\Phi} H \to G \st (q,h) \mapsto qh$は群準同型で、かつ同型である。次の図式
+\[
+\xymatrix{
+{} & N \rtimes_{\Phi} H \ar[d]^-{\vp} & {} \\
+N \ar[ru] \ar[r] & G &  H \ar[l] \ar[lu]
+}
+\]
+を可換にするような同型$\vp$があるといってもよい。
+  \item[(2)] $N \lhd G$かつ$NH=G$かつ$N \cap H =1$が成り立つ。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)$\To$(2)] $NH=G$はあきらか。$x \in N \cap H$とすると$(x,x^{-1}) \in \Ker \vp$だから$x =1$でなくてはならない。よって$N \cap H = 1$である。
+    $N \lhd G$を示そう。$g \in G$と$q \in N$が与えられたとする。$p \colon N \rtimes_{\Phi} H \to H$を射影とし、$\psi$を$\vp$の逆写像とする。
+    このとき$\psi(g)= (g_N, g_H)$と表せる。ゆえに
+    \begin{align*}
+      p \circ \psi (gqg^{-1}) &= p( (g_N,g_H) (q,1) (g_N^{-1}, g_H^{-1}) ) \\
+      &= 1
+    \end{align*}
+    である。したがって$gqg^{-1} \in \vp(\Ker p)=N$である。よって$N \lhd G$がわかった。
+    \item[(2)$\To$(1)] $N \lhd G$より、群作用$\Phi \colon H \to \Aut N$を$\Phi_h(q) = hqh^{-1}$により定めることができる。(順序を逆にして$\Phi_h(q) = h^{-1}qh$とするとうまくいかないことに注意) このとき$q_1,q_2 \in N$と$h_1, h_2 \in H$が与えられたとすれば
+    \begin{align*}
+      \vp((q_1,h_1) (q_2,h_2) ) &= \vp( q_1 \Phi_{h_1}(q_2), h_1h_2 ) \\
+      &= \vp(q_1 h_1 q_2 h_1^{-1} , h_1 h_2) \\
+      &= q_1 h_1 q_2 h_2 \\
+      &= \vp(q_1,h_1) \vp(q_2,h_2)
+    \end{align*}
+    だから$\vp$は群準同型になる。$\vp$が単射であることは$N \cap H =1$より従い、全射であることは$NH = G$より従う。
+  \end{description}
+\end{proof}
+
+
+
+\prop{
+(半直積の関手性 その1) \\
+$N_1, N_2,H$が群で群作用$\Phi \colon H \to \Aut N_1$が与えられていたとする。このとき同型$g \colon N_1 \to N_2$に対して${}_g\Phi \colon H \to \Aut N_2$を${}_g\Phi(h) = g \circ \Phi_h \circ g^{-1}$で定めると、
+写像$g_* \colon N_1 \rtimes_{\Phi} H \to N_2 \rtimes_{{}_g\Phi} H \st g_*(q, h ) = (g(q), h)$は群の準同型である。
+}
+\begin{proof}
+  計算すればわかる。実際に行ってみると
+  \begin{align*}
+    g_*((q, h_1)(q',h_2) ) &= g_*(q \Phi_{h_1}(q'), h_1h_2) \\
+    &= (g(q) g(\Phi_{h_1}(q') ) , h_1h_2) \\
+    (g(q), h_1) (g(q'), h_2) &= ( g(q) {}_g\Phi_{h_1} (g(q')) ,h_1h_2   ) \\
+    &= (g(q) g(\Phi_{h_1}(q') ) , h_1h_2)
+  \end{align*}
+  であるから一致する。
+\end{proof}
+
+
+
+\prop{
+(半直積の関手性 その2) \\
+$N$, $H_1$, $H_2$が群で群作用$\Phi \colon H_2 \to \Aut N$が与えられていたとする。このとき群準同型$f \colon H_1 \to H_2$に対して$\Phi_f \colon H_1 \to \Aut N$を$(\Phi_f)_h = \Phi_{f(h)}$により定める。
+そうすると写像$f_* \colon N \rtimes_{\Phi_f} H_1 \to  N \rtimes_{\Phi} H_2 \st f_*(q,h) = (q,f(h))$は群の準同型である。
+}
+\begin{proof}
+  計算すればわかる。実際に行ってみると
+  \begin{align*}
+    f_* ( (q_1,h)(q_2,h') ) &= f_*( q_1 \Phi_{f(h)}  (q_2), h h') \\
+    &=( q_1 \Phi_{f(h)}  (q_2), f(h) f(h') ) \\
+    &= f_*(q_1, h) f_*(q_2, h')
+  \end{align*}
+  であるから一致。
+\end{proof}
+
+
+
+\prop{
+(分裂する完全列からの半直積の構成) \\
+群$G$, $H$, $N$と準同型$i$, $j$, $p$からなる分裂する短完全列
+\[
+\xymatrix{
+1 \ar[r] & N \ar[r]^-j & G \ar[r]^-p & H \ar[r] & 1 \\
+{} & {} & H \ar[u]^-i \ar[ru]_-{1} & {} & {}
+}
+\]
+が与えられたとする。このとき、ある群作用$\Psi \colon H \to \Aut N$が存在して、自然な同型$G \cong N \rtimes_{\Psi} H$がある。すなわち、ある同型$\psi$が存在して次の図式
+\[
+\xymatrix{
+{} & N \rtimes_{\Psi} H \ar[d]^-{\psi} & {} \\
+N \ar[r]^-j \ar[ru] & G & H \ar[l]_-i \ar[lu]
+}
+\]
+が可換になる。
+}
+\begin{proof}
+  $N' = j(N)$, $H'=i(H)$とおく。このとき$N' = \Ker p$より$N' \lhd G$である。$x \in N' \cap H'$とすると$x = j(q) = i(h)$なる$q \in N, h \in H$があるが、$p(x) = 1 = h$より$x = 1$でなくてはならない。よって$N' \cap H' = 1$である。また$g \in G$とすると$g (i \circ p)(g^{-1}) \in \Ker p$なので$g (i \circ p)(g^{-1}) = j(q)$なる
+  $q \in N$がある。したがって$g = j(q) (i \circ p)(g) \in N'H'$だから$G = N'H'$が成り立つ。よって、ある同型$\vp$と群作用$\Phi \colon H' \to \Aut N'$であって、次の図式
+  \[
+  \xymatrix{
+  {} & N' \rtimes_{\Phi} H' \ar[d]^-{\vp} & {} \\
+  N' \ar[ru] \ar[r] & G &  H' \ar[l] \ar[lu]
+  }
+  \]
+  を可換にするようなものがある。ここで$i,j$は単射であるので、同型$I \colon H \to H'$と$K \colon N' \to N$が存在して、次の図式
+  \[
+  \xymatrix{
+  N \ar[r] \ar[d]^-{K^{-1}} & N \rtimes_{ {}_K \Phi_I } H  \ar[d]^-{K_*^{-1}} & H \ar[l] \ar@{=}[d] \\
+  N' \ar[r] \ar@{=}[d] & N' \rtimes_{\Phi_I } H  \ar[d]^-{I_*} & H \ar[l] \ar[d]^-{I} \\
+  N' \ar[r] \ar@{=}[d] & N' \rtimes_{\Phi } H'  \ar[d]^-{\vp} & H' \ar[l] \ar@{=}[d] \\
+  N' \ar[r] \ar[d]^-K & G  \ar@{=}[d] & H' \ar[l] \ar[d]^{I^{-1}} \\
+  N \ar[r]^-j  & G   & H \ar[l]_-i
+   }
+  \]
+  は可換になる。これで示すべきことがいえた。
+\end{proof}
+
+
+\prop{
+(有限巡回群の半直積の表示) \\
+群$N$, $H$は有限巡回群であり群作用$\Phi \colon H \to \Aut N$が存在して半直積$N \rtimes_{\Phi} H$を考えているとする。$N$, $H$の生成元$q,h$をそれぞれとって固定し$\Phi_h(q) = q^t$となる$t \in \Z$をとることができる。このとき
+\[
+N \rtimes_{\Phi} H \cong \setmid{q,h}{q^{\# N} = h^{\# H} = 1, hqh^{-1} = q^t}
+\]
+が成り立つ。
+}
+\begin{proof}
+  右辺の群を$G$とおく。自由群の普遍性により、自由群$F_2$から$N \rtimes_{\Phi} H$への準同型$\vp$であって$\vp(q) = (q,1)$かつ$\vp(h)=(1,h)$なるものがある。なお、ここで$q \in F_2$と$q \in N$は本来別の記号で書くべきだが、かえって煩雑になるので同じ記号とした。$\vp$は全射である。このとき$q^{\# N}, h^{\# H} \in \Ker \vp$はあきらか。また
+  \begin{align*}
+    \vp(hqh^{-1}) &= (1,h)(q,1)(1,h^{-1}) \\
+    &= (\Phi_h(q),1) \\
+    &= (q^t,1) \\
+    &= \vp(q)^t
+  \end{align*}
+  だから$hqh^{-1}q^{-t} \in \Ker \vp$である。したがって、全射$\psi \colon G \to N \rtimes_{\Phi} H$が誘導される。ここで$N \rtimes_{\Phi} H$の位数は$\# (N \tm H)$であるので$\# G \geq \# (N \tm H)$である。
+  一方で$\# G \leq \# (N \tm H)$はあきらかなので結局$\# G = \# (N \tm H)$であり、$\psi$は同型でなくてはならない。
+\end{proof}
+
+
+\prop{
+(半直積とGalois群) \\
+有限次Galois拡大$L/K$があり、その中間体$M,N$があって$L = M \cdot N$かつ$K = M \cap N$を満たすとする。
+\[
+\xymatrix{
+{} & L & {} \\
+M \ar[ru]^{Gal} & { } & N \ar[lu]_{Gal} \\
+{} & K \ar[lu]_{Gal} \ar[ru] & {}
+}
+\]
+さらに$M/K$はGalois拡大であるとする。このとき
+\[
+\Gal(L/K) \cong \Gal(L/M) \rtimes \Gal(L/N)
+\]
+が成り立つ。
+}
+\begin{proof}
+  $M/K$はGalois拡大なので$\Gal(L/M) \lhd \Gal(L/K)$である。$L$は$M$と$N$の合成なので$\Gal(L/M) \cap \Gal(L/N) = 1$である。またGalois拡大の推進定理(雪江\cite{雪江2} 定理4.6.1)により$\Gal(L/N) \cong \Gal(M/K)$なのでとくに$[L:N] = [M:K]$であり、したがって$[L:N][L:M] = [L:K]$である。
+  ゆえに、$\Gal(L/K) \cong \Gal(L/M) \rtimes \Gal(L/N)$がわかる。
+\end{proof}
+
+\begin{thebibliography}{1}%参考文献の リスト
+  \bibitem{雪江2} 雪江明彦『代数学2 環と体とガロア理論』(日本評論社, 2010)
+  %\bibitem{松坂} 松坂和夫『集合・位相入門』(岩波書店, 1968)
+  %\bibitem{齋藤} 齋藤正彦『線型代数学』(東京図書, 2014)
+  %\bibitem{内田} 内田伏一『集合と位相』(裳華房, 1986)
+  %\bibitem{松村} 松村英之『可換環論』(共立出版, 1980)
+  %\bibitem{雪江3} 雪江明彦『代数学3 代数学のひろがり』(日本評論社, 2011)
+  %\bibitem{Harris} Joe Harris『Algebraic Geometry』(Springer, 1992)
+  %\bibitem{GW} Ulrich G\"{o}rtz, Torsten Wedhorn『Algebraic Geometry I : Schemes  with Examples and Exercises』(Springer, 2010)
+  %\bibitem{Liu} Qing Liu『Algebraic Geometry and Arithmetic Curves』(Oxford University Press, 2002)
+  %\bibitem{Wedhorn} Torsten Wedhorn『Manifolds, Sheaves, and Cohomology』(Springer, 2016)
+  %\bibitem{Rotman} Joseph J.Rotman『An Introduction to Homological Algebra』(Springer, 2009)
+  %\bibitem{MacLane} Saunders Mac Lane『Categories for the Working Mathematician』(Springer, 1971)
+  %\bibitem{Riehl} Emily Riehl『Category Theory in Context』(Dover, 2016)
+\end{thebibliography}
+
+\end{document}
