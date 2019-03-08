@@ -19,12 +19,102 @@ $\R[X,Y]$を変数$X,Y$に関する実数係数の$2$変数多項式環とする
     \[
     0 = \sum_{i=0}^n a_i X^i + Y \sum_{i=1}^n b_i X^{i-1}  + b_0 \f{Y}{X}
     \]
-    である。ここから$f=0$が導かれる。よって$\vp$は同型であり、$A[a] \cong \R[X,\I] \cong \C[X]$である。とくに$A[a]$は整閉だから$B = A[a]$が示された。
+    である。ここから$f=0$が導かれる。よって$\vp$は同型であり、$A[a] \cong \R[X,\I] \cong \C[X]$である。とくに$A[a]$は整閉だから$B = A[a]$が示された。よって、$B$の$A$加群としての生成系としては$\{ 1, a \}$がとれる。
   \end{description}
 \end{sol}
 
 
+\newpage
 
+\bfsubsection{問2}
+\barquo{
+有限群$G$に対して、次の条件$(*)$を考える。
+\begin{description}
+  \item[$(*)$] 任意の正整数$n$に対して、$G$の部分群のうち、位数が$n$のものの個数は$1$以下である。
+\end{description}
+以下の問に答えよ。
+\begin{description}
+  \item[(i)] $G$は有限Abel群で$(*)$を満たすとする。このとき、$G$は巡回群であることを示せ。
+  \item[(ii)] $G$は有限群で$(*)$を満たすとする。$H$を$G$の正規部分群とする。このとき、$G/H$も$(*)$を満たすことを示せ。
+  \item[(iii)] $G$は有限群で$(*)$を満たすとする。このとき、$G$は巡回群であることを示せ。
+\end{description}
+}
+\begin{proof}
+  ほげほげ
+\end{proof}
+
+\newpage
+
+
+\bfsubsection{問3}
+\barquo{
+多項式$f(X) = X^4 + 6X^2 + 2 \in \Q[X]$の$\Q$上の最小分解体を$K$とおく。$K$を$\C$の部分体とみなし、$F=K \cap \R$とおく。このとき、次の問に答えよ。
+\begin{description}
+  \item[(i)] 拡大次数$[F : \Q]$を求めよ。
+  \item[(ii)] $F/\Q$はGalois拡大であることを示せ。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+\item[(i)] $X^4 + 6X^2 + 2$は複2次式なので因数分解ができる。
+ \begin{align*}
+  X^4 + 6X^2 + 2 &= (X^2 + 3)^2 - 7 \\
+  &= (X^2 + 3 + \sqrt{7} )(X^2 + 3 - \sqrt{7} )
+  \end{align*}
+  なので、この多項式の根は
+  $
+  \pm \sqrt{ 3 \pm \sqrt{7}  } i
+  $
+  である。$\gra = \sqrt{ 3 + \sqrt{7}  } i $, $\beta =  \sqrt{ 3 - \sqrt{7}  } i$とおく。$K = \Q(\gra, \beta) = \Q(\gra, \sqrt{2})$である。
+  ゆえに$F = \Q(\sqrt{7}, \sqrt{2})$であり、$\sqrt{7} \not\in \Q(\sqrt{2})$から$[F:\Q] = 4$である。
+  \item[(ii)] $\Q$は標数$0$なので完全体であり、したがって$F/\Q$は分離拡大。また$F$は$\Q$上$\sqrt{7}$と$\sqrt{2}$で生成されている。これらの共役はすべて$F$に含まれているので、$F/\Q$は正規拡大。よって$F/\Q$はGalois拡大である。
+  \end{description}
+\end{proof}
+
+
+
+\newpage
+
+
+\bfsubsection{問4}
+\barquo{
+$n \geq 2$に対して、
+\[
+S^{n-1} = \setmid{(x_1, \cdots , x_n) \in \R^n }{x_1^2 + \cdots + x_n^2 = 1 } \quad \bbs^1 = \setmid{z \in \C}{\abs{z} = 1}
+\]
+とし、写像$\Phi \colon S^{n-1} \tm \bbs^1 \to \C^n$を
+\[
+\Phi(x_1, \cdots , x_n) = (x_1z, \cdots , x_nz)
+\]
+と定める。
+\begin{description}
+  \item[(1)] $\Phi$の像$M$が$\C^n$の実$n$次元部分多様体であることを示せ。
+  \item[(2)] $n$が偶数のとき、$M$が向き付け可能であることを示せ。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)] $\Phi(x,z) = \Phi(y,w)$とする。すると$\forall i \; x_i z = y_i w$である。$S^{n-1}$の定義により$x_i \neq 0$なる$i$がある。よって$z/w = y_i / x_i \in \R$であるので、$z=w$または$z = -w$である。したがってず$w \in M$に対して$\# \Phi^{-1}(w) =2$であることが分かった。
+
+    $N = S^{n-1} \tm \bbs^1$とおく。$N$に$(x,z) \sim (-x, -z)$で生成される同値関係$\sim$を定義する。このとき$\Phi(x,z) = \Phi(y,w)$と$(x,z) \sim (y,w)$は同値である。ゆえに次の図式
+    \[
+    \xymatrix{
+    N \ar[r]^-{\Phi} \ar[d]_-{P}  & M \\
+    N/ {\sim} \ar@{.>}[ru]_-{ \wt{\Phi} }
+    }
+    \]
+    を可換にするような全単射連続写像$\wt{\Phi}$がある。$N/{\sim}$はコンパクトで、$M$はHausdorffなので$\wt{\Phi}$は同相でなければならない。したがって$M$の代わりに$N/{\sim}$が$n$次元位相多様体であることをいえばよいが、$P$が被覆写像であるためこれはあきらか。
+    \item[(2)] $n$は偶数と仮定されているので$n=2k$とおける。接ベクトル束$TM$の切断$s$であって、至る所ゼロでないものの存在をいえば十分である。$\beta = (x,z) \in N$に対して
+    \[
+    \wt{z} = (x_2, -x_1, \cdots , x_{2k}, -x_{2k-1}, -y_2, y_1)
+    \]
+    と定めておき、これによりベクトル場$N \to TN \st z \mapsto (z, \wt{z})$を定める。このベクトル場は$N/{\sim}$上のベクトル場を誘導し、あきらかに至る所ゼロでない。よって示せた。
+  \end{description}
+\end{proof}
+
+
+
+\newpage
 
 \bfsubsection{問5}
 \barquo{
@@ -41,7 +131,7 @@ X = \setmid{1- e^{i\grt} \in \C }{0 \leq \grt < 2\pi} \cup \setmid{-1 + e^{i\grt
 \[
 (x,0) \sim (f(x),1)
 \]
-($x \in X$)で生成される同値関係$\sim$を与える。商空間$Y = (X \tm [0,1])/ \sim$の整数係数ホモロジー群を計算せよ。
+($x \in X$)で生成される同値関係$\sim$を与える。商空間$Y = (X \tm [0,1])/ {\sim}$の整数係数ホモロジー群を計算せよ。
 }
 \begin{sol}
 
