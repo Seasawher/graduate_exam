@@ -309,7 +309,7 @@ M = \setmid{(x,y,z,w) \in \R^4}{x^2 + y^2 + z^2 + w^2 = 1, \; xy + zw = 0}
       JF_p = \pmat{2x & 2y & 2z & 2w \\ y & x & w & z }
       \]
       である。ここで$p \neq O$より$\rank JF_p \geq 1$である。仮に$\rank JF_p = 1$ならば、$JF_p$の2つの行は1次従属である。よって、$p \neq O$により$(y , x, w,z) = c(x,y,z,w)$なる定数$c \in \R$がある。このとき$xy + zw = c(x^2 + z^2) = 0$となり、$p \neq O$に矛盾。よって$\rank JF_p = 2$である。ゆえに$p$は$F$の正則点であり、$M$は$\R^4$の$2$次元部分多様体。
-      $F$は$\bfc^{\infty}$級なので、$M$は微分可能になる。
+      $F$は$\bfC^{\infty}$級なので、$M$は微分可能になる。
       \item[(2)] $f \colon M \to \R$の$\R^4$への自然な拡張を$\wt{f}$とする。このとき$p \in M$に対して$T_p M \subset \R^4$と見なせば、$T_p M = \Ker JF_p$であるから、
       \begin{align*}
         \text{$p$が$f$の臨界点} &\iff \rank (df_p \colon T_p M \to \R) < 1 \\

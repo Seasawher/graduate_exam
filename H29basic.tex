@@ -1,0 +1,166 @@
+\bfsection{平成29年度 基礎科目}
+
+\bfsubsection{問1}
+\barquo{
+次の重積分を求めよ。
+\[
+\iint_D e^{- \max \{ x^2,y^2 \} } \ dx dy
+\]
+ここで$D=\setmid{(x,y) \in \R^2}{0 \leq x \leq 1, 0 \leq y \leq 1}$とする。
+}
+\begin{sol}
+  $E = \setmid{(x,y) \in D}{x \geq y}$とおく。このとき
+  \begin{align*}
+    \iint_D e^{- \max \{ x^2,y^2 \} } \ dx dy &= 2 \iint_E e^{- x^2 } \ dx dy \\
+    &= 2 \int_0^1 \left(  \int_0^x e^{-x^2} \ dy   \right) \ dx \\
+    &= 2 \int_0^1 x e^{-x^2} \ dx \\
+    &= \int_0^1 e^{-z} \ dz &(z = x^2 \text{とおいた}) \\
+    &= 1 - e^{-1}
+  \end{align*}
+\end{sol}
+
+
+\newpage
+
+
+\bfsubsection{問2}
+\barquo{
+実行列
+\[
+A= \pmat{
+1 & -2 & -1 & 1 & 0 \\
+-2 & 5 & 3 & -2 & 1 \\
+1& 1& 2 &0 &-1 \\
+5&  0&  5&  3&  2 \\
+}
+\]
+について、以下の問に答えよ。
+\begin{description}
+  \item[(i)] 連立一次方程式
+  \[
+  A \pmat{
+  x_1 \\
+  x_2 \\
+  x_3 \\
+  x_4 \\
+  x_5
+  }
+  = \pmat{ 0\\ 0\\ 0\\ 0 }
+  \]
+  の解をすべて求めよ。
+  \item[(ii)]
+  連立一次方程式
+  \[
+  A \pmat{
+  x_1 \\
+  x_2 \\
+  x_3 \\
+  x_4 \\
+  x_5
+  }
+  = \pmat{0 \\ -1 \\ 1\\  c}
+  \]
+  が解を持つような実数$c$をすべて求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] 行列$A$に行基本変形を繰り返し行っていく。
+    \begin{align*}
+      A &= \pmat{
+      1 & -2 & -1 & 1 & 0 \\
+      -2 & 5 & 3 & -2 & 1 \\
+      1& 1& 2 &0 &-1 \\
+      5&  0&  5&  3&  2 \\
+      } \\
+      &\sim \pmat{
+      1 & -2 & -1 & 1 & 0 \\
+      0 & 1 & 1 & 0 & 1 \\
+      0& 3& 3 &-1 &-1 \\
+      0&  10&  10&  -2&  2 \\
+      } & \pmat{ R_1 \\ R_2+2R_1 \\ R_3-R_1 \\ R_4-5R_1}
+    \end{align*}
+    \begin{align*}
+    A  &\sim \pmat{
+      1 & 0 & 1 & 1 & 2 \\
+      0 & 1 & 1 & 0 & 1 \\
+      0& 0& 0 &-1 &-4 \\
+      0&  0&  0&  -2&  -8 \\
+      } & \pmat{ R_1+2R_2 \\ R_2 \\ R_3-3R_2  \\ R_4 -10R_2} \\
+      &\sim \pmat{
+        1 & 0 & 1 & 0 & -2 \\
+        0 & 1 & 1 & 0 & 1 \\
+        0& 0& 0 &1 &4 \\
+        0&  0&  0&  0&  0 \\
+        } & \pmat{R_1+R_3 \\ R_2 \\ -R_3 \\ R_4-2R_3 }
+    \end{align*}
+    したがって、$A\bfx=\bfzero$の解空間は$x_3,x_5 \in \R$で貼られる$2$次元実ベクトル空間
+    \[
+    S = x_3 \pmat{-1 \\-1 \\1 \\0 \\0 } + x_5 \pmat{2\\ -1\\ 0\\ -4\\ 1}
+    \]
+    である。
+    \item[(ii)] 次の事実に気を付ける。
+    \prop{
+    $k$は体、$A$は$k$係数の$(n,m)$行列であり$\bfx \in k^m, \bfb \in k^n$であるとする。このとき$\bfx$についての一次方程式$A\bfx = \bfb$が解を持つことと、$\rank A = \rank (A \; \bfb)$は同値。
+    }
+    \begin{proof}
+      まず次は同値である。
+      \[
+        \exists \bfx \; A\bfx = \bfb \iff \exists \bfx \;  \pmat{A & \bfb} \pmat{\bfx \\ -1} = \bfzero
+      \]
+      ここで、$\Ker A \to \Ker (A \; \bfb) \st \bfx \mapsto {}^t(\bfx \; 0)$によって$\Ker A$は$\Ker (A \; \bfb)$の部分空間$\Ker (A \; \bfb) \cap \setmid{\bfy \in k^{m+1}}{y_{m+1}=0}$だと思えることに気を付けると
+      \begin{align*}
+      \exists \bfx \; A\bfx = \bfb &\iff \dim \Ker (A \; \bfb) > \dim  \Ker A \\
+        &\iff 0 \leq \rank (A \; \bfb) - \rank A < 1 \\
+        &\iff \rank A = \rank (A \; \bfb)
+      \end{align*}
+      であることがわかる。
+    \end{proof}
+    (ii)の解答に戻る。$\bfb = {}^t(0 \ -1 \;  1 \; c)$とおく。拡大係数行列$(A \; \bfb)$は行基本変形により
+    \[
+    (A \; \bfb) \sim \pmat{1& 0& 1&  0& -2& 2 \\ 0 &1& 1& 0& 1& -1 \\ 0& 0& 0& 1& 4& -4 \\ 0& 0& 0& 0& 0& c+2}
+    \]
+    と変形できる。したがって求める$c$の値は$c=-2$である。
+  \end{description}
+\end{sol}
+
+
+
+
+
+\newpage
+
+
+
+
+
+\bfsubsection{問3}
+\barquo{
+$m,n$を正の整数とし、$A$を複素$(n,m)$行列、$B$を複素$(m,n)$行列とする。複素数$\grl \neq 0$について、以下の問に答えよ。
+\begin{description}
+
+  \item[(i)] $\grl$が$BA$の固有値ならば、$\grl$は$AB$の固有値でもあることを示せ。
+  \item[(ii)] $\C^m$, $\C^n$の部分空間$V,W$をそれぞれ
+\begin{align*}
+  V &= \setmid{\bfx \in \C^m}{ \text{ある正の整数$k$に対して} (BA - \grl I_m)^k \bfx = \bfzero \text{が成り立つ} } \\
+  W &= \setmid{\bfy \in \C^n}{ \text{ある正の整数$l$に対して} (AB - \grl I_n)^l \bfy = \bfzero \text{が成り立つ} }
+\end{align*}
+で定める。ただし、$I_m,I_n$は単位行列、$\bfzero$は零ベクトルを表す。このとき、$\dim V = \dim W$であることを示せ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $BA \bfv = \grl \bfv$なる$\bfv \neq \bfzero$があったとする。このとき
+    \begin{align*}
+      AB(A \bfv) &= A(BA \bfv) \\
+      &= A (\grl \bfv) \\
+      &= \grl A \bfv
+    \end{align*}
+    である。もしも$A \bfv = \bfzero$ならば$\grl \bfv = \bfzero$となり矛盾。したがって$A \bfv \in \C^n$は$AB$の固有ベクトルである。
+    \item[(ii)] $M = AB, N = BA$とする。$MA = AN$である。いま$\bfx \in V$とする。ある$k$が存在して$(N - \grl I_m)^k \bfx = \bfzero$である。このとき
+    \[
+(M - \grl I_n)^k (A \bfx) = A  (N - \grl I_m)^k \bfx = \bfzero
+    \]
+    であるから$A \bfx \in W$である。したがって行列$A$は線形写像$A \colon V \to W$であるとみなせる。このとき$A$は$V$の定義および$\grl \neq 0$により単射だから、$\dim V \leq \dim W$である。同様にして逆が言えるので$\dim V = \dim W$が従う。
+  \end{description}
+\end{sol}
