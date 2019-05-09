@@ -78,10 +78,8 @@ A= \pmat{
       0 & 1 & 1 & 0 & 1 \\
       0& 3& 3 &-1 &-1 \\
       0&  10&  10&  -2&  2 \\
-      } & \pmat{ R_1 \\ R_2+2R_1 \\ R_3-R_1 \\ R_4-5R_1}
-    \end{align*}
-    \begin{align*}
-    A  &\sim \pmat{
+      } & \pmat{ R_1 \\ R_2+2R_1 \\ R_3-R_1 \\ R_4-5R_1} \\
+     &\sim \pmat{
       1 & 0 & 1 & 1 & 2 \\
       0 & 1 & 1 & 0 & 1 \\
       0& 0& 0 &-1 &-4 \\
@@ -164,3 +162,20 @@ $m,n$を正の整数とし、$A$を複素$(n,m)$行列、$B$を複素$(m,n)$行�
     であるから$A \bfx \in W$である。したがって行列$A$は線形写像$A \colon V \to W$であるとみなせる。このとき$A$は$V$の定義および$\grl \neq 0$により単射だから、$\dim V \leq \dim W$である。同様にして逆が言えるので$\dim V = \dim W$が従う。
   \end{description}
 \end{sol}
+
+\newpage
+
+\bfsubsection{問6}
+\barquo{
+$X,Y$を位相空間とし、直積集合$X \tm Y$を積位相によって位相空間とみなす。写像$f \colon X \tm Y \to Y$を$f(x,y)=y$で定める。$X$がコンパクトならば、$X \tm Y$の任意の閉集合$Z$に対し、$f(Z)$は$Y$の閉集合であることを示せ。
+}
+\begin{rem}
+  $X$がコンパクトという仮定は必要である。例えば、$X=Y=\R$かつ$Z=\setmid{(x,y) \in \R^2}{xy=1}$としてみればわかる。
+\end{rem}
+\begin{proof}
+$Y \sm f(Z)$の元$y$が任意に与えられたとする。このとき$f^{-1}(y) \subset X \tm Y \sm Z$である。ここで$Z$が$X\tm Y$の閉集合という仮定から、$X \tm Y \sm Z \opsub X \tm Y$である。したがって積位相の定義により、ある開集合の族$U_i \subset X$と$V_i \subset Y$であって$X \tm Y \sm Z = \bigcup_{i \in I} U_i \tm V_i$なるものがある。
+$f^{-1}(y) = X \tm \{ y \} \cong X$はコンパクトであると仮定したので、ある有限集合$J \subset I$が存在して$X \tm \{y\} = f^{-1}(y) \subset \bigcup_{i \in I} U_i \tm V_i$が成り立つ。
+
+ここで$V = \bigcap_{i \in J} V_i$とおく。$J$は有限集合なので$V$は$Y$の開集合であり、かつ$y$を含む。また$X = \bigcup_{i \in J} U_i$であることより$Z \cap f^{-1}(V) = Z \cap (X \tm V) = Z \cap \bigcup_{i \in J} (U_i \tm V) \subset Z \cap (X \tm Y \sm Z) = \emptyset$となる。
+これは$V \cap f(Z) = \emptyset$を意味し、$y$は内点であったことがわかった。よって$f(Z)$は$Y$の閉集合。
+\end{proof}
