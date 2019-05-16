@@ -249,14 +249,13 @@ $p$を正の実数とし、$f(t)$を$\R$上の実数値連続関数で
   \]
 と表せる。$C$の値は$t \to \infty$での$x$の振る舞いに関与しないので、はじめから$C=0$と仮定してよい。これにより
 \[
-x(t) =  e^{-pt} \int_0^t f(s)e^{ps} \ ds
+x(t) =   \int_0^t f(s)e^{p(s-t)} \ ds
 \]
-であることがわかる。そこで$M =  \int_0^R f(s)e^{ps} \ ds $とおき、$ t > \max \{ R, \f{1}{p} \log \f{M}{\ve} \}$とする。このとき
+であることがわかる。そこで$M =  \int_0^R \abs{f(s)} \ ds $とおき、$ t > \max \{ R, R+ \f{1}{p} \log \f{M}{\ve} \}$とする。このとき
 \begin{align*}
-  x(t) &= e^{-pt} \left(  \int_0^R f(s)e^{ps} \ ds  + \int_R^t f(s)e^{ps} \ ds  \right) \\
-  &= e^{-pt} M + \int_R^t f(s)e^{p(s-t)} \ ds  \\
-  &\leq \ve + \int_R^t \abs{f(s)} e^{p(s-t)} \ ds  \\
-  &\leq \ve + \int_R^t \abs{f(s)}  \ ds  \\
+  \abs{x(t)} &\leq \int_0^R \abs{f(s)}e^{p(s-t)} \ ds  + \int_R^t \abs{f(s)}e^{p(s-t)} \ ds  \\
+  &\leq e^{p(R-t)} M + \int_R^t \abs{f(s)} \ ds  \\
+  &\leq \ve  + \int_R^{\infty} \abs{f(s)}  ds \\
   &\leq 2\ve
 \end{align*}
 である。よって$\lim_{t \to \infty} x(t) = 0$である。
@@ -283,4 +282,29 @@ $f^{-1}(y) = X \tm \{ y \} \cong X$はコンパクトであると仮定したの
 
 ここで$V = \bigcap_{i \in J} V_i$とおく。$J$は有限集合なので$V$は$Y$の開集合であり、かつ$y$を含む。また$X = \bigcup_{i \in J} U_i$であることより$Z \cap f^{-1}(V) = Z \cap (X \tm V) = Z \cap \bigcup_{i \in J} (U_i \tm V) \subset Z \cap (X \tm Y \sm Z) = \emptyset$となる。
 これは$V \cap f(Z) = \emptyset$を意味し、$y$は内点であったことがわかった。よって$f(Z)$は$Y$の閉集合。
+\end{proof}
+
+
+\newpage
+
+\bfsubsection{問7}
+\barquo{
+$n$を正の整数とし、$\R^n$の2点$x=(x_1, \cdots , x_n)$, $y= (y_1, \cdots , y_n)$の距離$d(x,y)$を
+\[
+d(x,y) = \sqrt{(x_1 - y_1)^2 + \cdots +  (x_n - y_n)^2}
+\]
+と定める。$\R^n$の空でない部分集合$A$に対し、関数$f \colon \R^n \to \R$を
+\[
+f(x) = \inf_{z \in A} d(x,z)
+\]
+で定めるとき、$\R^n$の任意の2点$x,y$に対して$\abs{f(x)-f(y)} \leq d(x,y)$が成り立つことを示せ。
+}
+\begin{proof}
+  $d(x,0) = \abs{x}$と書くことにする。任意に$\ve > 0$が与えられたとしよう。このとき$f$の定義から、$f(y) + \ve > \abs{y-w} \geq f(y)$なる$w \in A$が存在する。このとき$f(x) \leq \abs{x-w}$が成り立つので、
+  \begin{align*}
+    f(x) - f(y) - \ve &\leq f(x) - \abs{y-w} \\
+    &\leq \abs{x-w} - \abs{y-w} \\
+    &\leq \abs{x-y}
+  \end{align*}
+  である。$\ve > 0$は任意だったので、$f(x) - f(y) \leq \abs{x-y}$でなくてはならない。同様にして$f(x) - f(y) \leq \abs{x-y}$がいえるので、示すべきことがいえた。
 \end{proof}
