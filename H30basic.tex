@@ -324,3 +324,15 @@ M = \setmid{(x,y,z,w) \in \R^4}{x^2 + y^2 + z^2 + w^2 = 1, \; xy + zw = 0}
   \end{description}
 
 \end{sol}
+
+
+\newpage
+
+\bfsubsection{問7}
+\barquo{
+$A$を実正方行列、$k$を正の整数とし、$\rk (A^{k+1}) = \rk (A^k)$が成り立つとする。このとき、任意の整数$m \geq k$に対し、$\rk (A^m) = \rk (A^k)$であることを証明せよ。ここで行列$X$に対し、$\rk(X)$は$X$の階数を表す。
+}
+\begin{proof}
+  仮定から、$\Ker A^{k+1}$の次元と$\Ker A^k$の次元は等しい。包含関係があって次元が等しいので、$\Ker A^{k+1} = \Ker A^k$である。ここで$m \geq k +2$に対して$x \in \Ker A^m$と仮定する。そうすると$A^m x = A^{m-k-1} A^{k+1} x$だから$A^{m-k-1} x \in \Ker A^{k+1} = \Ker A^k$である。よって$A^k A^{m-k-1} x = A^{m-1} x = 0$であり、$x \in \Ker A^{m-1}$がわかる。これを帰納的に繰り返して、
+  $\Ker A^m \subset \Ker A^{m-1} \subset \cdots \subset \Ker A^k$を得る。逆はあきらかなので$\Ker A^m = \Ker A^k$である。よってとくに階数も等しい。
+\end{proof}
