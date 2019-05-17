@@ -1,0 +1,33 @@
+
+\bfsection{平成29年度 専門}
+
+\bfsubsection{問1}
+\barquo{
+$G$を有限群とする。$G$の自己準同形全体のなす群を$\Aut (G)$とおく。また、$G$および$\Aut (G)$の位数をそれぞれ$a= |G|$, $b= |\Aut G|$とおく。以下の問に答えよ。
+\begin{description}
+  \item[(i)] $b=1$のとき、$G$は自明群であるか、または$\Z / 2 \Z$と同型であることを示せ。
+  \item[(ii)] $a$が奇数で$b=2$となるような$G$をすべて求めよ。
+\end{description}
+}
+\begin{sol} この解答では集合の元の個数を$\#$で表記する。
+   \begin{description}
+     \item[(i)] 群準同形$\phi \colon G \to \Aut G$を$\phi_g(x)=gxg^{-1}$により定める。$\# \Aut G = 1$という仮定より、$G = \Ker \phi = Z(G)$である。したがって$G$はAbel群。よって有限生成Abel群の基本定理により、ある素数の集合$M \subset \Z$と写像$I \colon M \to P(\Z)$が存在して
+     \[
+     G = \bigoplus_{p \in M} \bigoplus_{i \in I(p)} \Z / p^{e_i} \Z
+     \]
+     と表すことができる。このとき乗法群$(\prod_{p, i } \Z / p^{e_i} \Z)^{\tm}$は$\Aut G$の部分群とみなせるので
+     \[
+     \prod_{p, i} p^{e_i - 1}(p -1) = 1
+     \]
+     である。したがって$M=\{ 2 \}$である。また任意の$i \in I(2)$に対して$e_i = 1$である。よって$G = (\Z / 2 \Z)^n$と表せるが、$\Aut G = 1$という仮定から$n=1$でなくてはならない。($n \geq 2$なら、たとえば順番を入れ替える写像などがある)
+     \item[(ii)] 仮定から$G/ Z(G) = G/ \Ker \phi $の位数は2以下である。写像$f \colon G \to G$を$f(x) = x^2$で定義する。$x,y \in G$に対して、もしも$x \in Z(G)$または$y \in Z(G)$ならば$f(xy)=f(x)f(y)$である。また$x , y \in G \sm Z(G)$であれば、$xy \in Z(G)$なので$f(xy)=xy(xy) =f(x)f(y)$である。したがって$f$は群準同形となる。$\# G$は奇数なので$f$は単射であり、位数の考察から同型となる。このことから結局$G= Z(G)$であり、$G$はAbel群である。ゆえに有限生成Abel群の基本定理から
+     \[
+        G = \bigoplus_{p \in M} \bigoplus_{i \in I(p)} \Z / p^{e_i} \Z
+     \]
+     と表すことができる。このとき乗法群$(\prod_{p, i } \Z / p^{e_i} \Z)^{\tm}$は$\Aut G$の部分群とみなせるので
+     \[
+     \prod_{p, i} p^{e_i - 1}(p -1) \leq 2
+     \]
+     である。$p$としては$3$以上のものしか現れないから、$M = \{ 3 \}$である。また$\# I(3) =1$かつ$i \in I(3)$に対して$e_i = 1$であることもわかる。したがって$G = \Z / 3\Z$である。
+   \end{description}
+\end{sol}
