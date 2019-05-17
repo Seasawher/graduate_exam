@@ -21,6 +21,9 @@ H30専門問3については、semidirect_product.pdfの内容を仮定してい
 
 - まっしろ @math_shiro
 
+### 書いたひと
+PDFの表紙のクレジットはあとで消す予定。
+- 北窓 @seasawher https://seasawher.github.io/kitamado/
 
 ### 免責事項
 この解答を使用することにより使用者に不利益が生じたとしても、配布者である私は責任を負いません。
