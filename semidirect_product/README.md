@@ -2,4 +2,4 @@
 半直積についての予備知識のまとめです。
 
 ### 書いたひと
-https://seasawher.github.io/kitamado/ @seasawher
+- 北窓 https://seasawher.github.io/kitamado/ @seasawher
