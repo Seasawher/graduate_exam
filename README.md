@@ -21,6 +21,8 @@ H30専門問3については、semidirect_product.pdfの内容を仮定してい
 
 - まっしろ @math_shiro
 
+また、解答の作成にあたってはナカトウ氏による解答を大変参考にさせていただきました。
+
 ### 書いたひと
 - 北窓 @seasawher https://seasawher.github.io/kitamado/
 
