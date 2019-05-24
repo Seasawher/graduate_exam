@@ -31,3 +31,28 @@ $G$を有限群とする。$G$の自己準同形全体のなす群を$\Aut (G)$�
      である。$p$としては$3$以上のものしか現れないから、$M = \{ 3 \}$である。また$\# I(3) =1$かつ$i \in I(3)$に対して$e_i = 1$であることもわかる。したがって$G = \Z / 3\Z$である。
    \end{description}
 \end{sol}
+
+\newpage
+
+\bfsubsection{問2}
+\barquo{
+$n$は$2$以上の整数とし、$\zeta = e^{2\pi \I /n}$を$1$の原始$n$乗根とする。$\C[X,Y]$は変数$X,Y$に関する複素数係数の$2$変数多項式環とする。
+\[
+R = \setmid{f(X,Y) \in \C[X,Y] }{ f(\zeta X,\zeta Y) = f(X,Y)}
+\]
+とおく。以下の問に答えよ。
+\begin{description}
+  \item[(i)] $\C$代数として$R$は$n+1$個の元$X^n, X^{n-1}Y , \cdots , XY^{n-1}, Y^n$で生成されることを示せ。
+  \item[(ii)] 複素数$a,b,c,d$に対し$m_{a,b} = (X-a,Y-b)$, $m_{c,d} = (X-c,Y-d)$を$\C[X,Y]$のイデアルとする。$m_{a,b} \cap R = m_{c,d} \cap R$が成り立つための$a,b,c,d$に関する必要十分条件を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $X^n, X^{n-1}Y , \cdots , XY^{n-1}, Y^n$で$\C$上生成される環を$R'$とおく。$f \in R$が与えられたとする。$f$をゼロでない$d$次斉次元$f_d$の和として$f = \sum_{d \in I} f_d$と書く。このとき仮定から$0 = f(\zeta X,\zeta Y) - f(X,Y) = \sum_{d \in I} (\zeta^d - 1) f_d(X,Y) $である。したがって$I$の元はすべて$n$の倍数である。
+    これはつまり$f \in R'$を意味する。よって$R \subset R'$である。逆は明らかだから$R = R'$がいえた。
+    \item[(ii)] $1$の$n$乗根全体がなす位数$n$の巡回群を$G$と書くことにする。このとき、$(z a, z b) = (c,d)$なる$z \in G$が存在すれば$m_{a,b} \cap R = m_{c,d} \cap R$が成り立つことはあきらか。逆を示そう。
+
+    $m_{a,b} \cap R = m_{c,d} \cap R$が成り立ったと仮定する。このとき$X^n - a^n$と$Y^n - b^n$はともに$m_{a,b} \cap R = m_{c,d} \cap R$の元である。よって$c^n - a^n = d^n -b^n = 0$であり、ある$z,w \in G$が存在して$c = za$, $d = wb$が成り立つ。ここでさらに$(bX - aY)^n$も$m_{a,b} \cap R = m_{c,d} \cap R$の元だから、$\C$は整域なので$bc - ad=0$である。
+    よって$(z - w)ab=0$である。このとき$ab=0$または$z-w=0$であるが、いずれにせよ$(z a, z b) = (c,d)$なる$z \in G$が存在することには違いないので、示すべきことがいえた。
+  \end{description}
+\end{sol}
