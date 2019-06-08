@@ -5,6 +5,7 @@
 H30専門問3については、semidirect_product.pdfの内容を仮定しています。問題文は
 
 - https://www.math.kyoto-u.ac.jp/ja/past-exams
+- http://www.kurims.kyoto-u.ac.jp/~kenkyubu/daigakuin/kakomon.html
 
 から入手したものを使用しています。
 
