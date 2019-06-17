@@ -1,0 +1,171 @@
+\bfsection{平成28年度 基礎科目 II}
+
+\bfsubsection{問1}
+\barquo{
+次の積分が収束するような実数$\gra$の範囲を求めよ。
+\[
+\iint_D \f{dx \ dy}{(x^2 + y^2)^{\gra} }
+\]
+ただし、$D=\setmid{(x,y) \in \R^2}{- \infty < x < \infty, 0 < y < 1}$とする。
+}
+\begin{sol}
+与えられた積分を$I(\gra)$と略記する。極座標変換を行うと次の形になる。
+\begin{align*}
+  I(\gra) &= 2 \iint_{0 < y < 1, 0 \leq x} \f{dx \ dy}{(x^2 + y^2)^{\gra} } \\
+  &= 2 \int_0^{\pi /2} \ d\grt \int_0^{1/ \sin \grt} r^{1 - 2 \gra} \ dr
+\end{align*}
+ここでもし$\gra = 1$ならば
+\[
+I(1) \geq 2 \int_0^{\pi /2} \ d\grt \int_0^1 \f{dr}{r} = \infty
+\]
+より発散する。そこで$\gra \neq 1$と仮定して先に進むと、次のようになる。
+\[
+I(\gra) = \f{1}{1- \gra} \int_0^{\pi /2} (\sin \grt)^{2\gra - 2} - \lim_{\ve \to 0} \ve^{2 - 2\gra} \ d\grt
+\]
+$\gra > 1$ならこれは発散する。そこで$\gra < 1$と仮定して先へ進むと、次の形に帰着する。
+\begin{align*}
+  I(\gra) &=  \f{1}{1- \gra} \int_0^{\pi /2}  (\sin \grt)^{2\gra - 2} \ d\grt \\
+  &= \f{1}{1- \gra} \int_0^{\pi /2}  \left( \f{\sin \grt}{\grt} \right)^{2\gra - 2} \cdot \grt^{2\gra - 2} \ d\grt \\
+\end{align*}
+$\sin \grt / \grt$は$[0, \pi/2]$上の連続関数であり、$0$より大きい最小値と最大値を持つ。よって収束には関与しないので、$\gra < 1$のとき
+$I(\gra)$が収束することは$\gra > 1/2$と同値であることがわかる。つまり$I(\gra)$は、$\gra \leq 1/2$または$1 \leq \gra$なら無限大に発散、$1/2 < \gra < 1$なら収束するということが結論できたことになる。
+\end{sol}
+
+\newpage
+
+
+\bfsubsection{問2}
+\barquo{
+$A$と$B$を複素$3$次正方行列とする。$A$の最小多項式は$x^3-1$, $B$の最小多項式は$(x-1)^3$とする。このとき
+\[
+AB \neq BA
+\]
+となることを示せ。
+}
+\begin{sol}
+  行列$M \in M(3,\C)$の固有値$\grl$に属する固有空間を$E(\grl, M)$と書くことにする。仮定より、$A$の固有値は$x^2 + x + 1$の根のひとつを$\gro$として、$1,\gro, \gro^2$の３つである。もしも$AB =BA$ならば、$v \in E(\grl,A)$に対して
+  \[
+AB v = BA v = B(\grl v) = \grl (B v)
+  \]
+  であるから$Bv \in E(\grl,A)$である。つまり$B$を写像$B \colon E(\grl,A) \to E(\grl,A)$とみなせる。
+
+  ここで$e_i \in E(\gro^i,A) \sm \{ 0 \} \; (0 \leq i \leq 2)$としよう。$e_i$はそれぞ$1$次元ベクトル空間である$E(\gro^i,A)$の基底となる。ゆえに$B e_i = \grl_i e_i$となる$\grl_i$が存在することになる。つまり$e_i$は$B$の固有ベクトルである。$e_i$は$\C^3$全体を張るので、とくに$B$は対角化可能となるが、これは$B$の最小多項式が重根を持つことに矛盾。よって$AB \neq BA$でなくてはならない。
+\end{sol}
+\newpage
+
+
+\bfsubsection{問3}
+\barquo{
+複素関数$f(z)$は$z=0$の近傍で正則な関数で$f(z)e^{f(z)} = z$をみたすとする。
+以下の問に答えよ。
+\begin{description}
+  \item[(i)] 非負整数$n$と十分小さい正数$\ve$に対して次の式が成り立つことを示せ。
+  \[
+  \f{ f^{(n)}(0) }{ n!} = \f{1}{2\pi i} \int_{C_{\ve}} \f{1+u}{e^{nu} u^n} \ du
+  \]
+  ここで積分路$C_{\ve}$は円周$C_{\ve} = \setmid{u \in \C}{ \abs{u} = \ve} $を正の向きに一周するものとする。
+  \item[(ii)] $f(z)$の$z=0$におけるベキ級数展開を求め、その収束半径を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] 仮定の式$f(z)e^{f(z)} = z$の両辺を微分して$(1 + f)f' e^f = 1$を得る。とくに$f'$は零点を持たない。したがって$u = f(z)$と変数変換することができて
+    \begin{align*}
+      \f{1 + u}{ (e^u u)^n} \ du &= \f{(1 + f(z))f'(z) }{z^n} \ dz \\
+      &= \f{ e^{-f(z)} }{z^n} \ dz \\
+      &= \f{f(z)}{z^{n+1}} \ dz
+    \end{align*}
+    であることがわかる。したがってCauchyの積分公式から、十分小さい$\ve$をとればすべての$n$に対して
+    \[
+\f{ f^{(n)}(0) }{ n!} =  \f{1}{2\pi i} \int_{C_{\ve}} \f{f(z)}{z^{n+1}} \ dz  = \f{1}{2\pi i} \int_{C_{\ve}} \f{1+u}{e^{nu} u^n} \ du
+    \]
+    が成り立つ。
+    \item[(ii)] ベキ級数展開すると
+    \begin{align*}
+      (1 + z)e^{-nz} &= (1 + z) \sum_{k=0}^{\infty} \f{ (-n)^k }{k!} z^k \\
+      &= 1 + \sum_{k=1}^{\infty} \left( \f{ (-n)^{k-1} }{ (k-1)! } + \f{ (-n)^k }{k!} \right) z^{k}
+    \end{align*}
+    である。よって$z=0$のまわりでのLaurent展開は
+    \[
+    \f{ (1 + z)e^{-nz} }{z^n} = \f{1}{z^n} + \sum_{k=1}^{\infty} \left( \f{ (-n)^{k-1} }{ (k-1)! } + \f{ (-n)^k }{k!} \right) z^{n-k}
+    \]
+    であることがわかる。ゆえに留数定理から
+    \[
+    \f{1}{2\pi i} \int_{C_{\ve}} \f{1+u}{e^{nu} u^n} \ du = \begin{cases}
+    0 &(n=0) \\
+    (-n)^{n-1}/ n! &(n \geq 1)
+  \end{cases}
+    \]
+    が従う。よって$f$のベキ級数展開を$f(z) = \sum_{n \geq 1} a_n z^n$とすると$a_n=(-n)^{n-1}/n!$であり、$\lim_{n \to \infty} \abs{a_{n+1} / a_n} = e$だから収束半径は$1/e$である。
+  \end{description}
+\end{sol}
+
+\newpage
+
+\bfsubsection{問4}
+\barquo{
+正則な複素2次正方行列のなす群を$GL_2(\C)$とおく。行列
+\[
+A = \pmat{0 &-1 \\ 1 & 1}, \quad B = \pmat{0& 1\\ 1& 0}
+\]
+で生成される$GL_2(\C)$の部分群$G$について、以下の問に答えよ。
+\begin{description}
+  \item[(i)] 群$G$の位数を求めよ。
+  \item[(ii)] 群$G$の中心の位数を求めよ。ただし、$G$の中心とは、$G$のすべての元と可換な元全体のなす$G$の部分群のことである。
+  \item[(iii)] 群$G$に含まれる位数$2$の元の個数を求めよ。
+\end{description}
+}
+\begin{sol} $I$は単位行列とする。群の特定の部分集合$S$で生成される部分群を$\kakko{S}$で書く。
+  \begin{description}
+    \item[(i)] 計算により$\kakko{A} \cong \Z / 6 \Z$, $B^2 = I$, $BAB^{-1} = A^{-1}$がわかる。ゆえに$BA = (BAB)B = A^5 B$だから、$G$の元はすべて$A^i B^j \; (0 \leq i \leq 5, 0\leq j \leq 1)$という形をしている。よって$\# G \leq 12$である。
+
+    逆を考察しよう。$BAB^{-1} = A^{-1}$より、$\kakko{A} \lhd G$である。$A^3$は$\kakko{A}$の元で位数が$2$であるような唯一の元なので$BA^3B = A^3$である。つまり$A^3$は$G$の中心$Z(G)$の元である。したがって$\kakko{A^3, B} = \{ I, A^3, B , A^3B\}$であり$G$は位数$4$の部分群を持つ。$G$が位数$3$の部分群を持つことは
+    $A^2$の位数が$3$であることからあきらかなので、$\# G \geq 12$を得る。つまり$\# G =12$ということである。
+    \item[(ii)] $Z = A^i B^j \; (0 \leq i \leq 5, 0\leq j \leq 1)$が$Z(G)$の元だったとする。このとき
+    \begin{align*}
+      AZA^{-1}Z^{-1} &= A^{i+1} B^j A^{-1} B^{-j} A^{-i} \\
+      &= A^{i+1} (B^j A B^{-j})^{-1} A^{-i} \\
+      &= A^{i+1} (A^{1-2j})^{-1} A^{-i} \\
+      &= A^{2j}
+    \end{align*}
+    だから$j=0$でなくてはならない。また
+    \begin{align*}
+      BZBZ^{-1} &= BA^i B A^{-1} \\
+      &= A^{-i } A^{-i} \\
+      &= A^{-2i}
+    \end{align*}
+    より$i=0,3$でなくてはならない。よって$Z(G)= \{ I, A^3 \}$である。これで$\# Z(G)=2$が示せた。
+    \item[(iii)] 各々の元の共役類を求めて位数の表を作ると次のようになる。
+    \begin{center}
+    \begin{tabular}{ccc}
+     \hline
+  位数 & 元 & 個数 \\
+     \hline \hline
+     1 & I & 1 \\
+     2 & $B,A^2B, A^4B, A^3, AB, A^3B, A^5B$ &  7 \\
+    3 & $A^2, A^4$ &  2  \\
+    6 & $A, A^5$ & 2
+     \end{tabular}
+    \end{center}
+    よって位数$2$の元の数は$7$個。
+  \end{description}
+\end{sol}
+\newpage
+
+
+\bfsubsection{問5}
+\barquo{
+3次元微分多様体$M  = \setmid{(x,y,z,w) \in \R^4}{xy-z^2 = w}$から$\R^3$への写像$f=(f_1,f_2,f_3) \colon M \to \R^3$を
+\[
+f(x,y,z,w) = (x+y, z, w)
+\]
+により定める。以下の問に答えよ。
+\begin{description}
+  \item[(i)] $f$の臨界点の集合$C$を求めよ。ただし$p \in M$が$f$の臨界点であるとは、$p$のまわりの$M$の座標系$(u_1,u_2,u_3)$に関する$f$のヤコビ行列
+  \[
+  \left( \f{ \del f_i }{\del u_j} \right)_{1 \leq i,j \leq 3}
+  \]
+  が正則でないことである。
+  \item[(ii)] $C$が$M$の部分多様体になることを証明せよ。
+\end{description}
+}
