@@ -69,7 +69,7 @@ AB v = BA v = B(\grl v) = \grl (B v)
 }
 \begin{sol} ${}$
   \begin{description}
-    \item[(i)] 仮定の式$f(z)e^{f(z)} = z$の両辺を微分して$(1 + f)f' e^f = 1$を得る。とくに$f'$は零点を持たない。したがって$u = f(z)$と変数変換することができて
+    \item[(i)] 仮定の式$f(z)e^{f(z)} = z$の両辺を微分して$(1 + f)f' e^f = 1$を得る。とくに$f'$は零点を持たない。したがって逆関数定理により$f$は$0$の十分小さな近傍$U$に制限すれば像への同相写像となる。よって$u = f(z)$と変数変換することができて
     \begin{align*}
       \f{1 + u}{ (e^u u)^n} \ du &= \f{(1 + f(z))f'(z) }{z^n} \ dz \\
       &= \f{ e^{-f(z)} }{z^n} \ dz \\
@@ -77,7 +77,7 @@ AB v = BA v = B(\grl v) = \grl (B v)
     \end{align*}
     であることがわかる。したがってCauchyの積分公式から、十分小さい$\ve$をとればすべての$n$に対して
     \[
-\f{ f^{(n)}(0) }{ n!} =  \f{1}{2\pi i} \int_{C_{\ve}} \f{f(z)}{z^{n+1}} \ dz  = \f{1}{2\pi i} \int_{C_{\ve}} \f{1+u}{e^{nu} u^n} \ du
+\f{ f^{(n)}(0) }{ n!} =  \f{1}{2\pi i} \int_{f^{-1}(C_{\ve})} \f{f(z)}{z^{n+1}} \ dz  = \f{1}{2\pi i} \int_{C_{\ve}} \f{1+u}{e^{nu} u^n} \ du
     \]
     が成り立つ。
     \item[(ii)] ベキ級数展開すると
@@ -169,3 +169,27 @@ f(x,y,z,w) = (x+y, z, w)
   \item[(ii)] $C$が$M$の部分多様体になることを証明せよ。
 \end{description}
 }
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $g \colon \R^4 \to \R$を$g(x,y,z,w) = xy - z^2 -w$により定める。このとき$M = g^{-1}(0)$であり、$f$の微分$df_p \colon T_p M \to \R^3$は$f$の$\R^4$への延長のヤコビアン$Jf_p \colon \R^4 \to \R^3$の$\Ker Jg_p$への制限だとみなせる。したがって$p \in M$に対して
+    \begin{align*}
+      p \in C &\iff \rank df_p \leq 2 \\
+      &\iff \dim \Ker df_p \geq 1 \\
+      &\iff \dim (\Ker Jf_p \cap \Ker Jg_p) \geq 1 \\
+      & \iff \dim \Ker \pmat{ Jg_p \\ JF_p} \geq 1 \\
+      &\iff \rank \pmat{ Jg_p \\ JF_p} \leq 3 \\
+      &\iff \rank \pmat{ y &x& -2z& -1 \\ 1& 1& 0& 0 \\ 0& 0& 1& 0 \\ 0& 0& 0& 1} \leq 3 \\
+      &\iff x=y
+    \end{align*}
+    だから$C =\setmid{(x,y,z,w) \in \R^4}{xy-z^2 = w, x=y}$である。
+    \item[(ii)] $h \colon M \to \R$を$h(x,y,z,w ) = x-y$で定める。任意の点$p \in h^{-1}(0)$が正則点であることをいえばよい。計算すると
+    \begin{align*}
+      \rank dh_p &= 3 - \dim \Ker dh_p \\
+      &= 3- \dim \Ker \pmat{Jg_p \\ Jh_p} \\
+      &= \rank \pmat{Jg_p \\ Jh_p} - 1 \\
+      %&= \rank \pmat{ y &x &-2z &-1 \\ 1 &-1 &0 &0 } - 1 \\ %レイアウトのために省略
+      &= 1
+    \end{align*}
+    である。よって$0$は$h$の正則値であり、示すべきことがいえた。
+  \end{description}
+\end{sol}

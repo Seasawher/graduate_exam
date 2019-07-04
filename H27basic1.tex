@@ -1,0 +1,34 @@
+\bfsection{平成27年度 基礎科目I}
+
+\bfsubsection{問1}
+\barquo{
+次の広義積分を求めよ。
+\[
+\iint_D \f{y^2 e^{-xy} }{ x^2 + y^2 } \ dx dy
+\]
+ここで、$D=\setmid{(x,y) \in \R^2 }{0 < y \leq x}$とする。
+}
+\begin{sol}
+  $x=r \cos \grt$, $y = r\sin \grt$とおくと$dx dy = r dr d\grt$であって
+  \begin{align*}
+    \iint_D \f{y^2 e^{-xy} }{ x^2 + y^2 } \ dx dy &= \int_0^{\pi/4} \ d\grt \int_0^{\infty} r \sin^2 \grt e^{- r^2 \sin \grt \cos \grt} \ dr \\
+    &= \f{1}{2} \int_0^{\pi/4} \sin^2 \grt \left( \int_0^{\infty}   e^{- s \sin \grt \cos \grt} \ ds \right) \ d\grt \\
+    &= \f{1}{2} \int_0^{\pi/4} \f{ \sin \grt }{\cos \grt } \ d\grt \\
+    &= - \f{1}{2} \int_1^{1/ \sqrt{2} } \f{dt}{t} \\
+    &= \f{\log 2}{4}
+  \end{align*}
+\end{sol}
+
+\newpage
+
+\bfsubsection{問2}
+\barquo{
+$\R^2$で定義された関数
+\[
+f(x,y) = \f{4x^2 + (y+2)^2}{x^2 + y^2 +1}
+\]
+のとりうる値の範囲を求めよ。
+}
+\begin{sol}
+  
+\end{sol}
