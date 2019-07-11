@@ -77,3 +77,33 @@ R = \setmid{f(X,Y) \in \C[X,Y] }{ f(\zeta X,\zeta Y) = f(X,Y)}
   このとき、$f(X)$は$\Q$係数の3次の既約多項式で割り切れることを示せ。
 \end{description}
 }
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $S_3$の元と$H$の元は互いに可換なので、積をとる写像$S_3 \tm H \to S_5$は準同型となる。$G \lhd S_3$より、$(s,t) \in S_3 \tm H$としたとき
+    \[
+    (st)\grs (st)^{-1} = s\grs ss^{-1} \in G
+    \]
+    だから積$(s,t)$は$N_{S_5}(G)$に含まれる。よって準同型$\vp \colon S_3 \tm H \to N_{S_5}(G)$が構成できたことになる。$S_3 \cap H = 1$より$\vp$は単射である。全射であることを示そう。
+
+    $h \in N_{S_5}(G)$が与えられたとする。このとき定義から$h \grs h^{-1} \in G$である。よって$x \in \{ 4,5\}$への作用を考えると$h \grs h^{-1}(x) = x$, つまり$\grs h^{-1} (x) = h^{-1}(x)$がわかる。$\grs$が固定するのは$\{ 4, 5\}$の元だけなので
+    $h^{-1}(x) \in \{ 4, 5\}$である。まとめると、任意の$h \in N_{S_5}(G)$に対して$h = \grs_0 \tau_0$なる$\grs_0 \in S_3$と$\tau_0 \in H$があることが判ったことになり、したがって$\vp$は全射、ゆえに同型である。
+\item[(ii)] Galoisの基本定理により、$F \mapsto \Gal(K/F)$で与えられる対応
+\[
+\{ \text{$K/\Q$の部分体} \} \to \{ \text{ $\grG := \Gal(K/\Q)$の部分群 } \}
+\]
+は全単射である。ゆえに$\grG$は位数3の部分群をただひとつしかもたない。とくに$\Gal(K/F)$の$\grG$での共役はただひとつなので$\Gal(K/F) \lhd \grG$である。$G = \Gal(K/F)$とおく。$f$の根を$\gra_1, \cdots , \gra_5$とすると$\grG$は$\{ \gra_1, \cdots , \gra_5 \}$への作用により$5$次対称群$S_5$の部分群とみなせる。
+$G \cong \Z / 3 \Z$なので必要ならば番号を付けなおすことにより$G$は$\grs = (1 \ 2 \ 3)$で生成されているとしてよい。いま$G \lhd \grG$により$\grG \subset N_{S_5}(G)$である。(i)により$N_{S_5}(G) \cong S_3 \tm H$であるので、$\grG \subset  S_3 \tm H$とみなせる。
+
+$f$は5次多項式であるので、$f$の$\Q[X]$における既約分解の様相には次の可能性がある。
+\begin{description}
+  \item[(1)] $f$は既約
+  \item[(2)] $f = (\text{4次式}) \tm  (\text{1次式})$
+  \item[(3)] $f = (\text{3次式}) \tm  (\text{2次式})$
+  \item[(4)] $f = (\text{3次式}) \tm  (\text{1次式}) \tm  (\text{1次式})$
+  \item[(5)] $f = (\text{2次式}) \tm  (\text{2次式}) \tm  (\text{1次式})$
+  \item[(6)] $f = (\text{2次式}) \tm  (\text{1次式}) \tm  (\text{1次式}) \tm  (\text{1次式})$
+  \item[(7)] $f = (\text{1次式}) \tm  (\text{1次式}) \tm  (\text{1次式}) \tm  (\text{1次式}) \tm  (\text{1次式})$
+\end{description}
+ここで(5),(6),(7)は条件$(*)$を満たさないので却下される。(1),(2)の場合$\grG$は集合$\{ 1,2,3,4,5 \}$の位数$4$以上の部分集合に推移的に作用しなければならないが、これは$\grG \subset  S_3 \tm H$に反する。したがって残る可能性は(3),(4)のみであり、示すべきことがいえた。
+  \end{description}
+\end{sol}

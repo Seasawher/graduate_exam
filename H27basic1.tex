@@ -9,7 +9,6 @@
 ここで、$D=\setmid{(x,y) \in \R^2 }{0 < y \leq x}$とする。
 }
 \begin{sol}
-  この積分は絶対収束するので、Fubiniの定理により重積分を累次積分として計算してよい。
   $x=r \cos \grt$, $y = r\sin \grt$とおくと$dx dy = r dr d\grt$であって
   \begin{align*}
     \iint_D \f{y^2 e^{-xy} }{ x^2 + y^2 } \ dx dy &= \int_0^{\pi/4} \ d\grt \int_0^{\infty} r \sin^2 \grt e^{- r^2 \sin \grt \cos \grt} \ dr \\
@@ -116,3 +115,13 @@ $a,b,c,d$を複素数とする。次の行列の階数を求めよ。
 }
 \]
 }
+\begin{sol}
+  問題の行列を$A$とおく。行基本変形で変形していくと
+  \begin{align*}
+    A &\sim \pmat{ 2 &-3& 6& 0& -6& a \\ -1& 2& -4& 1& 8& b \\ 1& 0& 0& 1& 6& c \\ 1& -1& 2& 0& -1& d } \\
+    &\sim \pmat{ 0 &-1& 2& 0& -4& a-2d \\ 0& 1& -2& 1 &7& b+d \\ 0& 1& -2& 1& 7& c+d \\  1& -1& 2& 0& -1& d }  \\
+    &\sim \pmat{ 0 &-1& 2& 0& -4& a-2d \\  0& 0& 0& 1& 3& a+b-d \\ 0& 0& 0& 1& 3& a + c - 3d \\ 1& 0& 0& 0& 3& -a+3d} \\
+    &\sim \pmat{ 0& -1& 2& 0& -4& a-2d \\ 0& 0& 0& 1& 3& a+b-d \\ 0& 0& 0& 0& 0& -b+c-2d \\  1& 0& 0& 0& 3& -a+3d}
+  \end{align*}
+  だから$-b+c-2d \neq 0$のとき$\rank A = 4$であり、$-b+c-2d = 0$のとき$\rank A = 3$である。
+\end{sol}
