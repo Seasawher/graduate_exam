@@ -1,5 +1,65 @@
 \section{平成27年度 基礎科目 II}
 
+\subsubsection{}
+\barquo{
+$f(x), \phi(x)$は区間$[0,\infty)$上の実数値連続関数とし、さらに$\phi(x)$は
+\begin{gather*}
+  \phi(x) = \phi(x+1) \quad (x \geq 0) \\
+  \int_0^1 \phi(x) \ dx = 1
+\end{gather*}
+をみたすとする。このとき、任意の実数$a > 0$に対し
+\[
+\lim_{\grl \to \infty} \int_0^a f(x)\phi(\grl x) \ dx = \int_0^a f(x) \ dx
+\]
+が成り立つことを示せ。
+}
+\begin{sol}
+  示すべきことは
+  \[
+  \lim_{\grl \to \infty} \int_0^a f(x)(\phi(\grl x) - 1) \ dx = 0
+  \]
+  なので$\psi(x) = \phi(x) -1$とおく。$\ve > 0$が任意に与えられたとする。
+  \[
+  I_{\grl} = \int_0^a f(x)\psi(\grl x) \ dx
+  \]
+  とおく。すると
+  \[
+  I_{\grl} = \f{1}{\grl}  \int_0^{a\grl} f( y/ \grl) \psi(y) \ dy
+  \]
+  である。$a\grl = n + b$なる$n \in \Z$と$0 \leq b < 1$をとると
+  \[
+  I_{\grl} = \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} f( y/ \grl) \psi(y) \ dy + \f{1}{\grl}  \int_n^{n+b} f( y/ \grl) \psi(y) \ dy
+  \]
+  となるが、ここで$M = \int_0^1 \abs{\psi(x)} \ dx$とすると
+  \[
+  \int_n^{n+b}  \abs{f( y/ \grl) \psi(y) }  \ dy \leq \sup_{0 \leq x \leq a} \abs{f(x)} M
+  \]
+  だから$\grl \to \infty$のとき第2項は無視してよい。よって
+  \[
+    I_{\grl} = \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} f( y/ \grl) \psi(y) \ dy + O(1/\grl)
+  \]
+  であるが、
+  \[
+  0 = \sum_{k=0}^{n-1} f(k/\grl) \int_k^{k+1} \psi(y) \ dy
+  \]
+  であることから
+  \[
+  \abs{ I_{\grl} } \leq  \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} \abs{f( y/ \grl)  - f(k/\grl) } \abs{\psi(y)} \ dy + O(1/\grl)
+  \]
+  である。ここで$0 \leq y \leq n$のとき$0 \leq y/\grl \leq a$であることに注意する。$f$は$[0,a]$上一様連続なので
+  \[
+  \abs{x-y} < \grd \to \abs{f(x) - f(y)} < \ve
+  \]
+  なる$\grd > 0$がある。そこで$\grl > 1/\grd$とすると
+  \begin{align*}
+    \abs{I_{\grl}} &\leq \f{n \ve }{\grl} M + O(1/\grl) \\
+    &\leq aM\ve + O(1/\grl)
+  \end{align*}
+  が成り立つ。$\grl \to \infty$として$\limsup_{\grl \to \infty} \abs{I_{\grl}} \leq a \ve M$を得る。$\ve > 0$は任意だったので$\lim_{\grl \to \infty } I_{\grl} = 0$である。
+\end{sol}
+
+\newpage
+
 \setcounter{subsubsection}{3}
 \subsubsection{} %{問4}
 \barquo{
@@ -23,3 +83,18 @@ $\Z / 125 \Z$で考える。$x^3 + 3x = x(x^2 + 3)$であるが、$x^2 + 3$は�
 \barquo{
 $A$を実正方行列とする。このとき、ある正の整数$k$が存在して$\tr (A^k) \geq 0$となることを示せ。ただし$\tr$は行列のトレースを表す。
 }
+\begin{sol}
+  行列$A$のサイズを$n$とする。$A$の固有多項式の根を重複を込めて
+  \[
+  \grl_1, \cdots , \grl_r, \grl_{r+1}, \ol{\grl_{r+1}}, \cdots , \grl_{r+s}, \ol{\grl_{r+s}} \quad (r+2s = n)
+  \]
+  とおく。するとトレースは固有値の和なので
+  \[
+  \tr A^k = \sum_{i=1}^r \grl_i^k + 2  \sum_{i=1}^s \Re \grl_{r+i}^k
+  \]
+  と書ける。ここで$\grl_i$の偏角を考える。$\arg \grl_i = 2\pi \gra_i$ $(0 \leq \gra_i < 1)$とおく。このときDirichletの近似定理から
+  \[
+  \exists k \in \Z_{\geq 1} \; \forall 1 \leq i \leq s+r \; \exists m_i \in \Z \quad \abs{k\gra_i - m_i} < \f{1}{4}
+  \]
+  が成り立つ。この$k$について$\forall i \quad \arg \grl_i^k \in [0, \pi/2) \cup (3\pi / 2, 2\pi)$だから$\tr A^k \geq 0$が成り立つ。
+\end{sol}
