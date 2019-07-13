@@ -1,6 +1,6 @@
-\bfsection{平成29年度 基礎科目}
+\section{平成29年度 基礎科目}
 
-\bfsubsection{問1}
+\subsubsection{} %{問1}
 \barquo{
 次の重積分を求めよ。
 \[
@@ -23,7 +23,7 @@
 \newpage
 
 
-\bfsubsection{問2}
+\subsubsection{} %{問2}
 \barquo{
 実行列
 \[
@@ -132,7 +132,7 @@ A= \pmat{
 
 
 
-\bfsubsection{問3}
+\subsubsection{} %{問3}
 \barquo{
 $m,n$を正の整数とし、$A$を複素$(n,m)$行列、$B$を複素$(m,n)$行列とする。複素数$\grl \neq 0$について、以下の問に答えよ。
 \begin{description}
@@ -166,7 +166,7 @@ $m,n$を正の整数とし、$A$を複素$(n,m)$行列、$B$を複素$(m,n)$行�
 \newpage
 
 
-\bfsubsection{問4}
+\subsubsection{} %{問4}
 \barquo{
 $f$を$I=\setmid{x \in \R}{x \geq 0}$上の実数値連続関数とする。正の整数$n$に対し、$I$上の関数$f_n$を
 \[
@@ -182,7 +182,7 @@ g(x) = \lim_{n \to \infty} f_n(x)
 \item[(ii)] $f$は$I$上で一様連続であることを示せ。
 \end{description}
 }
-\begin{proof} 以下$I$上の連続関数$h$に対してその一様ノルムを$\norm{h} = \sup_{x \in I} \abs{h(x)}$とかく。
+\begin{sol} 以下$I$上の連続関数$h$に対してその一様ノルムを$\norm{h} = \sup_{x \in I} \abs{h(x)}$とかく。
   \begin{description}
     \item[(i)] 連続関数$f_n$の一様極限なので$g$は連続である。さらに定義より$g(x+1)=g(x)$だから、$g$はコンパクト集合$\R / \Z$上の連続関数であるとみなせ、したがって一様連続である。
     \item[(ii)] $\ve > 0$が与えられたとする。$g$の一様連続性から
@@ -211,7 +211,7 @@ g(x) = \lim_{n \to \infty} f_n(x)
     \]
     であり、これで$f$が$I$上一様連続であることがいえた。
   \end{description}
-\end{proof}
+\end{sol}
 
 
 
@@ -222,7 +222,7 @@ g(x) = \lim_{n \to \infty} f_n(x)
 
 
 
-\bfsubsection{問5}
+\subsubsection{} %{問5}
 \barquo{
 $p$を正の実数とし、$f(t)$を$\R$上の実数値連続関数で
 \[
@@ -234,7 +234,7 @@ $p$を正の実数とし、$f(t)$を$\R$上の実数値連続関数で
 \]
 の任意の解$x(t)$に対し$\lim_{t \to \infty} x(t) = 0$が成り立つことを示せ。
 }
-\begin{proof}
+\begin{sol}
   任意に$\ve > 0$が与えられたとする。仮定により
   \[
   \int_R^{\infty}  \abs{f(t)} \ dt < \ve
@@ -259,7 +259,7 @@ x(t) =   \int_0^t f(s)e^{p(s-t)} \ ds
   &\leq 2\ve
 \end{align*}
 である。よって$\lim_{t \to \infty} x(t) = 0$である。
-\end{proof}
+\end{sol}
 
 
 
@@ -269,25 +269,25 @@ x(t) =   \int_0^t f(s)e^{p(s-t)} \ ds
 
 
 
-\bfsubsection{問6}
+\subsubsection{} %{問6}
 \barquo{
 $X,Y$を位相空間とし、直積集合$X \tm Y$を積位相によって位相空間とみなす。写像$f \colon X \tm Y \to Y$を$f(x,y)=y$で定める。$X$がコンパクトならば、$X \tm Y$の任意の閉集合$Z$に対し、$f(Z)$は$Y$の閉集合であることを示せ。
 }
 \begin{rem}
   $X$がコンパクトという仮定は必要である。例えば、$X=Y=\R$かつ$Z=\setmid{(x,y) \in \R^2}{xy=1}$としてみればわかる。
 \end{rem}
-\begin{proof}
+\begin{sol}
 $Y \sm f(Z)$の元$y$が任意に与えられたとする。このとき$f^{-1}(y) \subset X \tm Y \sm Z$である。ここで$Z$が$X\tm Y$の閉集合という仮定から、$X \tm Y \sm Z \opsub X \tm Y$である。したがって積位相の定義により、ある開集合の族$U_i \subset X$と$V_i \subset Y$であって$X \tm Y \sm Z = \bigcup_{i \in I} U_i \tm V_i$なるものがある。
 $f^{-1}(y) = X \tm \{ y \} \cong X$はコンパクトであると仮定したので、ある有限集合$J \subset I$が存在して$X \tm \{y\} = f^{-1}(y) \subset \bigcup_{i \in I} U_i \tm V_i$が成り立つ。
 
 ここで$V = \bigcap_{i \in J} V_i$とおく。$J$は有限集合なので$V$は$Y$の開集合であり、かつ$y$を含む。また$X = \bigcup_{i \in J} U_i$であることより$Z \cap f^{-1}(V) = Z \cap (X \tm V) = Z \cap \bigcup_{i \in J} (U_i \tm V) \subset Z \cap (X \tm Y \sm Z) = \emptyset$となる。
 これは$V \cap f(Z) = \emptyset$を意味し、$y$は内点であったことがわかった。よって$f(Z)$は$Y$の閉集合。
-\end{proof}
+\end{sol}
 
 
 \newpage
 
-\bfsubsection{問7}
+\subsubsection{} %{問7}
 \barquo{
 $n$を正の整数とし、$\R^n$の2点$x=(x_1, \cdots , x_n)$, $y= (y_1, \cdots , y_n)$の距離$d(x,y)$を
 \[
@@ -299,7 +299,7 @@ f(x) = \inf_{z \in A} d(x,z)
 \]
 で定めるとき、$\R^n$の任意の2点$x,y$に対して$\abs{f(x)-f(y)} \leq d(x,y)$が成り立つことを示せ。
 }
-\begin{proof}
+\begin{sol}
   $d(x,0) = \abs{x}$と書くことにする。任意に$\ve > 0$が与えられたとしよう。このとき$f$の定義から、$f(y) + \ve > \abs{y-w} \geq f(y)$なる$w \in A$が存在する。このとき$f(x) \leq \abs{x-w}$が成り立つので、
   \begin{align*}
     f(x) - f(y) - \ve &\leq f(x) - \abs{y-w} \\
@@ -307,4 +307,4 @@ f(x) = \inf_{z \in A} d(x,z)
     &\leq \abs{x-y}
   \end{align*}
   である。$\ve > 0$は任意だったので、$f(x) - f(y) \leq \abs{x-y}$でなくてはならない。同様にして$f(x) - f(y) \leq \abs{x-y}$がいえるので、示すべきことがいえた。
-\end{proof}
+\end{sol}

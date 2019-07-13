@@ -1,6 +1,6 @@
-\bfsection{平成30年度 基礎科目}
+\section{平成30年度 基礎科目}
 
-\bfsubsection{問1}
+\subsubsection{} %{問1}
 \lbar{
 広義積分
 \[
@@ -24,7 +24,7 @@
 
 \newpage
 
-\bfsubsection{問2}
+\subsubsection{} %{問2}
 \lbar{
 $a,b$を実数とする。実行列
 \[
@@ -93,7 +93,7 @@ x_4
 
 \newpage
 
-\bfsubsection{問 3}
+\subsubsection{} %{問 3}
 \barquo{
 広義積分
 \[
@@ -156,7 +156,7 @@ $\zeta = \exp(\I \pi / 3) = (1 + \sqrt{-3})/ 2$とする。$1+z + z^2$の根は$
 \end{sol}
 \newpage
 
-\bfsubsection{問 4}
+\subsubsection{} %{問 4}
 \lbar{
 閉区間$[0,1]$上の実数値関数列$\{ f_n \}^{\infty}_{n=1}$について、各$f_n$は広義単調増加であるものとする。つまり、$0 \leq x < y \leq 1$なら、$f_n(x) \leq f_n(y)$である。この関数列$\{ f_n \}^{\infty}_{n=1} $が$n \to \infty$で関数$f$に各点収束したとする。
 \begin{description}
@@ -232,7 +232,7 @@ n \geq \max\{ N(x_1), \cdots , N(x_m) , N(y_1) , \cdots , N(y_m)  \}
 
 \newpage
 
-\bfsubsection{問 5}
+\subsubsection{} %{問 5}
 \barquo{
 $p$を素数とし、$\F_p = \Z / p \Z$を位数$p$の有限体とする。行列の乗法による群$G$を
 \[
@@ -240,9 +240,8 @@ G = \setmid{ \pmat{1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 } }{a,b,c \in \F_p}
 \]
 で定める。このとき、$G$から乗法群$\C^{\tm} = \C \sm \{ 0 \}$への準同形写像の個数を求めよ。
 }
-\begin{sol} ${}$
-  \begin{description}
-    \item[Step 1] 集合$\Hom(G, \C^{\tm})$と$\Hom(G/[G,G], \C^{\tm})$の間には全単射がある。したがって$G/[G,G]$の構造を決定すればよい。そのためにまず$[G,G]$を決定する。
+\begin{sol}
+ 集合$\Hom(G, \C^{\tm})$と$\Hom(G/[G,G], \C^{\tm})$の間には全単射がある。したがって$G/[G,G]$の構造を決定すればよい。そのためにまず$[G,G]$を決定する。
     \[
     A = \pmat{1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1},  \quad B = \pmat{1 & \grd & \beta \\ 0 & 1 & \grg \\ 0 & 0 & 1}
     \]
@@ -255,7 +254,8 @@ G = \setmid{ \pmat{1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 } }{a,b,c \in \F_p}
   [G,G] = \setmid{ \pmat{1 & 0 & d \\ 0 & 1 & 0 \\ 0 & 0 & 1} }{d \in \F_p }
   \]
   が結論できる。
-  \item[Step 2] $G/[G,G]$の構造を決定したい。
+
+  次に$G/[G,G]$の構造を決定したい。
   \[
   E_1 = \pmat{1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1}, \quad E_2 =  \pmat{1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1}
   \]
@@ -272,13 +272,14 @@ G = \setmid{ \pmat{1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1 } }{a,b,c \in \F_p}
   \kakko{E_1} \tm \kakko{E_2} \to G/[G,G]
   \]
   がある。これは、$\kakko{E_1} \cap \kakko{E_2} = 1$により単射である。位数$p^2$の有限群の間の単射なので、とくに同型である。よって$G/[G,G] \cong \F_p^2$がわかった。
-  \item[Step 3] あとは$\# \Hom(\F_p^2, \C^{\tm})$を求めよう。これは$\# \Hom(\F_p,\C^{\tm})$の$2$乗である。$\# \Hom(\F_p,\C^{\tm}) = p$より求める答えは$p^2$である。
-  \end{description}
+
+あとは$\# \Hom(\F_p^2, \C^{\tm})$を求めよう。これは$\# \Hom(\F_p,\C^{\tm})$の$2$乗である。$\# \Hom(\F_p,\C^{\tm}) = p$より求める答えは$p^2$である。
+
 \end{sol}
 
 \newpage
 
-\bfsubsection{問6}
+\subsubsection{} %{問6}
 \barquo{
 $\R^4$の部分空間$M$を
 \[
@@ -328,7 +329,7 @@ M = \setmid{(x,y,z,w) \in \R^4}{x^2 + y^2 + z^2 + w^2 = 1, \; xy + zw = 0}
 
 \newpage
 
-\bfsubsection{問7}
+\subsubsection{} %{問7}
 \barquo{
 $A$を実正方行列、$k$を正の整数とし、$\rk (A^{k+1}) = \rk (A^k)$が成り立つとする。このとき、任意の整数$m \geq k$に対し、$\rk (A^m) = \rk (A^k)$であることを証明せよ。ここで行列$X$に対し、$\rk(X)$は$X$の階数を表す。
 }

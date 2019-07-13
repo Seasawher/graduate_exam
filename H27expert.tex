@@ -1,0 +1,39 @@
+\section{平成27年度 専門科目}
+
+\subsubsection{}
+\barquo{
+$G$は非可換群で次の条件$(*)$を満たすとする。
+
+$(*)$ $N_1,N_2 \subset G$が相異なる自明でない (つまり${1}$とも$G$とも異なる) 正規部分群なら、$N_1 \not\subset N_2$である。
+
+このとき、以下の問に答えよ。
+\begin{description}
+  \item[(i)] $N_1, N_2$が相異なる$G$の自明でない正規部分群なら、$G = N_1 \tm N_2$であることを証明せよ。
+  \item[(ii)] $G$の自明でない正規部分群の数は高々$2$個であることを証明せよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] 仮定より$N_1 \cap N_2 \subsetneq N_i \subset G$かつ$N_1 \cap N_2 \lhd G$なので$N_1 \cap N_2 = 1$である。また$1 \subsetneq N_i \subsetneq N_1 N_2 $かつ$N_1 N_2 \lhd G$より$N_1 N_2 = G$である。したがって交換子が
+    $[N_1,N_2] \subset N_1 \cap N_2 = 1$より自明になるので、$N_1$と$N_2$の元は互いに可換。よって積をとる写像$N_1 \tm N_2 \to G$は準同型でかつ全単射なので同型である。
+    \item[(ii)] ハイリホーによる。相異なる$3$つの自明でない正規部分群$N_1, N_2, H$が存在したとしよう。相異なるという仮定から、(i)により$N_1 \cap N_2 = N_i \cap H = 1$であり、$N_1$と$N_2$, そして$N_i$と$H$の元は互いに可換である。このとき$G \cong N_1 \tm N_2$なので、任意の$i$に対して射影$\pi_i \colon G \to N_i$が定義できる。制限$\pi_i |_H \colon H \to N_i$は単射なので$\pi_i(H) \cong H$である。
+
+    いま$h \in H$, $p \in N_i$とする。$h = a_1 a_2$ $(a_1 \in N_1, a_2 \in N_2)$と表せることを使うと
+    \begin{align*}
+      p \pi_i(h) p^{-1} &= p a_i p^{-1} \\
+      &= \pi_i(a_{j} p a_i p^{-1}  )  &(i \neq j) \\
+      &= \pi_i( p a_j a_i p^{-1}) \\
+      &= \pi_i(p h p^{-1}) \\
+      &\in \pi_i(H)
+    \end{align*}
+    であることがわかる。つまり$\pi(H) \lhd N_i$である。各$N_i$は単純群なので$\pi_i(H) \cong H \neq 1$より$\pi_i(H) = N_i$でなくてはならない。
+
+    したがって$p_1, p_2 \in N_i$とすると、$q_2 \in N_j $ $(i \neq j)$であって$p_2 q_2 \in H$なるものがある。これによって
+    \begin{align*}
+      p_1 p_2 &= p_1 (p_2 q_2) q_2^{-1} \\
+      &= (p_2 q_2) q_2^{-1} p_1 \\
+      &= p_2 p_1
+    \end{align*}
+    という議論ができるので、実は$N_i$はAbel群であることになってしまう。すると$G$もAbel群ということになるが、$G$は非可換群と仮定されていたのでこれは矛盾。よって、非自明な正規部分群は高々$2$個しかない。
+  \end{description}
+\end{sol}
