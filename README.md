@@ -2,7 +2,7 @@
 ### なにこれ
 京都大学 数学・数理解析専攻の院試の問題と解答です。
 
-H30専門問3については、semidirect_product.pdfの内容を仮定しています。問題文は
+H30専門問3については、semidirect_product.pdfの内容を仮定しています。H27基礎II問7問についてはdirichlet_approximation.pdfの内容を仮定しています。問題文は
 
 - https://www.math.kyoto-u.ac.jp/ja/past-exams
 
