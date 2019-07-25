@@ -24,3 +24,68 @@ R_a = K[X,Y] / (X^2 - Y^2 - X - Y -a)
   \item[(ii)] $a \neq 0$のとき$R_a$の各極大イデアル$\frakm$に対して$\dim_K(\frakm / \frakm^2)$を求めよ。また$\frakm$はいつ$R_a$の単項イデアルとなるか？理由をつけて答えよ。
 \end{description}
 }
+\begin{sol}
+  式を変形すると$X^2 - Y^2 - X - Y -a = (X+Y)(X-Y-1)-a$である。いま$K$の標数は$2$ではないと仮定したので
+  \begin{align*}
+    K[S,T] &\to K[X,Y] \\
+    S &\mapsto X+Y \\
+    T &\mapsto X- Y-1
+  \end{align*}
+  という$K$準同型を考えると、これは
+  \begin{align*}
+    K[X,Y] &\to K[S,T] \\
+    X &\mapsto (S+T+1)/2 \\
+    Y &\mapsto (S-T-1)/2
+  \end{align*}
+  を逆写像とする同型である。これにより$R_a$は
+  \[
+U_a := K[S,T]/(ST-a)
+  \]
+  に対応する。$U_a$の極大イデアルを表すのに、記号の濫用だが$R_a$の極大イデアルと同じ記号$\frakm$を使うことにする。いま$U_a$の極大イデアル$\frakm$は、$E:=K[S,T]$の極大イデアル$\frakn$であって$(ST-a)$を含むものに対応している。Hilbertの零点定理により、$E/\frakn$は$K$の有限次拡大である。$K$は代数閉という仮定があったので、$E/\frakn \cong K$である。この同型による$S,T$の像をそれぞれ$\beta, \grg \in K$とする。すると$(S-\beta,T-\grg) \subset \frakn$であるが
+  $(S-\beta,T-\grg)$は極大イデアルなので
+  $(S-\beta,T-\grg)=\frakn$である。まとめると、$\frakn$は$\beta \grg = a$なる$\beta,\grg$によって$\frakn = (S-\beta,T-\grg)$と表されることがわかった。このことを踏まえて考察をしていく。
+
+  \begin{description}
+    \item[(i)] $a=0$のとき$\beta \grg=0$なので$\beta=0$または$\grg=0$である。どちらでも同じことなので$\beta=0$とする。$\grg =0$である場合には
+    \begin{align*}
+      \frakm/\frakm^2 &= ((S,T)/ST ) / ( (S^2,ST,T^2)/ST) \\
+      &\cong (S,T)/ (S^2,ST,T^2) \\
+      &\cong K^2
+    \end{align*}
+    だから$\dim_K(\frakm /\frakm^2) = 2$である。もし$\frakm$が$U_0$の単項イデアルなら$\frakm/\frakm^2 = \frakm \ts_{U_0} K \cong K$となるはずだから、$\frakm$は単項イデアルではない。
+
+    $\grg \neq 0$のとき。このときには
+    \begin{align*}
+      (T-\grg)U_0 &= (T-\grg,ST)/ST \\
+      &= (S(T-\grg),T-\grg,ST)/ST \\
+      &= (S,T-\grg)/ST \\
+      &= \frakm
+    \end{align*}
+    だから$\frakm$は単項イデアルである。とくに$\dim_K(\frakm/\frakm^2)=1$となる。
+
+    以上の結果をまとめると
+    \[
+    \dim_K(\frakm / \frakm^2) = \begin{cases}
+    1 & (\beta,\grg) \neq (0,0) \text{のとき。このとき$\frakm$は単項イデアル} \\
+    2 & (\beta,\grg) = (0,0) \text{のとき}
+  \end{cases}
+    \]
+    である。$U_0$から$R_0$に話を戻すと
+    \[
+    \dim_K(\frakm / \frakm^2) = \begin{cases}
+    1 & (b,c) \neq (1/2,1/2) \text{のとき。このとき$\frakm$は単項イデアル} \\
+    2 & (b,c) = (1/2,1/2) \text{のとき}
+  \end{cases}
+    \]
+    がわかったことになる。ただし、$b,c$は$\frakm = (X-b,Y-c)/ (X^2 - Y^2 - X - Y)$となるような$b,c \in K$である。
+    \item[(ii)] 再び$U_a$に話を持っていく。$a \neq 0$のとき$\beta \neq 0$かつ$\grg \neq 0$である。このとき
+    \begin{align*}
+      (S-\beta)U_0 &= (S-\beta, ST-a)/ (ST-a) \\
+      &= (T(S-\beta), S-\beta, ST-a)/ (ST-a ) \\
+      &=  (\beta(T-\grg), S-\beta, ST-a)/ (ST-a ) \\
+      &=  (T-\grg, S-\beta)/ (ST-a ) \\
+      &= \frakm
+    \end{align*}
+    だから$\frakm$は単項イデアルであり、とくに$\dim_K(\frakm / \frakm^2) = 1$がわかる。
+  \end{description}
+\end{sol}

@@ -213,3 +213,26 @@ m = \tr \left( \f{1}{2\pi i} \int_{C_{\ve}} A(z)^{-1} \f{d}{dz} A(z) \ dz \right
 \]
 ここで積分路$C_{\ve}$は円周$C_{\ve} = \setmid{z \in \C}{ \abs{z} = \ve}$を正の向きに一周するものとし、$\tr (X)$は行列$X$のトレースを表す。
 }
+\begin{sol}
+  偏角の原理により、次を示せば十分である。
+  \[
+  \tr \left(A^{-1} \f{dA}{dz} \right) = \f{(\det A)'}{\det A}
+  \]
+  いま$A$の余因子行列を$B$とする。つまり$B$の$(i,j)$成分$b_{ij}$を
+  \[
+  b_{ij} = (-1)^{i+j} \det A_{ji}
+  \]
+  により定める。ただし$A_{ji}$とは$A$の$j$行目と$i$列目を飛ばした$(N-1)$次正方行列のことである。このとき$A^{-1}$は$B$を$\det A$で割ったものとなる。そうすると$C := A^{-1} \f{dA}{dz} $の$(i,j)$成分$c_{ij}$は
+  \begin{align*}
+    c_{ij} &= \f{1}{\det A} \sum_{k=1}^N b_{ik} a'_{kj} \\
+    &=  \f{1}{\det A} \sum_{k=1}^N (-1)^{i+k} \det A_{ki} a'_{kj}
+  \end{align*}
+  である。したがって$a_i$で$A$の$i$列目を表すことにすると
+\begin{align*}
+  (\det A) \tr C &= \sum_{i,k} (-1)^{i+k} \det A_{ki} a'_{ki} \\
+  &= \sum_{k} (-1)^{1+k} \det A_{k1} a'_{k1} + \cdots + \sum_{k} (-1)^{N+k} \det A_{kN} a'_{kN} \\
+  &= \det(a_1', a_2, \cdots , a_N) + \cdots + \det(a_1, \cdots a_{N-1} , a'_N) \\
+  &= (\det A)'
+\end{align*}
+である。
+\end{sol}
