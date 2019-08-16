@@ -3,9 +3,7 @@
 京都大学 数学・数理解析専攻の院試の問題と解答です。
 
 問題文は
-
-- https://www.math.kyoto-u.ac.jp/ja/past-exams
-
+https://www.math.kyoto-u.ac.jp/ja/past-exams
 から入手したものを使用しています。
 
 ### ふろくについて
@@ -23,8 +21,6 @@
 には H31年度基礎 問4 を解いていただきました。また以下の方も協力してくださいました。
 
 - キヅ @28Vittorio　
-
-- 伊藤 @bob01980573
 
 - ひろ @azureh97
 
