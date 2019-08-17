@@ -1,0 +1,71 @@
+\section{平成26年度 基礎科目II}
+
+\subsubsection{}%1
+\barquo{
+実数値関数$f(x)$は$[0,\infty)$で連続で$\lim_{x \to \infty} f(x) = 1$とする。このとき
+\[
+\lim_{n \to \infty} \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx = 1
+\]
+であることを証明せよ。
+}
+\begin{sol}
+  Gamma関数についてのよく知られた事実として
+  \[
+  \int_0^{\infty} e^{-x} x^n \ dx = n !
+  \]
+  が成り立つことを注意しておく。$\ve > 0$が与えられたとする。仮定より
+  \[
+  x \geq R \to \abs{f(x) - 1} < \ve
+  \]
+  なる$R > 0$がある。このとき
+  \begin{align*}
+    \abs{ \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx - 1} &= \f{1}{n !}  \abs{ \int_0^{\infty} f(x) e^{-x} x^n \ dx - \int_0^{\infty} e^{-x} x^n \ dx} \\
+    &\leq \f{1}{n !} \int_0^{\infty} \abs{  f(x) - 1} e^{-x} x^n  \ dx \\
+    &\leq \ve + \f{1}{n !} \int_0^{R} \abs{  f(x) - 1} e^{-x} x^n  \ dx
+  \end{align*}
+  である。よって
+  \[
+  \limsup_{n \to \infty} \abs{ \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx - 1} \leq \ve
+  \]
+  が従う。$\ve > 0$は任意だったので、示すべきことがいえた。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$n,m$を正の整数とする。$x$を変数とする$n$次以下の$\C$係数多項式の全体を$V_n$とし、和・差・スカラー倍により$V_n$を$\C$上のベクトル空間とみなす。$m$個の複素数$\gra_1, \cdots , \gra_m$に対し、線形写像$F \colon V_n \to \C^m$を
+\[
+F(f) = (f(\gra_1), \cdots , f(\gra_m)))
+\]
+で定める。このとき
+\begin{description}
+\item[(i)] $F$が単射になるための必要十分条件を$n,m,\gra_1, \cdots , \gra_m$のみを用いて述べよ。
+\item[(ii)] $F$が全射になるための必要十分条件を$n,m,\gra_1, \cdots , \gra_m$のみを用いて述べよ。
+\end{description}
+}
+\begin{sol}
+  $\gra_1, \cdots , \gra_m$のうち相異なるものの数を$k$とする。適当に番号を付けなおすことにより$\gra_1, \cdots , \gra_k$が相異なるとしてよい。$V_n$の基底$\{1,x , \cdots , x^n\}$と$\C^m$の標準基底について$F$を行列表示すると
+  \[
+  \pmat{ 1 & \gra_1 & \cdots &  \gra_1^n \\  1 & \gra_2 & \cdots &  \gra_2^n \\ \vdots & \vdots & & \vdots \\ 1 & \gra_m & \cdots &  \gra_m^n}
+  \]
+  となる。したがって
+  \[
+  \rank F = \rank \pmat{ 1 & \gra_1 & \cdots &  \gra_1^n \\  1 & \gra_2 & \cdots &  \gra_2^n \\ \vdots & \vdots & & \vdots \\ 1 & \gra_k & \cdots &  \gra_k^n}
+  \]
+  である。右辺の行列のサイズが$s := \min\{ k,n+1 \}$の部分正方行列
+  \[
+  \grD = \pmat{ 1 & \gra_1 & \cdots &  \gra_1^{s-1} \\  1 & \gra_2 & \cdots &  \gra_2^{s-1} \\ \vdots & \vdots & & \vdots \\ 1 & \gra_s & \cdots &  \gra_s^{s-1}}
+  \]
+  の行列式はVandermondeの行列式であって
+  \[
+  \abs{\det \grD} = \prod_{i > j} \abs{ \gra_i - \gra_j } \neq 0
+  \]
+  である。したがって$\rank F = \min\{ k,n+1 \}$である。ここまでの準備をもってすれば問に答えることはやさしい。
+  \begin{description}
+    \item[(i)] $F$が単射であることは$\rank F = \dim V_n$と同値。つまり$n+1 \leq k$である。
+    \item[(ii)] $F$が全射であることは$\rank F = \dim \C^m$と同値。つまり$m = k \leq n+1$である。
+  \end{description}
+
+\end{sol}
