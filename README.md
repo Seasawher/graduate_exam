@@ -32,7 +32,7 @@ https://www.math.kyoto-u.ac.jp/ja/past-exams
 
 ### 書いたひと
 PDFの表紙にも書きましたが。
-- 北窓 @seasawher https://seasawher.github.io/kitamado/
+- 北窓 https://seasawher.github.io/kitamado/
 
 ### 免責事項
 解答作成には万全を期しましたが、この解答を使用することにより使用者に不利益が生じたとしても、配布者である私は責任を負いません。したがって書かれていることが正しいかどうかはよくご自分で確認されるようにお願いします。とくに私は計算間違いや救いようのない勘違いをよくするので。
