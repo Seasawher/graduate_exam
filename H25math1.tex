@@ -5,11 +5,52 @@
 複素数を成分とする$2$次正方行列全体の集合を$M_2(\C)$で表す。$A \in M_2(\C)$は単位行列のスカラー倍ではないとし、$S = \setmid{B \in M_2(\C)}{AB = BA}$とおく。このとき、$X,Y \in S$なら$XY = YX$であることを示せ。
 }
 \begin{sol}
+この解答では、単に環といったとき可換とは限らないものとする。$X \in M_n(\C)$に対して部分環$Z(X)$を
+\[
+Z(X) = \setmid{ B \in M_2(\C) }{ XB = BX }
+\]
+により定める。$Y \in M_2(\C)$と$X$が共役で、$Y = PXP^{-1}$なる$P \in GL_2(\C)$が存在するとき、$B \in Z(X)$に対して
+\begin{align*}
+  (PBP^{-1}) Y &= PBXP^{-1} \\
+  &= PXBP^{-1} \\
+  &= Y (PBP^{-1})
+\end{align*}
+であるから$PBP^{-1} \in Z(Y)$である。つまり写像
+\begin{align*}
+  Z(X) &\to Z(Y) \\
+  B &\mapsto PBP^{-1}
+\end{align*}
+が存在する。これは全単射であり、環としての同型である。
+
   $A$のJordan標準形を考えることにより
   \[
-  PAP^{-1} = \pmat{ a & b  \\ 0 & c }
+  \grL := PAP^{-1} = \pmat{ \beta & \grg \\ 0 & \grd}
   \]
-  となるような正則行列$P$の存在がいえる。ただし$b=0$または$a=c$である。スカラー行列でないという仮定から、$a=c$のとき$b \neq 0$である。
+  となるような正則行列$P$の存在がいえる。ただし$\grg=0$または$\beta = \grd$であるものとする。スカラー行列でないという仮定から、$\grg=0$のとき$\beta \neq \grd$であり$\beta = \grd$のときでも$\grg \neq 0$である。$Z(\grL)$を特定しよう。$B \in M_2(\C)$が与えられたとし
+  \[
+  B = \pmat{a& b \\ c &d  } \quad \grL = \pmat{ \beta & \grg \\ 0 & \grd}
+  \]
+  と表されていたとする。このとき計算すると
+  \begin{align*}
+    B \grL - \grL B = \begin{cases}
+    \grg \pmat{-c & a-d \\ 0 & c} &(\beta=\grd, \grg \neq 0) \\
+    (\beta - \grg) \pmat{0 & b \\ c & 0} &(\beta \neq \grd, \grg =0)
+  \end{cases}
+  \end{align*}
+  だから$Z(\grL)$は次のように求まる。
+
+  \begin{description}
+    \item[(1)] $\beta=\grd, \grg \neq 0$のとき
+    \[
+    Z(\grL) = \setmid{ \pmat{a & b \\ 0 & a} }{a,b \in \C }
+    \]
+    \item[(2)] $\beta \neq \grd, \grg =0$のとき
+    \[
+    Z(\grL) = \setmid{ \pmat{a & 0 \\ 0 & d} }{a,d \in \C}
+    \]
+  \end{description}
+
+  したがっていずれにせよ$Z(\grL)$は可換環である。よってそれと同型な$Z(A)$も可換環。
 \end{sol}
 
 \newpage
