@@ -10,11 +10,7 @@
 Z(X) = \setmid{ B \in M_2(\C) }{ XB = BX }
 \]
 により定める。$Y \in M_2(\C)$と$X$が共役で、$Y = PXP^{-1}$なる$P \in GL_2(\C)$が存在するとき、$B \in Z(X)$に対して
-\begin{align*}
-  (PBP^{-1}) Y &= PBXP^{-1} \\
-  &= PXBP^{-1} \\
-  &= Y (PBP^{-1})
-\end{align*}
+$  (PBP^{-1}) Y = PBXP^{-1} = PXBP^{-1} = Y (PBP^{-1})$
 であるから$PBP^{-1} \in Z(Y)$である。つまり写像
 \begin{align*}
   Z(X) &\to Z(Y) \\
@@ -71,8 +67,27 @@ $b>a>0$を実数、$f \colon [0,\infty) \to \R$を連続関数とする。この
   が成り立つ。
 \end{description}
 }
-\begin{sol}
-
+\begin{sol} ${}$
+\begin{description}
+  \item[(i)] 任意に$c > 0$が与えられたとする。仮定より
+  \[
+  0 \leq x < \grd \to \abs{ f(x) - f(0)} < c
+  \]
+  なる$\grd > 0$がある。そこで$\ve < b^{-1}\grd$とおけば
+  \begin{align*}
+    \abs{ \int_{a \ve}^{a \ve} \f{f(x) }{x} \ dx - f(0) \log \f{b}{a} } &\leq \abs{ \int_{a \ve}^{a \ve} \f{f(x) -f(0) }{x} \ dx } \\
+    &\leq  \int_{a \ve}^{a \ve}  \f{ \abs{ f(x) -f(0) }  }{x} \ dx  \\
+    &\leq c  \int_{a \ve}^{a \ve} \f{dx}{x} \\
+    &\leq c \log \f{b}{a}
+  \end{align*}
+  である。$c>0$は任意だったので、示すべきことがいえた。
+  \item[(ii)] $\ve > 0$をとる。このとき
+  \begin{align*}
+    \int_{\ve}^{\infty} \f{f(bx) - f(ax) }{x} \ dx - f(0) \log \f{a}{b} &=   \int_{b \ve}^{\infty} \f{ f(x) }{x} \ dx -  \int_{a \ve}^{\infty} \f{ f(x) }{x} \ dx +  f(0) \log \f{b}{a} \\
+    &= - \int_{a \ve}^{b \ve} \f{ f(x) }{x} \ dx + f(0) \log \f{b}{a}
+  \end{align*}
+  であるから(i)より従う。
+\end{description}
 \end{sol}
 
 \newpage
@@ -83,7 +98,15 @@ $b>a>0$を実数、$f \colon [0,\infty) \to \R$を連続関数とする。この
 $p$を素数とする。アーベル群$A$は位数$p^4$であり、位数$p$の部分群$N$で$A/N \cong \zyu{p^3}$となるものをもつとする。このような$A$を同型を除いてすべて求めよ。
 }
 \begin{sol}
-
+有限生成Abel群の基本定理により$A$は次のいずれかに同型である。
+\begin{description}
+  \item[(1)] $\zyu{p^4}$
+  \item[(2)] $\zyu{p^3} \oplus \zyu{p}$
+  \item[(3)] $\zyu{p^2} \oplus \zyu{p^2}$
+  \item[(4)] $\zyu{p^2} \oplus (\zyu{p})^2$
+  \item[(5)] $(\zyu{p})^4$
+\end{description}
+一方で仮定により$A/N \cong \zyu{p^3}$である。よって$A/N$には位数が$p^3$以上であるような元が存在する。したがって(3),(4),(5)はありえないと判る。逆に(1)ならば$N = \kakko{p^3}$, (2)ならば$N = \kakko{(0,1)}$とおけば条件を満たす。よって求める$A$は$\zyu{p^4}$または$\zyu{p^3} \oplus \zyu{p}$に同型である。
 \end{sol}
 
 
@@ -98,7 +121,25 @@ S^3 = \setmid{ (x,y,z,w) \in \R^4 }{ x^2 + y^2 + z^2 + w^2 = 1 }
 への制限とする。$S^3$の各点$p$における$f$の微分$df_p$の階数を求めよ。
 }
 \begin{sol}
-
+$g \colon \R^4 \to \R$を$g(x,y,z,w) = x^2 + y^2 + z^2 + w^2 - 1$で定める。$df_p$は$F$のヤコビアン$JF_p$を$\Ker dg_p$に制限したものと等しい。よって
+\[
+\Ker df_p = \Ker \pmat{JF_p \\ dg_p}
+\]
+であるので
+\[
+\rank df_p = \rank \pmat{JF_p \\ dg_p} - 1
+\]
+である。ここで$p=(x,y,z,w)$とおくと
+\begin{align*}
+  \rank \pmat{JF_p \\ dg_p} = \rank \pmat{y &0& 0& 0 \\ 0& 1& 0& 0 \\ 0& 0& 1& 0 \\ 0& 0& 0& 1 \\ x& 0& 0& 0  }
+\end{align*}
+なので
+\[
+\rank df_p = \begin{cases}
+2 &(x=y=0) \\
+3  &(x \neq 0 \text{または} y \neq 0)
+\end{cases}
+\]
 \end{sol}
 
 \newpage
