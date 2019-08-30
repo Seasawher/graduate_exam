@@ -152,5 +152,25 @@ I_n = \int_{- \infty }^{\infty} \f{ \exp(ia (x-ib) )  }{ (x-ib)^n } \ dx
 \]
 }
 \begin{sol}
-
+$R > 0$とし、半径$R$の半円$C_R = \setmid{Re^{i \grt}}{ 0 \leq \grt \leq \pi}$を考える。$C_R$には$\grt$が増加する向きに向きが入っているものとする。
+\[
+f(z) = \f{ \exp(ia (z-ib) )  }{ (z-ib)^n }
+\]
+とおくと、留数定理により、任意の$R > b$に対して
+\[
+\int_{-R}^R f(x) \ dx + \int_{C_R} f(z) \ dz = 2 \pi i \Res(f,ib)
+\]
+である。いま計算すると
+\[
+\int_{C_R} \abs{f(z)} \ dz \leq \f{R e^{ab}\pi }{(R-b)^n}
+\]
+だから$n \geq 2$という仮定により$\lim_{R \to \infty} \int_{C_R} \abs{f(z)} \ dz = 0$である。よって$I_n = 2 \pi i \Res(f,ib)$である。
+\[
+f(z) = \f{1}{(z-ib)^n} \sum_{k=0}^{\infty} \f{ (ia)^k }{k!} (z-ib)^k
+\]
+だから
+\[
+I_n = \f{ 2\pi i (ia)^{n-1} }{ (n-1)! }
+\]
+と求まる。
 \end{sol}
