@@ -10,7 +10,16 @@
 とおく。$V$を$v_1, v_2 , v_3$で生成される$\R^4$の部分ベクトル空間とし、$W$を$w_1, w_2, w_3$で生成される$\R^4$の部分ベクトル空間とする。このとき、$V \cap W$の基底をひとつ求めよ。
 }
 \begin{sol}
-
+$V \cap W = (V^{\bot} + W^{\bot})^{\bot}$を用いて求める。計算すると
+\begin{align*}
+  V^{\bot} &= \setmid{ x \pmat{1 \\ -1 \\ -1 \\ 1} }{ x \in \R} \\
+  W^{\bot} &= \setmid{ x \pmat{1 \\ 1 \\ 1 \\ 1} }{ x \in \R}
+\end{align*}
+であるから
+\[
+V \cap W = \setmid{ x \pmat{1 \\ 0 \\ 0 \\ -1 }  + y \pmat{0 \\ 1 \\ -1 \\ 0}}{ x,y \in \R}
+\]
+であることが判る。
 \end{sol}
 
 \newpage

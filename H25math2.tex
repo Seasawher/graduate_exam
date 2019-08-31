@@ -86,6 +86,29 @@ B = \setmid{ f(x,y) \in A }{  f(-x,-y) = f(x,y) }
   \item[(2)] $A$が$B$加群として自由加群ではないことを証明せよ。
 \end{description}
 }
-\begin{sol}
-
+\begin{sol} ${}$
+\begin{description}
+  \item[(1)] $B$は偶数次の項だけからなる$A$の元全体と一致するので、
+  \[
+B = \C[x^2, xy, y^2]
+  \]
+  である。いま$(x^2,xy,y^2)B \subset n_0$であるが、$(x^2,xy,y^2)B$は極大イデアルで$n_0$は素イデアルなので$(x^2,xy,y^2)B = n_0$であり、
+\begin{align*}
+  A/ n_0 A &\cong \C[x,y]/(x^2,xy,y^2) \\
+  &\cong \C^{3}
+\end{align*}
+と求まる。また$(x^2-1,xy,y^2)B \subset n_1$であるが、$(x^2 - 1,xy,y^2)B$が極大イデアルであることと$n_1$が素イデアルであることにより$(x^2 - 1,xy, y^2)B = n_1$である。よって
+\begin{align*}
+  A/ n_1 A &\cong \C[x,y]/(x^2 - 1,xy, y^2) \\
+  &\cong \C[x,y]/(x - 1,xy, y^2)(x + 1,xy, y^2) \\
+  &\cong \C[x,y]/(x - 1,y)(x + 1,y) \\
+  &\cong \C^2
+\end{align*}
+である。
+\item[(2)] ハイリホーによる。仮に$A$が自由$B$加群だったと仮定すると、$A \cong B^{\oplus k}$なる$k$がある。このとき$i$によらずに
+\[
+A/ n_i A \cong A \ts_B B / n_i \cong (B/ n_i)^{\oplus k} \cong \C^{\oplus k}
+\]
+となるはずなので、矛盾。よって$A$は自由$B$加群ではない。
+\end{description}
 \end{sol}
