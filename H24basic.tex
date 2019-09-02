@@ -140,5 +140,23 @@ n \geq R \to \forall x \in E \quad \f{1}{2} g_n(x) \leq f_n(x) \leq \f{3}{2} g_n
 \]
 }
 \begin{sol}
-
+$x^2 - xy + y^2 = (x - y/2)^2 + (\s{3}y/2)^2$であるから
+\begin{align*}
+  x - \f{y}{2} &= \zeta = r \cos \grt \\
+  \f{\s{3}}{2} y &= \eta = r \sin \grt
+\end{align*}
+とおくと
+\[
+d\zeta d \eta = \abs{ \det \pmat{1 & -1/2 \\ 0 & \s{3}/2 } } dx dy = \f{\s{3}}{2} dx dy
+\]
+より$dx dy = 2/\s{3} d\zeta d\eta = 2r/\s{3} dr d\grt$である。よって
+\begin{align*}
+  \iint_{\R^2} \f{ dx dy }{  (x^2 - xy + y^2 + 1)^s } &= \f{2}{\s{3}} \int_0^{2\pi} \int_0^{\infty} \f{r}{(r^2 + 1)^s} \ dr \\
+  &= \f{1}{\s{3}} \int_0^{2\pi} \int_0^{\infty} \f{1}{(r + 1)^s} \ dr
+\end{align*}
+である。ゆえにこの積分は$s > 1$のとき、かつそのときに限って収束する。そして$s > 1$であるとき積分値は
+\[
+\f{2 \pi}{\s{3} (s-1)}
+\]
+である。
 \end{sol}

@@ -14,8 +14,15 @@ A f(B) = B
   \item[(2)] $f(B)$が正則でなければ$f(0)=0$である。
 \end{description}
 }
-\begin{sol}
-
+\begin{sol} ${}$
+\begin{description}
+  \item[(1)] $f(B)$は$B$と可換なので
+  \[
+  (BA - AB)f(B) = B Af(B) - A f(B) B = B^2 - B^2 = 0
+  \]
+  である。$f(B)$は正則だったから$BA=AB$が従う。
+  \item[(2)] $f(B)$が正則でないので、ある$v \in \C^n \sm \{ 0 \}$であって$f(B)v=0$なるものがある。よって$Bv = Af(B) v = 0$だから$f(0)v= 0$である。$v \neq 0$より$f(0)=0$でなくてはならない。
+\end{description}
 \end{sol}
 
 
@@ -33,7 +40,7 @@ G = \setmid{ \pmat{a & b \\ 0 & d} }{ a,b,d \in \zyu{p^n}, ad=1 }
 には位数$p^{2n-1}$の部分群がただ一つ存在することを示せ。
 }
 \begin{sol}
-
+まず$G$の位数を求めると、$\# G = p^n \tm \#(\zyu{p^n})^{\tm}  = p^{2n-1}(p-1)$である。したがって、$G$のSylow-$p$部分群が正規部分群であることを示せば十分。いま$H \subset G$を$G$のSylow-$p$部分群とする。このとき$H$の共役の数を$s$とすると、$s$は$\# (G/H) = p-1$の約数であってかつ$p \equiv 1 \mod p$を満たす。よって$s = 1$である。つまり$H \lhd G$なので、示すべきことがいえた。
 \end{sol}
 
 
@@ -102,5 +109,5 @@ f(z) = \f{1}{2\pi i} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ x - z } \ d
 を求めよ。
 }
 \begin{sol}
-  
+
 \end{sol}
