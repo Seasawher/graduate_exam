@@ -40,7 +40,7 @@ G = \setmid{ \pmat{a & b \\ 0 & d} }{ a,b,d \in \zyu{p^n}, ad=1 }
 には位数$p^{2n-1}$の部分群がただ一つ存在することを示せ。
 }
 \begin{sol}
-まず$G$の位数を求めると、$\# G = p^n \tm \#(\zyu{p^n})^{\tm}  = p^{2n-1}(p-1)$である。したがって、$G$のSylow-$p$部分群が正規部分群であることを示せば十分。いま$H \subset G$を$G$のSylow-$p$部分群とする。このとき$H$の共役の数を$s$とすると、$s$は$\# (G/H) = p-1$の約数であってかつ$p \equiv 1 \mod p$を満たす。よって$s = 1$である。つまり$H \lhd G$なので、示すべきことがいえた。
+まず$G$の位数を求めると、$\# G = p^n \tm \#(\zyu{p^n})^{\tm}  = p^{2n-1}(p-1)$である。したがって、$G$のSylow-$p$部分群が正規部分群であることを示せば十分。いま$H \subset G$を$G$のSylow-$p$部分群とする。このとき$H$の共役の数を$s$とすると、$s$は$\# (G/H) = p-1$の約数であってかつ$s \equiv 1 \mod p$を満たす。よって$s = 1$である。つまり$H \lhd G$なので、示すべきことがいえた。
 \end{sol}
 
 
@@ -60,8 +60,23 @@ $f(x)$は$[0,\infty )$上の非負実数値連続関数で単調非増加であ�
 を示せ。
   \end{description}
 }
-\begin{sol}
-
+\begin{sol} ${}$
+\begin{description}
+\item[(1)] 計算すると
+\begin{align*}
+  \int_x^{2x} \f{ f(t) }{ \s{t} } \ dt &\geq f(2x) \int_x^{2x} \f{ dt }{ \s{t} } \\
+  &\geq 2 f(2x) ( \s{2x} - \s{x}) \\
+  &\geq (2 - \s{2}) \s{2x} f(2x)
+\end{align*}
+であることより、あきらか。
+\item[(2)] 計算すると
+\begin{align*}
+  \int_{\ve x}^{x} \f{ f(y)  }{ \s{x-y}  } \ dy &\leq f(\ve x) \int_{\ve x}^{x} \f{ dy }{ \s{x-y}  } \\
+  &\leq 2 \s{1-\ve} \s{x} f(\ve x) \\
+  &\leq 2 \s{(1-\ve)/\ve} \s{\ve x} f(\ve x)
+\end{align*}
+である。よって(1)よりあきらか。
+\end{description}
 \end{sol}
 
 
@@ -88,8 +103,40 @@ f(z_1, \cdots , z_n ) = f(\ol{ z_1}, \cdots , \ol{z_n} )
 
 (注) 位相空間$X,Y$とその間の連続写像$F \colon X \to Y$について、$F$が定置写像とホモトピックであるとは、連続写像$H \colon X \tm [0,1] \to Y$と$q_* \in Y$で、すべての$p \in X$について$H(p,0) = q_*$と$H(p,1) = F(p)$が成り立つものが存在することをいう。
 }
-\begin{sol}
-
+\begin{rem}
+  (1)においてホモトピー$H \colon S^1 \tm [0,1] \to \T^n$を
+  \[
+  H(e^{i \grt},t) = f(e^{i \grt t}, 1 , \cdots , 1)
+  \]
+  とすればいいというのは誤りである。$\grt$には$2 \pi$の整数倍分のあいまいさがあるので、この$H$はwell-definedにならない。
+\end{rem}
+\begin{sol} ${}$
+\begin{description}
+  \item[(1)] $e^{i \grt} = z$という対応により$\grg \colon S^1 \to \T^n$を$\R / 2 \pi \Z$上の写像とみなす。$f$についての仮定により$f \circ \grg$は$P := f \circ \grg(0) = f(1, \cdots , 1)$を出発して$Q := f \circ \grg(\pi) = f(-1, 1, \cdots , 1)$まで行き、その後来た道を引き返して
+  $P$に戻っていくようなパスである。つまり
+  \[
+  f \circ \grg (\grt) = f(e^{i(\pi - \abs{\pi - \grt})}, 1, \cdots , 1   )
+  \]
+  と表せる。したがって$H \colon \R / 2 \pi \Z \tm [0,1] \to \T^n$を
+  \[
+  H(\grt, t) = f(e^{it(\pi - \abs{\pi - \grt})}, 1, \cdots , 1 )
+  \]
+  とおけば、これは$f \circ \grg$と定置写像の間のホモトピーである。
+  \item[(2)] $\pi_1(\T^n) = \pi_1(S_1 \tm \cdots \tm S^1) = \pi_1(S^1) \tm \cdots \tm \pi_1(S^1)$だから、$f_* \colon \pi_1(\T^n) \to \pi_1(\T^n)$が零写像であることを示すには、
+  $\pi_1(S^1) \cong \Z$の生成元を$a$として$f_*(a,1, \cdots , 1) = 0$を示せばよい。ところが$f_*(a,1, \cdots , 1) =  [f \circ \grg]$なので(1)により、示すべきことがいえた。
+  \item[(3)] (2)により$f_* (\pi_1(\T^n))=0$なので、次を可換にするリフト$g$が存在することがわかる。
+  \[
+  \xymatrix{
+  {} & \R^n \ar[d]^p \\
+  \T^n \ar[ru]^g \ar[r]^f & \T^n
+  }
+  \]
+  ただし$p \colon \R^n \to \T^n$は普遍被覆である。そこで$H \colon \T^n \tm [0,1] \to \T^n$を
+  \[
+  H(w,t) =  p( t g(w))
+  \]
+  とすると、これは$f$と定置写像の間のホモトピーになっている。
+\end{description}
 \end{sol}
 
 
