@@ -6,13 +6,6 @@
 https://www.math.kyoto-u.ac.jp/ja/past-exams
 から入手したものを使用しています。
 
-### ふろくについて
-一般にあまり知られていないと思われる事実を引用するとき、説明がないのは不親切だと感じたので補足説明をつけておきました。
-
-- semidirect_product.pdf (H30専門問3で使用)
-
-- dirichlet_approximation.pdf (H27基礎II問7で使用)
-
 ### 謝辞 
 この解答を作るにあたって、協力してくださった方々に感謝します。
 
