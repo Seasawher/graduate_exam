@@ -156,5 +156,42 @@ f(z) = \f{1}{2\pi i} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ x - z } \ d
 を求めよ。
 }
 \begin{sol}
+微分と積分が交換するだろうという楽観的な予想が正しければ、
+\[
+f'(z) = \f{1}{2 \pi i} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ (x - z )^2} \ dx
+\]
+となっているはずである。これが正しいことを確かめればよい。つまり与えられた開集合$U := \C \sm \R$上で
+\[
+\lim_{w \to 0} \abs{ \f{ f(z + w)-f(z) }{w} - \f{1}{2 \pi i} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ (x - z )^2} \ dx } = 0
+\]
+となることを示そうというのである。そうすれば$f$が$U$上で正則であることがいえる。(ある点$z$での正則性とは、$z$のある開近傍上で微分可能であるということであって、$z$における微分可能性より強い性質だが、$U$が開集合なので問題ない)
 
+$z \in U$とする。計算すると
+\[
+\abs{ \f{ f(z + w)-f(z) }{w} - \f{1}{2 \pi i} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ (x - z )^2} \ dx } \leq \f{\abs{w} }{2 \pi} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ \abs{(x - z )^2 (x-z-w) }  } \ dx
+\]
+であることが判る。$\abs{w}$が十分小さいとき、$\abs{ \Im(z+w)} \geq \abs{ \Im(z)}  /2$としてよい。よって$y := \abs{ \Im(z)}$とおけば$z \in U$より$y > 0$であって
+\begin{align*}
+  \f{\abs{w} }{2 \pi} \int_{- \infty}^{\infty} \f{ e^{- \abs{x} }  }{ \abs{(x - z )^2 (x-z-w) }  } \ dx &\leq    \f{\abs{w} }{2 \pi}  \left( \f{y}{2} \right)^{-3}  \int_{- \infty}^{\infty} e^{- \abs{x} }  \ dx \\
+  &\leq \f{ 8 \abs{w} }{ y^3 \pi }
+\end{align*}
+である。よって$w \to 0$のときこの積分はゼロになる。これで$f$が$U$上で正則であることがいえた。
+
+また、愚直に計算すると
+\[
+f(i \ve) - f(- i \ve) = \f{ 2\ve }{ \pi } \int_0^{\infty} \f{e^{-x}}{x^2 + \ve^2} \ dx
+\]
+である。$x = \ve \tan \grt$とおいて変数変換すると
+\[
+f(i \ve) - f(- i \ve) = \f{ 2 }{ \pi } \int_0^{\pi /2} e^{ - \ve \tan \grt} \ d\grt
+\]
+と表せる。ここで$\ve_n \to 0$なる点列$\ve_n > 0$が任意に与えられたとする。$n$によらず一様に
+\[
+\abs{ e^{ - \ve_n \tan \grt} } \leq 1
+\]
+であって$1$は区間$[0, \pi/2)$上可積分なので、Lebesgueの収束定理により
+\[
+\lim_{n \to \infty} f(i \ve_n) - f(- i \ve_n) = \f{ 2 }{ \pi } \int_0^{\pi /2}  \ d\grt = 1
+\]
+である。$\ve_n$は任意だったから、求める極限は$1$である。
 \end{sol}
