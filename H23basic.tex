@@ -42,6 +42,17 @@ B = \pmat{
   \item[(2)] $A$と$B$は相似かどうか理由をつけて答えよ。ただし、$2$つの$3$次複素正方行列$A,B$が相似とは、$A=P^{-1}BP$をみたす正則な$3$次複素正方行列$P$が存在することをいう。
 \end{description}
 }
+\begin{sol} 以下単位行列を$E$で表すことにする。
+  \begin{description}
+    \item[(1)] 計算すると
+    \begin{align*}
+      \Ker (2E - A) &= \setmid{ z \pmat{2 \\ 2 \\ 1} \in \C^3 }{ z \in \C} \\
+        \Ker (2E - B) &= \setmid{ y\pmat{-1\\ 1 \\0}+  z \pmat{-1 \\ 0 \\ 1} \in \C^3 }{y, z \in \C}
+    \end{align*}
+    である。
+    \item[(2)] 固有値$2$に属する固有空間の次元が異なるので、$A$と$B$は相似ではない。
+  \end{description}
+\end{sol}
 
 \newpage
 
@@ -53,6 +64,9 @@ B = \pmat{
 \]
 が区間$[0,1]$上で一様収束するかどうかを、理由を付けて答えよ。
 }
+\begin{sol}
+  与えられた級数を$f(x)$で表す。計算すると$f(0)=0$かつ$f(x)=1 \; (x > 0)$であることがわかる。よって$f$は連続ではないが、もし一様収束するならば連続であるはずなので、一様収束しない。
+\end{sol}
 
 \newpage
 
@@ -64,3 +78,13 @@ $a < b$とし区間$[a,b]$上の実数値連続函数$f(x), \vp(x)$は共に狭�
 \]
 ならば、$\int_a^b \vp(x) f(x) \ dx > 0$となることを証明せよ。
 }
+\begin{sol}
+  仮定より$(b-a)f(a) < 0 < (b-a)f(b)$である。よって$f(a)<0$かつ$f(b)>0$であることがわかる。$f$は連続であるから、$f(c)=0$なる$a < c < b$が存在することになる。このとき
+  \begin{align*}
+    \int_a^b \vp(x) f(x) \ dx  &= \int_a^b \vp(x) f(x) \ dx  - \vp(c) \int_a^b f(x) \ dx \\
+    &= \int_a^b (\vp(x) - \vp(c)) f(x) \ dx \\
+    &= \int_a^c (\vp(x) - \vp(c)) f(x) \ dx + \int_c^b (\vp(x) - \vp(c)) f(x) \ dx \\
+    &> 0
+   \end{align*}
+   という評価ができる。
+\end{sol}
