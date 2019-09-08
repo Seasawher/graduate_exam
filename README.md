@@ -6,6 +6,12 @@
 https://www.math.kyoto-u.ac.jp/ja/past-exams
 から入手したものを使用しています。
 
+### そのほかの解答について
+この解答は、専門の問題はほぼ代数の問題しか解いていません。
+幾何については[キヅさんのs2sページ](http://s2s.undefin.net/wiki/?%E6%9C%A8%E6%B4%A5)を、
+解析については[mo-moのページ](https://sites.google.com/view/kmath-grad-answer)を参照のこと。ほかにも探せばあると思います。
+
+
 ### 謝辞 
 この解答を作るにあたって、協力してくださった方々に感謝します。
 
