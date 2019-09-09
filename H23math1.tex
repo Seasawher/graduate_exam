@@ -10,7 +10,13 @@ $f|_{W_2} \colon W_2 \to W_2$とおく。
 \end{description}
 ただし、$P(x), Q(x) \in \C[x]$に対し、$P(x)$が$Q(x)$で割り切れるとき、$P(x)$は$Q(x)$の倍元であるという。また$P(x), Q(x)$の最小公倍元とは$P(x),Q(x)$の倍元のうち次数が最小のモニック多項式のことをいう。
 }
-
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $f$の最小多項式を$P \in \C[x]$とする。$P(f) \colon V \to V$は零写像なので、とくに$W_i$上でも零。よって$P$は$P_1$でも$P_2$でも割り切れる。逆にある$Q \in \C[x]$があって$Q$が$P_1, P_2$の倍元だとすると$Q(f) \colon V \to V$は零。よって$Q$は$P$で割り切れる。
+    以上により$P$は$P_1, P_2$の最小公倍元である。
+    \item[(2)] $f|_{W_1}, f|_{W_2}$が対角化可能なら、$P_1$と$P_2$は重根を持たない。よって(1)より$P$も重根を持たない。ゆえに$f$は対角化可能。
+  \end{description}
+\end{sol}
 
 \newpage
 
@@ -22,6 +28,47 @@ $f|_{W_2} \colon W_2 \to W_2$とおく。
 \]
 を求めよ。
 }
+\begin{rem}
+  $f(0)=0$という仮定は不要である。
+\end{rem}
+\begin{sol}
+$\ve > 0$が任意に与えられたとする。$f$は連続なので
+\[
+\abs{1-x } < \grd \to \abs{ 1 - f(x)} < \ve
+\]
+なる$\grd > 0$が存在する。したがって
+\begin{align*}
+  \abs{ n \int_0^1 f(x) x^{2n} \ dx - n \int_0^1 x^{2n} \ dx } &\leq n \int_0^1 \abs{ f(x)- 1} x^{2n} \ dx \\
+  &\leq n \int_{1- \grd}^1 \abs{ f(x)- 1} x^{2n} \ dx + n \int_0^{1-\grd} \abs{ f(x)- 1} x^{2n} \ dx  \\
+  &\leq n \ve \int_{1- \grd}^1  x^{2n} \ dx + n (1 - \grd)^{2n} \int_0^{1-\grd} \abs{ f(x)- 1}  \ dx  \\
+  &\leq \f{  n (1-(1-\grd)^{2n+1}) }{ 2n+1 } \ve + n (1 - \grd)^{2n} \int_0^{1-\grd} \abs{ f(x)- 1}  \ dx
+\end{align*}
+という評価ができる。$n \to \infty$としたとき$(1 - \grd)^n \to 0$なので
+\[
+\limsup_{n \to \infty } \abs{ n \int_0^1 f(x) x^{2n} \ dx - n \int_0^1 x^{2n} \ dx } \leq \ve /2
+\]
+であることがわかる。$\ve > 0$は任意だったから
+\[
+\lim_{n \to \infty} n \int_0^1 f(x) x^{2n} \ dx = \lim_{n \to \infty} n \int_0^1  x^{2n} \ dx =  \f{1}{2}
+\]
+であることがいえた。
+\end{sol}
+
+\begin{com}
+  Lebesgueの収束定理を用いた別解がある。多項式近似定理により、連続関数$f$は$[0,1]$上$C^{\infty}$級関数で一様近似できる。$n \int_0^1  x^{2n} \ dx$は定数で抑えられるので、$f \in C^1[0,1]$として良い。そうすると部分積分が使えて
+  \[
+  n \int_0^1 f(x) x^{2n} \ dx = \f{n}{2n+1} -  \int_0^1 f'(x) \left(   \f{ nx^{2n+1} }{ 2n+1 } \right) \ dx
+  \]
+  である。ここで$[0,1]$上では$n$によらず一様に
+  \[
+  \abs{  f'(x) \left(   \f{ nx^{2n+1} }{ 2n+1 } \right) } \leq \abs{ f'(x) }
+  \]
+  であって$f'$は可積分関数なので、Lebesgueの収束定理により
+  \[
+   \lim_{n \to \infty}  \int_0^1 f'(x) \left(   \f{ nx^{2n+1} }{ 2n+1 } \right) \ dx = 0
+   \]
+  であることが言える。よって求める積分の値は$1/2$である。
+\end{com}
 
 \newpage
 
