@@ -210,12 +210,12 @@ f(z) = \f{ e^{(1+i)z} }{(e^z+1)^2} \quad (z \in \C)
   \[
   \int_{L_3} f(z) \ dz = - e^{- 2 \pi} \int_{L_1} f(z) \ dz
   \]
-であることに注意する。また$L \to \infty$のとき$L_2, L_4$上の積分はゼロに収束する。なぜならば！
+であることに注意する。また$L \to \infty$のとき
 \begin{align*}
   \abs{ \int_{L_2} f(z) \ dz } &\leq \f{ 2 \pi e^L}{ (e^L - 1)^2  } \\
   \abs{ \int_{L_4} f(z) \ dz } &\leq \f{ 2 \pi e^{-L}  }{ (1 - e^{-L})^2  }
 \end{align*}
-という評価ができるからである。ゆえに留数定理の式より
+という評価ができるので$L_2, L_4$上の積分はゼロに収束する。ゆえに留数定理の式より
 \[
  \int_{- \infty}^{ \infty} f(x) \ dx = \f{ 2 \pi e^{\pi}  }{ e^{2 \pi} -1 }
 \]
