@@ -96,12 +96,12 @@ f(z_1, \cdots , z_n ) = f(\ol{ z_1}, \cdots , \ol{z_n} )
 \]
 をみたすものとする。($\ol{z}$は$z \in \C$の複素共役を表す)
 \begin{description}
-\item[(1)] $S^1$を単位円$\setmid{z \in \C}{ \abs{z} =1 }$とし、写像$\grg \colon S^1 \to \T^n$を$\grg(z) = (z,1 \cdots , 1)$で定める、このとき$f \circ \grg $は定置写像とホモトピックであることを示せ。
+\item[(1)] $S^1$を単位円$\setmid{z \in \C}{ \abs{z} =1 }$とし、写像$\grg \colon S^1 \to \T^n$を$\grg(z) = (z,1 \cdots , 1)$で定める、このとき$f \circ \grg $は定値写像とホモトピックであることを示せ。
 \item[(2)] $f$が誘導する基本群の間の写像$f_* \colon \pi_1(\T^n) \to \pi_1(\T^n)$は零写像であることを示せ。
-\item[(3)] $f$は定置写像とホモトピックであることを示せ。
+\item[(3)] $f$は定値写像とホモトピックであることを示せ。
 \end{description}
 
-(注) 位相空間$X,Y$とその間の連続写像$F \colon X \to Y$について、$F$が定置写像とホモトピックであるとは、連続写像$H \colon X \tm [0,1] \to Y$と$q_* \in Y$で、すべての$p \in X$について$H(p,0) = q_*$と$H(p,1) = F(p)$が成り立つものが存在することをいう。
+(注) 位相空間$X,Y$とその間の連続写像$F \colon X \to Y$について、$F$が定値写像とホモトピックであるとは、連続写像$H \colon X \tm [0,1] \to Y$と$q_* \in Y$で、すべての$p \in X$について$H(p,0) = q_*$と$H(p,1) = F(p)$が成り立つものが存在することをいう。
 }
 \begin{rem}
   (1)においてホモトピー$H \colon S^1 \tm [0,1] \to \T^n$を
@@ -121,7 +121,7 @@ f(z_1, \cdots , z_n ) = f(\ol{ z_1}, \cdots , \ol{z_n} )
   \[
   H(\grt, t) = f(e^{it(\pi - \abs{\pi - \grt})}, 1, \cdots , 1 )
   \]
-  とおけば、これは$f \circ \grg$と定置写像の間のホモトピーである。
+  とおけば、これは$f \circ \grg$と定値写像の間のホモトピーである。
   \item[(2)] $\pi_1(\T^n) = \pi_1(S_1 \tm \cdots \tm S^1) = \pi_1(S^1) \tm \cdots \tm \pi_1(S^1)$だから、$f_* \colon \pi_1(\T^n) \to \pi_1(\T^n)$が零写像であることを示すには、
   $\pi_1(S^1) \cong \Z$の生成元を$a$として$f_*(a,1, \cdots , 1) = 0$を示せばよい。ところが$f_*(a,1, \cdots , 1) =  [f \circ \grg]$なので(1)により、示すべきことがいえた。
   \item[(3)] (2)により$f_* (\pi_1(\T^n))=0$なので、次を可換にするリフト$g$が存在することがわかる。
@@ -135,7 +135,7 @@ f(z_1, \cdots , z_n ) = f(\ol{ z_1}, \cdots , \ol{z_n} )
   \[
   H(w,t) =  p( t g(w))
   \]
-  とすると、これは$f$と定置写像の間のホモトピーになっている。
+  とすると、これは$f$と定値写像の間のホモトピーになっている。
 \end{description}
 \end{sol}
 
