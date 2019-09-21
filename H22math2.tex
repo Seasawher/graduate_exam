@@ -1,0 +1,53 @@
+\section{平成22年度 数学II}
+
+\subsubsection{}%1
+\barquo{
+複素数体$\C$の部分体$K$を$K = \Q( \s{-17 - 4\s{17}} )$によって定める。このとき$K/\Q$はGalois拡大であることを示し、Galois群$\Gal(K/\Q)$を求めよ。
+}
+\begin{sol}
+  平成23年度数学II問2と同一なので、そちらの解答を参照のこと。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$\C[x,y,z]$を複素数体$\C$上の$3$変数多項式環とし、$R = \C[x,y,z]/(y^3-x^2 z)$とおく。次の問(1),(2),(3)に答えよ。
+\begin{description}
+  \item[(1)] $R$は整域であることを示せ。
+  \item[(2)] $R$の商体$Q$は$\C$上純超越拡大であることを示せ。
+  \item[(3)] $R$の$Q$における整閉包$\wt{R}$を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $S = \C[x,z]$とする。$S \cap (y^3 - x^2 z) = 0$だから$S \subset R$と見なせる。$S$はUFDである。$R = S[y]/(y^3 - x^2z)$だと思えるが、$y^3 - x^2 z \in S[y]$は$\frakp = (z)$についてのEisenstein多項式なので既約である。よって$y^3 - x^2 z \in S$は素元なので$R$は整域である。
+    \item[(2)] $T=\{ x,y \} \subset Q$とする。$T$は$\C$上代数的独立である。また$z = y^3/x^2$により$Q$は$\C$上$T$で生成されている。よって$Q$は$\C$の純超越拡大である。
+    \item[(3)] $K = \C(x,z)$とする。$Q$は$K$の$3$次分離拡大である。$y \in Q$の$K$上の共役は$\gro = \exp(2 \pi i/3)$として$\{ y, y\gro, y \gro^2 \}$なので$Q/K$は正規拡大。よってGalois拡大でもある。
+
+    $w \in Q$が$R$上整だとする。$[Q : K ]= 3$により$w = f_0 + f_1 y + f_2 y^2$なる$f_0, f_1 , f_2 \in K$が存在する。$\Tr_{Q/K}(y)=0$なので$\Tr_{Q/K}(w) = 3f_0$である。一方で$w$は$S$上整で$S$は整閉なので$\Tr_{Q/K}(w) \in S$である。
+    ゆえに$f_0 \in S$が従う。
+
+    ここで$f_1 y$と$f_2 y^2$はともに$S$上整である。なぜならば！$\grs \in \Gal(Q/K)$を$\grs(y) = y \gro$なる元とする。このとき
+    \begin{align*}
+      \grs(\gro) &= f_0 + f_1 \gro y + f_2 \gro^2 y^2 \\
+      \grs^2(\gro) &= f_0 + f_1 \gro^2 y + f_2 \gro y^2
+    \end{align*}
+    であるから
+    \begin{align*}
+    (\gro - \gro^2)( f_1  y - f_2 y^2)
+    \end{align*}
+    は$S$上整である。$\gro - \gro^2$は$S$の単元なので、$f_1 y - f_2 y^2$は$S$上整。$f_1 y + f_2 y^2 = w - f_0$はあきらかに$S$上整なので、$S$の標数が$2$でないことから$f_1 y $と$f_2 y^2$はともに$S$上整という結論に至る。ゆえにかくのごとし。
+
+    したがって$\Norm_{Q/K}(f_1 y) = f_1^3 x^2 z \in S$かつ$\Norm_{Q/K}(f_2 y^2) = (f_2 x)^3 xz^2 \in S$であることが判る。$x^2z$と$xz^2$は$3$乗の因子を持たないので$f_1 \in S$かつ$f_2 x \in S$でなくてはならない。このことから
+    \[
+    \wt{R} \subset \setmid{ g_0 + g_1 y + g_2 \f{y^2}{x} \in Q }{ g_0, g_1 , g_2 \in S}
+    \]
+    が従う。逆に$y^2 /x \in Q$は$(y^2 /x)^3 = xz^2$より$R$上整なので、結局
+    \[
+    \wt{R} = \setmid{ g_0 + g_1 y + g_2 \f{y^2}{x} \in Q }{ g_0, g_1 , g_2 \in S}
+    \]
+    となる。
+  \end{description}
+\end{sol}
