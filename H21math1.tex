@@ -1,0 +1,121 @@
+\section{平成21年度 数学I}
+
+\subsubsection{}%1
+\barquo{
+標数$0$の体$K$上の有限次元ベクトル空間$V$の一次変換$T$が
+\[
+T^3 = 1_V, \quad \Tr(T) = 0
+\]
+を満たすとする。このとき、$V$の次元は$3$の倍数であることを示せ。
+}
+\begin{sol}
+  $\gro$を$1$の原始$3$乗根とする。$T^3 = 1_V$より、$T$の固有値は$1, \gro, \gro^2$のどれか。固有値$1, \gro, \gro^2$の重複度をそれぞれ$m_1, m_2,m_3$とすると仮定により
+  \begin{align*}
+    m_1 + m_2 +m_3 &= \dim V \\
+    m_1 + m_2 \gro +m_3 \gro^2 &= 0
+  \end{align*}
+  である。$2$つめの式の複素共役をとると$m_i \in \R$なので$m_1 + m_2 \gro^2 +m_3 \gro = 0$を得る。これらを辺々足して$3m_1 = \dim V$であることが従う。よって$\dim V$は$3$の倍数。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$f,g$を区間$(0,\infty)$上で定義された連続かつ広義可積分な非負値関数とし
+\[
+\lim_{x \to 0} f(x) = 0, \quad \lim_{x \to \infty} xg(x) = 0
+\]
+を満たすとする。このとき
+\[
+\lim_{n \to \infty} n \int_0^{\infty} f(x) g(nx) \ dx = 0
+\]
+を示せ。
+}
+\begin{sol}
+  任意に正数$\ve > 0$が与えられたとする。$\lim_{x \to \infty} xg(x) = 0$という仮定より
+  \[
+  \forall x \geq R \quad x g(x) < \ve
+  \]
+  を満たすような$R > 0$がとれる。$R \geq 1$としてよい。このとき
+  \begin{align*}
+    n \int_0^{\infty} f(x) g(nx) \ dx &= n \int_0^{R} f(x) g(nx) \ dx + n \int_R^{\infty} f(x) g(nx) \ dx \\
+    &\leq \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy +  n \int_R^{\infty} f(x) \f{ \ve }{ nx } \ dx \\
+    &\leq \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy + \ve  \int_R^{\infty}  \f{ f(x)  }{ x } \ dx \\
+    &\leq \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy + \f{ \ve}{R}  \int_R^{\infty}  f(x)  \ dx \\
+  \end{align*}
+  と評価できる。$f$は広義可積分という仮定より$N := \int_0^{\infty} f(x) \ dx$とおくことができて
+  \[
+  n \int_0^{\infty} f(x) g(nx) \ dx \leq \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy + N \ve
+  \]
+  と評価できる。実はここで
+  \[
+  \lim_{n \to \infty} \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy = 0
+  \]
+  である。なぜならば！$f$は連続関数なので$M := \max_{ 0 \leq x \leq R} \abs{ f(x) }$が存在する。ここで$n$によらず一様に
+  \[
+  \abs{ f(y/n) g(y) \chi_{[0,nR]}(y) } \leq M g(y)
+  \]
+  であり、仮定により$Mg$は$(0, \infty)$上の可積分関数である。よってLebesgueの収束定理が適用できて$\lim_{x \to 0} f(x) = 0$という仮定から
+  \[
+\lim_{n \to \infty} \int_0^{nR} f \left( \f{y}{n} \right) g(y) \ dy = 0
+  \]
+であることがわかる。ゆえにかくのごとし。したがって
+\[
+\limsup_{n \to \infty} n \int_0^{\infty} f(x) g(nx) \ dx \leq N \ve
+\]
+である。$\ve > 0$は任意だったから
+\[
+\lim_{n \to \infty} n \int_0^{\infty} f(x) g(nx) \ dx = 0
+\]
+でなくてはならない。
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%3
+\barquo{
+$p$は素数とする。方程式
+\[
+x^2 + y^2 = 1
+\]
+の解$(x,y) \in \zyu{p} \tm \zyu{p}$について、以下の問に答えよ。
+\begin{description}
+  \item[(1)] $p \equiv 1 \mod 4$のときの解の個数を求めよ。
+  \item[(2)] $p \equiv 3 \mod 4$のときの解の個数は$p+1$であることを示せ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $p \equiv 1 \mod 4$という仮定より巡回群$\F_p^{\tm}$の位数は$4$の倍数であり、したがって$\gra^2 = -1 $なる$\gra \in \F_p $が存在する。
+    \begin{align*}
+      A &= \setmid{ (x,y) \in \F_p^2 }{ x^2 + y^2 = 1 } \\
+      B &= \setmid{ (s,t) \in \F_p^2 }{ st = 1 }
+    \end{align*}
+    とおく。写像$\psi \colon A \to B$を$\vp(x,y) = (x + \gra y, x - \gra y)$として定めると、これは$p$が奇素数であることから全単射になる。したがって$\# A = \# B = p-1$がわかる。
+    \item[(2)] $p \equiv 3 \mod 4$という仮定より$x^2 + 1 \in \F_p[x]$は既約多項式なので$F := \F_p[\gra]/(\gra^2 + 1)$は体である。そこで$\F_p$上のノルムが誘導する群準同型$N \colon F^{\tm} \to \F_p^{\tm}$を考える。$N(x + \gra y) = x^2 + y^2$であるので
+    $\# \Ker N = p+1$を示せば十分である。
+
+    準同型定理より$F^{\tm} / \Ker N \cong \Im N$である。よって$\# F^{\tm} / \Ker N \leq p-1$であるから$\# F^{\tm} = p^2-1$より
+    \[
+    \# \Ker N \geq P + 1
+    \]
+    がわかる。
+
+    逆を示そう。$\Ker N \sm \F_p$の元に対して、その$\F_p$上の最小多項式を与える写像
+    \[
+    \vp \colon \Ker N \sm \F_p \to \setmid{ f \in \F_p[x] }{  \text{$f$は$f(x)=x^2 + ax + 1$という形の既約多項式} }
+    \]
+    を考える。右辺の集合を$C$とおく。ここで$\# (\Ker N \sm \F_p) \leq 2 \# C$という評価が成り立つ。なぜならば！$f \in C$が与えられたとする。$f$の$\ol{\F_p}$における根のひとつを$\beta$とすると$f$は$\beta$の$\F_p$上の最小多項式である。一方で有限体の一意性より$F \cong \F_p[\beta]$であるため、$\beta$に対応する$F$の元$\beta'$が存在する。
+    このとき$\vp(\beta') = f$だから$\# \vp^{-1}(f) \geq 1$である。かつ$F / \F_p$は分離拡大なので$\# \vp^{-1}(f) > 1$である。$\# \vp^{-1}(f) \leq 2$はあきらかだから$\# \vp^{-1}(f) =2$である。$f$は任意だったから
+    $\# (\Ker N \sm \F_p) \leq 2 \# C$という結論がでる。ゆえにかくのごとし。
+
+    以上により$\# C$の評価に帰着されるわけだが、これは単純な数え上げで遂行できる。$C$は$x^2 + ax + 1 \; ( a \in \F_p)$という形の多項式のうち$(x - b)(x - b^{-1}) \; ( b \in \F_P^{\tm})$という形には表せないもの全体である。よって$b= \pm 1$でない限り$b \neq b^{-1}$であることに注意すれば
+    \[
+    \# C = p - \left( \f{p-3}{2} + 2 \right) = \f{p-1}{2}
+    \]
+    である。よって$\# ( \Ker N \sm \F_p) \leq p-1$であり、$\Ker N \cap \F_p = \{ \pm 1 \}$より$\# \Ker N \leq p+1$である。以上により$\# \Ker N = p+1$であることが示せた。
+  \end{description}
+\end{sol}
