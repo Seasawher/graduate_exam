@@ -1,0 +1,96 @@
+\section{平成20年度 基礎数学}
+
+\subsubsection{}%1
+\barquo{
+$3$次の複素正方行列
+\[
+\pmat{1& 1& 0 \\ 0& 1& 0 \\ 0 & 0 & 1}, \quad \pmat{1& 0& 0 \\ 0& -1& 0 \\ 0& 0& 1}
+\]
+は相似か。ただし、$2$つの$3$次正方行列$A,B$が相似とは$A = PBP^{-1}$となる$3$次の複素正方行列$P$が存在することである。
+}
+\begin{sol}
+  まさか。相似でないに決まってるじゃないか。固有値が違うんだから。
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$2$次の複素正方行列全体のなす$\C$上のベクトル空間$V$から$V$への写像$f$を
+\[
+f(X) = \pmat{3 & 4 \\ -2 & -3} X \pmat{1 & 2  \\ -1 & -1 }, \quad X \in V
+\]
+により定める。このとき、次の問に答えよ。
+\begin{description}
+  \item[(1)] $f$が線形写像であることを示せ。
+  \item[(2)] $V$の基底
+  \[
+  E_1 = \pmat{1& 0 \\ 0 &0 }, \;  E_2 = \pmat{0 & 1 \\ 0 &0 }, \;  E_3 = \pmat{0 & 0 \\ 1 &0 }, \; E_4 = \pmat{0 & 0 \\ 0 & 1 }
+  \]
+  に関する$f$の行列表示$A$を求めよ。
+  \item[(3)] $A$の行列式$\det A$を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $f$は和とスカラー倍を保つので線形写像である。
+    \item[(2)] 計算すると
+    \[
+    A = \pmat{ 3 & -3& 4& -4 \\ 6& -3& 8& -4 \\ -2& 2& -3& 3 \\ -4& 2& -6& 3 }
+    \]
+    \item[(3)] 答えだけ言ってしまうと、$\det A = 1$である。
+  \end{description}
+\end{sol}
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+$\R^2$上の函数$f(x,y)$と集合$A$を次のように定める。
+\begin{align*}
+  f(x,y ) &= \begin{cases}
+  2xy \cos (y^2/x) &(x \neq 0, y \in \R) \\
+  0 &(x=0, y \in \R)
+\end{cases} \\
+A &= \setmid{ (x,y) \in \R^2 }{ 0 \leq y \leq \pi, y \leq x \leq \pi }
+\end{align*}
+このとき、次の積分を求めよ。
+\[
+\iint_A f(x,y) \ dx dy
+\]
+}
+\begin{sol}
+  $\ve > 0$が与えられたとすると
+  \begin{align*}
+    \int_{\ve}^{\pi} \int_0^x 2 xy \cos(y^2/x)  dy  dx &=   \int_{\ve}^{\pi} \left(  \int_0^x  x \cos(y^2/x) \f{d y^2}{dy} \ dy \right)  \  dx \\
+     &=   \int_{\ve}^{\pi} \int_0^{x^2} x  \cos(y/x) \ dy dx \\
+    &= \int_{\ve}^{\pi} x^2 \int_0^{x^2}   \cos(y/x)  \f{d(y/x)}{dy} \ dy dx \\
+    &=  \int_{\ve}^{\pi} x^2 \sin x \ dx \\
+    &= \int_{\ve}^{\pi} x^2 (- \cos x)' \ dx \\
+    &= \pi^2 + \ve^2 \cos \ve + 2  \int_{\ve}^{\pi} x \cos x \ dx \\
+    &= \pi^2 + \ve^2 \cos \ve + 2  \int_{\ve}^{\pi} x (\sin x)' \ dx \\
+    &= \pi^2 - 2 -  2\cos \ve + \ve( \ve \cos \ve - 2  \sin \ve )
+  \end{align*}
+  と計算できる。よって$\ve \to 0$として
+  \[
+  \iint_A f(x,y) \ dx dy = \pi^2 - 4
+  \]
+  を得る。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%4
+\barquo{
+閉区間$[0,1]$上で定義された次の$2$つの連続関数列を考える。
+\[
+\text{(a)} \quad \left\{ \f{x}{1 + nx}  \right\}_{n \in \N} \quad \quad \quad \text{(b)} \quad \left\{ \f{nx}{1 + n^2x^2}  \right\}_{n \in \N}
+\]
+次の問に答えよ。
+\begin{description}
+  \item[(1)]$n \to \infty$のとき(a)の函数列が$[0,1]$上$0$に一様収束することを示せ。
+  \item[(2)]$n \to \infty$のとき(b)の函数列が$[0,1]$上$0$に一様収束しないことを示せ。
+\end{description}
+}
