@@ -94,3 +94,17 @@ A &= \setmid{ (x,y) \in \R^2 }{ 0 \leq y \leq \pi, y \leq x \leq \pi }
   \item[(2)]$n \to \infty$のとき(b)の函数列が$[0,1]$上$0$に一様収束しないことを示せ。
 \end{description}
 }
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)]
+    \[
+    f_n(x) = \f{x}{1 + nx}
+    \]
+    とおく。微分すると$f_n'(x) \geq 0$なので$f_n$は単調増加であり$\norm{f_n} \leq f_n(1) \leq 1/(n+1)$がわかる。よって$n \to \infty$のとき$f_n$は$0$に一様収束する。
+    \item[(2)]
+    \[
+    g_n(x) = \f{nx}{1 + n^2 x^2}
+    \]
+    とおく。$\norm{g_n} \geq g_n(1/n) = 1/2$より、$g_n$は$0$に一様収束しない。
+  \end{description}
+\end{sol}
