@@ -4,6 +4,27 @@
 \barquo{
 $V$と$W$を複素数体上の有限次元ベクトル空間とし、$f \colon V \to V$, $g \colon W \to W$をそれぞれ線形変換とする。さらに、$f$と$g$は同じ固有値を持たないとする。線形写像$\vp \colon V \to W$が、条件$\vp \circ f = g \circ \vp$を満たしているとき、$\vp = 0$となることを示せ。
 }
+\begin{proof}
+  ハイリホーによる。$\Im \vp \neq 0$と仮定しよう。$f$の$V$上での最小多項式を$P$, $g$の$W$上での最小多項式を$Q$とする。$0 = \vp \circ P(f) = P(g) \circ \vp$により$P(g)$は$\Im \vp$上でゼロ。よって$P$は$g$の$\Im \vp$上での最小多項式$Q_{\vp}$で割り切れる。
+  一方で$Q_{\vp}$は$Q$も割り切るので、$P$と$Q$に共通因子があることになり矛盾。よって$\Im \vp=0$である。
+\end{proof}
+
+\begin{com}
+  広義固有分解を使った別解がある。広義固有空間を$E$で表すことにしよう。つまり$\grl \in \C$に対して
+  \begin{align*}
+    E(f,\grl) & = \setmid{ v \in V}{\exists m \st (f - \grl \id_V)^m v = 0 } \\
+    E(g,\grl) & = \setmid{ w \in W}{\exists m \st (g - \grl \id_W)^m w = 0 }
+  \end{align*}
+  と定める。$f$の異なる固有値を$\grl_1, \cdots , \grl_k$とおく。任意に$v \in V$が与えられたと仮定する。
+  \[
+  V = \bigoplus_{i=1}^k E(f, \grl_i)
+  \]
+  なので$v \in E(f, \grl_j)$なる$j$がある。すると仮定から十分大きい$m$に対して
+  \begin{align*}
+    0 = \vp \circ (f - \grl_j \id_V)^m v = (g - \grl_j \id_W)^m \circ \vp (v)
+  \end{align*}
+  が成り立つ。つまり$\vp(v) \in E(g, \grl_j)$である。ところが$g$と$f$に共通の固有値はないと仮定していたので$E(g, \grl_j)= 0$である。よって$\vp(v)=0$がわかる。$v \in V$は任意だったから$\vp = 0$が結論される。
+\end{com}
 
 \newpage
 
@@ -23,6 +44,34 @@ $f$と$g$を$\R$上定義された一様連続な実数値関数とする。こ�
   は$\R$上一様連続であることを示せ。
 \end{description}
 }
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)] 次の補題を準備する。
+
+    \lem{
+    $f$は$\R$上の一様連続関数とする。このときある$\grd > 0$が存在して、すべての自然数$n \geq 1$に対して
+    \[
+    \abs{x} \leq \grd n \to \abs{f(x) - f(0)} \leq n
+    \]
+    が成り立つ。
+    }
+    \begin{proof}
+      $f$は一様連続と仮定したので
+      \[
+      \abs{x - y } \leq \grd \to \abs{f(x) - f(y)} \leq 1 \quad \quad  (*)
+      \]
+      となるような$\grd > 0$が存在する。この$\grd$が条件を満たすことを、帰納法により示す。$n=1$で成立することは(*)に$y=0$を代入してみればあきらか。$n$が$k$以下のとき成立すると仮定する。このとき(*)に$y = k \grd$を代入すると
+      \[
+      k \grd  \leq x \leq (k+1) \grd \to \abs{f(x) - f(0)} \leq \abs{f(x) - f(\grd k)} + \abs{f(\grd k) - f(0)} \leq k+1
+      \]
+      が成り立つ。さらに(*)に$y = - k \grd$を代入して
+      \[
+        -(k+1) \grd  \leq x \leq -k \grd \to \abs{f(x) - f(0)}  \leq k+1
+      \]
+      も得る。よって$n=k+1$のときにも成立する。ゆえに帰納法が回り、示すべきことがいえた。
+    \end{proof}
+  \end{description}
+\end{proof}
 
 \newpage
 
