@@ -1,0 +1,116 @@
+\section{平成19年度 数学II}
+
+\subsubsection{}%1
+\barquo{
+$R$を単項イデアル整域とし、$K$をその商体とする。$I$を多項式環$K[x_1, \cdots , x_n]$のイデアルとするとき、次の(1),(2)の性質を共に満たすような$R[x_1, \cdots , x_n]$のイデアル$J$が唯一つ存在することを示せ。
+\begin{description}
+  \item[(1)] $J$で生成される$K[x_1, \cdots , x_n]$のイデアルは$I$に等しい
+  \item[(2)] $R[x_1, \cdots , x_n]/J$は$R$加群として平坦
+\end{description}
+}
+\begin{proof}
+  $A = R[x_1, \cdots , x_n]$, $B = K[x_1, \cdots , x_n]$とおく。具体例を考えることにより、$J=A \cap I$であろうという予想が立つ。$A \cap I$が求められる性質を満足していることを確認しておこう。
+
+  まず(1)を示す。$(A \cap I)B \subset I$はあきらか。逆に$f \in I$とする。$B$はNoether環なので、$af \in A \cap I$なる$a \in R \sm \{0\}$がある。よって$f = (af)a^{-1} \in (A \cap I)B$である。$f$は任意だったので、$(A \cap I)B = I$である。よって(1)がいえた。
+
+  次に(2)を示す。$M = A/(A \cap I)$とおく。$M$が$R$加群としてねじれを持たないことを示そう。ある$\ol{g} \in M$と$r \in R \sm \{0\}$があって$r \ol{g} = 0$だと仮定する。代表元$g \in A$をとって固定する。このとき$rg \in A \cap I$なので、$g = (rg)r^{-1} \in (A \cap I)B \subset I$である。よって$g \in A \cap I$であり
+  $\ol{g} = 0$であることが判る。ゆえに、$M$は$R$加群としてねじれを持たない。
+
+あとは次の補題から(2)が成り立つことがわかる。
+\lem{
+  $R$を単項イデアル整域とし、$M$をねじれのない$R$加群とする。このとき$M$は$R$加群として平坦である。
+}
+\begin{proof}
+  $R$のゼロでないイデアル$P$に対して、自然な写像$P \to R$が誘導する写像
+  \[
+  M \ts_R P \to M \ts_R R
+  \]
+  が単射であることを示せばよい。$R$は単項イデアル整域なので、$P = aR$なる$a \in R \sm \{ 0 \}$がある。とくに$P \cong R$であるから、$M \ts_R P \cong M$である。そこで合成
+  \[
+  \xymatrix{
+  M \ar[r]^-{iso} & M \ts_R P  \ar[r] & M \ts_R R \ar[r]^-{iso} & M
+  }
+  \]
+  を$\vp \colon M \to M$とおく。$\vp(m)=am$である。$M$はねじれ元を持たないので$\vp$は単射。とくに$  M \ts_R P \to M \ts_R R$も単射である。よって$M$は$R$-平坦である。
+\end{proof}
+
+さて、そろそろ本題に入ろう。(1),(2)を満たすイデアル$J \subset A$が与えられたとする。$JB=I$より$J \subset I \cap A$である。そこで$N = (I \cap A)/J$とおく。$(A/J)/N \cong A/ (I \cap A) = M$なので、$N$について次は完全である。
+\[
+\xymatrix{
+0 \ar[r] & N \ar[r] & A/J \ar[r] & M \ar[r] & 0
+}
+\]
+ここから、任意の$R$加群$S$について長完全列
+\[
+\xymatrix{
+{} \ar[r] & N \ts_R S \ar[r] & A/J \ts_R S \ar[r] & M \ts_R S \ar[r] & 0 \\
+{} \ar[r] & Tr_1^R(N,S) \ar[r] & Tr_1^R(A/J,S) \ar[r] & Tr_1^R(M,S) \ar[r] \ar[r] & {} \\
+{}        & {}               &  {}         \cdots \ar[r]          &   Tr_2^R(M,S)   \ar[r] &
+}
+\]
+がある。既にみたように$M$は$R$-平坦であり、仮定より$A/J$も$R$-平坦なので、$Tr_2^R(M,S)=0$かつ$Tr_1(A/J,S) = 0$である。よって$Tr_1^R(N,S)=0$である。$S$は任意だったから、$N$は$R$-平坦である。
+
+一方で、局所化の平坦性により$K$は$R$-平坦である。よって$B = A \ts_R K$は$A$-平坦であって、よって$(I \cap A) \ts_A B \to A \ts_A B$は単射なので$(I \cap A) \ts_A B \cong (I \cap A)B = I$である。したがって
+\begin{align*}
+  N \ts_A B &= \Coker(J \to I \cap A) \ts_A B \\
+  &= \Coker(J \ts_A B \to (I \cap A)\ts_A B ) &(テンソルの右完全性) \\
+  &\cong \Coker(J \ts_A B \to (I \cap A)\ts_A B \cong I ) \\
+  &= I / JB \\
+  &= 0
+\end{align*}
+であるから、$N \ts_R K = (N \ts_A A) \ts_R K = N \ts_A B = 0$である。(これは$N$の元がすべてねじれていることを意味する)ここで完全列
+\[
+\xymatrix{
+0 \ar[r] & R \ar[r] & K \ar[r] & K/R \ar[r] & 0
+}
+\]
+から誘導される$N$に関する長完全列
+\[
+\xymatrix{
+\cdots  \ar[r] &  Tr_1^R(N,K/R) \ar[r] & N \ts_R R \ar[r] & N \ts_R K \ar[r] & N \ts_R K/R \ar[r] & 0
+}
+\]
+を考える。$N$は$R$-平坦なので$Tr_1^R(N,K/R) = 0$である。これに$N \ts_R K = 0$を合わせて$N = N \ts_R R = 0$が結論される。つまり$I \cap A = J$である。
+\end{proof}
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+多項式$x^4 + 9$の$\Q$上の最小分解体を$K$とするとき、Galois群$\Gal(K/\Q)$を求めよ。
+}
+\begin{proof}
+  まず因数分解をする。$x^4 + 9 = (x^2 + 3\I)(x^2 - 3\I)$である。$\zeta = \exp(\pi \I / 4)$とすると
+  \[
+  x^4 + 9 = (x^2 - 3 \zeta^6) (x^2 - 3 \zeta^2) = (x - \s{3} \zeta^3 )(x + \s{3} \zeta^3)(x- \s{3} \zeta)(x + \s{3} \zeta)
+  \]
+  である。したがって
+  \begin{align*}
+    K &= \Q(\s{3} \zeta^3, \s{3} \zeta) \\
+    &= \Q(\I, \s{3} \zeta) \\
+    &= \Q(\s{3} \zeta)
+  \end{align*}
+  である。$f(X) = X^4 + 9$とおく。
+  \[
+  f(X+1)= X^4 + 4X^3 + 4X + 10
+  \]
+  は$p=2$に関するEisenstein多項式なので、$f$は既約である。よって$[K : \Q] = 4$である。
+
+  $G := \Gal(K/\Q)$とする。
+  \begin{align*}
+    \gra_1 &= \s{3} \zeta \\
+    \gra_2 &= - \s{3} \zeta \\
+    \gra_3 &= \s{3} \zeta^3 = \ol{\gra_2} \\
+    \gra_4 &= - \s{3} \zeta^3 = \ol{\gra_1}
+  \end{align*}
+とおく。$G$の元を、この添え字づけに従って対称群$\frakS_4$の元とみなす。$\tau \in G$を複素共役とすると$\tau = (2 3)(1 4)$である。$f$は既約なので$G$は$\{1,2 ,3,4 \}$は推移的に作用する。したがって$\grs(\gra_1 ) = \gra_3$なる$\grs \in G$がある。
+\[
+3 = \grs(\gra_1 \gra_4) = \gra_3 \grs(\gra_4)
+\]
+より$\grs(\gra_4) = \gra_2$であって$\grs = (4 2 ) (1 3)$である。
+\begin{align*}
+  \grs \tau &= (1 2)(3 4) \\
+  \tau \grs &= (1 2)(3 4)
+\end{align*}
+なので$G = \{ 1, \grs, \tau , \grs \tau \}$である。とくに$G \cong \zyu{2} \tm \zyu{2}$である。
+\end{proof}
