@@ -6,7 +6,7 @@
 https://www.math.kyoto-u.ac.jp/ja/past-exams
 から入手したものを使用しています。
 
-GitHubはよくわかんない、とりあえず解答のPDFだけ読めればそれでいいってひとは次のGoogleドライブのリンクからどうぞ。
+GitHubはよくわかんない、とりあえず解答のPDFだけ読めればそれでいいってひとは次に示すGoogleドライブのリンクからどうぞ。
 
 * https://drive.google.com/open?id=1XMHB-yYoUOvsH9IllUO3Byh0gWb0GaqM
 
