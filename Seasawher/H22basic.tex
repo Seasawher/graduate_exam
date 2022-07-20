@@ -1,0 +1,96 @@
+\section{平成22年度 基礎数学}
+
+\subsubsection{}%1
+\barquo{
+実正方行列$A$, $B$を次のように定める。
+\[
+A = \pmat{ 3 &2& -1 &-1 \\ 6& 3& 4& 1 \\ 5& 1& 5& 1 \\ 1& -1& 3& 1}, \quad B = \pmat{ 1 &-1 & -1 &1 \\ 2& -1& -1& 3 \\ -1& 2& 3& 3 \\ -1& 2& 1& -2}
+\]
+$A$の行列式$\abs{A}$と$B$の逆行列$B^{-1}$を求めよ。
+}
+\begin{sol}
+  計算すると$\abs{A}=6$であることがわかる。$B^{-1}$は
+  \[
+  B^{-1}= \pmat{ -13 &5& -2& -2 \\ 7& -2& 1& 2 \\ -15& 5& -2& -3 \\ 6& -2& 1& 1}
+  \]
+  と求まる。計算過程など頭脳明晰な読者諸賢には必要ないだろう。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+$n$行$m$列の実行列$A$の階数が$m$であるとする。このとき、$m$行$l$列の実行列$B$, $C$が
+\[
+AB = BC
+\]
+を満たせば
+\[
+B=C
+\]
+であることを示せ。
+}
+\begin{sol}
+  $\rank A = m$ということは$n \geq m$かつ$A$は単射でなくてはいけない。一方で$A(B-C)=0$より$\R^l$の標準基底$\{ e_i \}$をとると、すべての$i$について$A(B-C)e_i = 0$である。$A$は単射なので$(B-C)e_i =0$が従う。$i$は任意だったから$B=C$である。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+次の重積分を求めよ。
+\[
+\iint_D \f{ dx dy}{ 1 + (x+y)^4 }
+\]
+ただし$D = \setmid{ (x,y) \in \R^2 }{ x \geq 0, y \geq 0, x+ y \leq 1}$とする。
+}
+\begin{sol}
+  $s=x$, $t=x+y$と変数変換する。$dt ds = dx dy$である。積分領域$D$は
+  \[
+  E = \setmid{ (s,t ) \in \R^2 }{0 \leq t \leq 1, 0 \leq s \leq t}
+  \]
+  に対応する。これで計算すると
+  \begin{align*}
+    \iint_D \f{ dx dy}{ 1 + (x+y)^4 } &= \int_0^1 dt \int_0^t \f{ds}{1+t^4} \\
+    &= \int_0^1 \f{t }{1+t^4} \ dt \\
+    &= \f{1}{2 } \int_0^1 \f{dt }{1+t^2}  \\
+    &= \f{1}{2} \int_0^{\pi/4} \ d\grt  \\
+    &= \f{ \pi }{8}
+  \end{align*}
+がわかる。
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%4
+\barquo{
+\begin{description}
+  \item[(1)] ある定数$C$が存在し、$-1 \leq x \leq 1$のとき
+  \[
+  \abs{ e^x - 1 -x } \leq Cx^2
+  \]
+  となることを示せ。
+  \item[(2)] 級数
+  \[
+  \sum_{n=1}^{\infty} \left( e^{x/n} - 1 - \f{x}{n} \right)
+  \]
+  は$x$が$[-1,1]$を動くとき一様収束することを示せ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $e^x$の$x=0$の周りでのTaylor展開を考えると
+    \[
+    \lim_{x \to 0} \f{ e^x - 1 -x}{x^2 } = \f{1}{2}
+    \]
+    である。よって$h(x)=  (e^x - 1 -x )/x^2$は$[-1,1]$上の連続関数である。よってとくに有界であり$C = \max_{x \in [-1,1]} \abs{h(x)}$が存在する。この$C$が与えられた条件を満たす。
+    \item[(2)] (1)を使うと
+    \begin{align*}
+      \sum_{n=1}^{\infty} \left( e^{x/n} - 1 - \f{x}{n} \right) &\leq C \sum_{n=1}^{\infty} \left( \f{ \abs{x} }{n} \right)^2 \\
+      &\leq   C \sum_{n=1}^{\infty}  \f{ 1}{n^2}
+    \end{align*}
+    であることが判る。よって一様収束する。
+  \end{description}
+\end{sol}

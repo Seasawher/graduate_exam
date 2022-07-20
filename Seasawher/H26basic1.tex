@@ -1,0 +1,150 @@
+\section{平成26年度 基礎科目I}
+
+\subsubsection{}
+\barquo{
+\begin{description}
+  \item[(i)] $\{a_n \}_{n=1}^{\infty}$は実数列で、任意の正整数$k$について
+  \[
+  \lim_{n \to \infty} (a_{n+k} - a_n) = 0
+  \]
+  をみたすとする。このとき、この数列$\{a_n \}_{n=1}^{\infty}$は収束するか？理由をつけて答えよ。
+  \item[(ii)] 次の広義積分は収束するか？理由をつけて答えよ：
+  \[
+  \int_0^{\infty} (1 - e^{-1/x}) \ dx.
+  \]
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] 収束するとは限らない。反例はたとえば$a_n = \log n$とすれば得られる。
+    \item[(ii)] $y=1/x$とおくと$dx = - 1/y^2 dy$であって
+    \[
+    \int_0^{\infty} (1 - e^{-1/x}) \ dx = \int_0^{\infty} \f{1 -e^{-y} }{ y^2} \ dy
+    \]
+    であるはずだから、右辺の収束性を考えればよい。いまTaylor展開を考えると
+    \[
+    e^{-y} = 1 -y + O(y^2)
+    \]
+    だから、$g(y) = (1 - e^{-y})/ y^2 $とおくと$g(y) = 1/y + h(y)$なる$[0,\infty)$上の連続関数$h$がある。$0 < y$のとき$g(y) > 0$なので、$0 < \ve < 1$に対して
+    \begin{align*}
+      \int_{\ve}^{\infty} g(y) \ dy &\geq \int_{\ve}^{1} g(y) \ dy \\
+      &\geq \int_{\ve}^{1} \abs{ \f{1}{y} + h(y) } \ dy \\
+      &\geq \int_{\ve}^{1} \f{dy}{y} - \int_{\ve}^{1} \abs{ h(y) } \ dy \\
+      &\geq \log 1/\ve - \int_{0}^{1} \abs{ h(y) } \ dy
+    \end{align*}
+    が成り立つ。したがって
+    \[
+    \liminf_{\ve \to +0} \int_{\ve}^{1} g(y) \ dy = \infty
+    \]
+    である。よって件の積分は収束しない。
+  \end{description}
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$n$は$2$以上の整数とする。$\R^2$上の関数
+\[
+f(x,y) = x^{2n} + y^{2n} - nx^2 + 2nxy - ny^2
+\]
+について次の問に答えよ：
+\begin{description}
+\item[(i)] $f$の最大値・最小値は存在するか？理由をつけて答えよ。
+\item[(ii)] $f$が極大値・極小値をとる点をすべて求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $f(x,y) = x^{2n} + y^{2n} - n(x-y)^2$と書ける。よって$f(x,x) = 2x^{2n}$なので$f$は最大値を持たない。また$x=r \cos \grt$, $y = r \sin \grt$おいて$g(r,\grt) = f(r \cos \grt, r \sin \grt)$とするとき
+    \[
+    g(r,\grt)=r^{2n} (\cos^{2n} \grt + \sin^{2n} \grt) - nr^2 (1- \sin 2\grt)
+    \]
+    であるが、
+    \begin{align*}
+      \cos^{2n} \grt + \sin^{2n} \grt &\geq \max\{ \cos^{2n} \grt , \sin^{2n} \grt \} \\
+      &\geq (1/\sqrt{2})^{2n} \\
+      &\geq 1/2^n
+    \end{align*}
+    であるため$\abs{g(r,\grt)} \geq 2^{-n} r^{2n} - 2nr^2$と評価できる。したがってある$R>0$が存在して$g$は$\setmid{(r,\grt)}{r \geq R}$上で$0$以上となる。ゆえに$f(0,0)=0$より
+    \[
+    \inf_{(x,y) \in \R^2} f(x,y) = \min_{r \leq R} g(r,\grt)
+    \]
+    だから$f$は最小値を持つ。
+    \item[(ii)] $x,y$についてそれぞれ偏微分すると
+    \begin{align*}
+      \f{\del f}{\del x} &= 2n (x^{2n-1} - x + y) \\
+      \f{\del f}{\del y} &= 2n (y^{2n-1} - y + x)
+    \end{align*}
+    である。よって点$(x,y)$がもし極値を与えるならば、
+    \begin{align*}
+      x^{2n-1} - x + y &= 0 \\
+      y^{2n-1} - y + x &= 0
+    \end{align*}
+    である。よって極値を与える点は、$\gra = 2^{1/(2n-2)} > 0$として
+    \[
+    P = (0,0) , \quad Q_1 = (\gra, - \gra), \quad Q_2 =  (-\gra, \gra)
+    \]
+    の中にある。これらが実際に極値なのか、そして極値だとすれば極小か極大かを判断するためにHessianを求める。
+    \begin{align*}
+\f{\del^2 f }{\del x^2} &= 2n ( (2n-1)x^{2n-2} - 1 ) \\
+\f{\del^2 f }{\del y^2} &= 2n ( (2n-1)y^{2n-2} - 1 ) \\
+\f{\del^2 f }{\del x \del y} &= 2n
+    \end{align*}
+    であるから、$P$におけるHessianは
+    \[
+    H_P = 2n \pmat{-1 & 1 \\ 1 & -1}
+    \]
+    である。$1/2n H_P$の固有値は$0, -2$であり$H_P$は正則でないので、Hessianから$P$が極値であるかどうかを判定することはできない。実際、$f(x,0)=x^2(x^{2n-2}-n)$より直線$y=0$上では$f(P)$は極大値。$f(x,x) = 2x^{2n}$より直線$y=x$上では$f(P)$は極小値。よって$P$は鞍点であり極値を与えない。
+
+$Q_i$におけるHessianは
+\[
+H_{Q_1} = H_{Q_2} =  2n \pmat{4n-3 & 1 \\ 1 & 4n-3}
+\]
+である。$1/2n H_{Q_i}$の固有値は$4n-4, 4n-2$でありどちらも正。よってHessianは正定値であるから$f(Q_1)=f(Q_2) = 4\gra^2 (1-n)$は極小値。(最小値でもある)
+  \end{description}
+\end{sol}
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+次の4次正方行列$A,B$は正則か？正則ならば逆行列を求め、正則でないならば階数を求めよ。
+\[
+A = \pmat{ 2 &0& 1& 3 \\ 0& 8& 2& 4 \\ 2& 0& 1& 4 \\ 0& 4& 0& 1} , \quad  B = \pmat{1 &1& 1& 0 \\ 2& 2 &0 &3 \\ 3 &4 &2 &4 \\ 4 &5& 3& 4 }
+\]
+}
+\begin{sol}
+  $E$を単位行列とする。拡大係数行列$(A \; E)$を行基本変形すると
+  \[
+   (A \; E) \sim \pmat{ 1 &0& 0& 0& 3/2& -1/4& -1& 1/2 \\ 0& 1& 0& 0& -1/4& 0& 1/4& 1/4 \\ 0 &0& 1& 0 & 1& 1/2 &-1& -1 \\ 0& 0& 0& 1& -1& 0& 1& 0}
+  \]
+  を得る。したがって$A$は正則で、逆行列は
+  \[
+  \f{1}{4} \pmat{ 6 &-1& -4& 2 \\ -1& 0& 1& 1 \\ 4& 2& -4& -4 \\ -4& 0& 4& 0  }
+  \]
+  で与えられる。同様に$(B \; E)$を行基本変形していくと$\rank B = 3$であることがわかる。とくに$B$は正則ではない。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%4
+\barquo{
+3次の複素正方行列
+\[
+A = \pmat{3& 0& -1 \\ -2& 1& 1 \\ 2& 0& 0 }, \quad B = \pmat{1& x& 0 \\ 0& 1& 0 \\ -1& x& 2}
+\]
+に対して、$A$と$B$が相似になるような複素数$x$をすべて求めよ。ただし、行列$A$と$B$が相似とは、複素正方行列$P$で$A = P^{-1}AP$を満たすものが存在することをいう。
+}
+\begin{sol}
+  $A$の固有多項式は$(t-1)^2(t-2)$なので固有値は$1,2$である。計算すると$\rank (E - A)=1$なので$\Ker (E-A)$は$2$次元空間。したがって$A$のJordan標準形は
+  \[
+  \pmat{ 1 &0& 0 \\ 0& 1& 0 \\ 0& 0& 2}
+  \]
+  である。$B$の固有多項式も$(t-1)^2(t-2)$で、固有値は$A$と同じ。しかし
+  \[
+  \rank (E-B) = \rank \pmat{ 0 &x& 0 \\ 1& 0& -1 \\ 0& 0 &0}
+  \]
+  なので$B$のJordan標準形は$x \neq 0$のとき対角行列でなく、$x=0$のとき対角行列となる。よって$A$と$B$が相似となる$x$は$x=0$である。
+\end{sol}

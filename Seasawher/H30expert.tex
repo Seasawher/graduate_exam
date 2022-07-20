@@ -1,0 +1,156 @@
+\section{平成30年度 専門科目}
+
+\subsubsection{} %{問1}
+\barquo{
+$k$を可換体とする。$k[X,Y]$を$k$上の2変数多項式環として、$f \in k[X,Y]$の零点集合$V(f)$を
+\[
+V(f) = \setmid{(a,b) \in k \tm k}{f(a,b) = 0}
+\]
+によって定義する。次の2条件は同値であることを示せ。
+\begin{description}
+  \item[(1)] $k$は代数的閉体ではない。
+  \item[(2)] $V(f) = \{(0,0)\}$となる$f \in k[X,Y]$が存在する。
+\end{description}
+}
+\begin{sol}${}$
+\begin{description}
+  \item[(1)$\To$(2)] $k$は代数的閉体ではないので、ある1次以上の多項式$g \in k[X]$であって、$k$上根を持たないものが存在する。$n = \rm{dim}\ g$とおいて、
+  \[
+  f(X,Y)= Y^n g \left(\frac{X}{Y} \right)
+  \]
+  とおく。別の言い方をすれば$g(X)= X^n + a_{n-1}X^{n-1} + \cdots + a_1X + a_0$とするとき, $f(X,Y)= X^n + a_{n-1}X^{n-1}Y + \cdots + a_1XY^{n-1} + a_0Y^n$である。$X \in k$, $Y \in k \sm \{0\}$に対して$Y^n$と$g(X/Y)$は決して0にならないので、$f(X,Y)=0$となるのは$Y=0$のときだけである。$f(X,0)=X^n$なので、
+  $V(f) =\{ (0,0)\}$が成り立つ。
+  \item[(2)$\To$(1)] 対偶をとり、$k$が代数閉体であってかつ$V(f) =\{ (0,0)\}$となる$f \in k[X,Y]$が存在すると仮定し矛盾を示そう。このとき$k$は無限体($k$が有限体であっても、アイゼンシュタイン多項式は無限個あるため)であることに注意する。またここではそもそも$k$は零環ではないとして考えていることにも注意する。
+
+  さて$a,b \in k^{\tm}$を任意にとると、$f(a,Y) \in k[Y]$、$f(X,b) \in k[X]$は決して0にならないので、定数でなければならない。
+  このとき$f(a,Y)=f(a,b)=f(X,b)$であるので、常にこの２つは一致する。割り算を実行して
+  \begin{align*}
+    f(X,Y) &= (X-a)g(X,Y) + f(a,Y) \\
+    f(X,Y) & =(Y-b)h(X,Y)+f(X,b)
+  \end{align*}
+  なる$g, h \in k[X,Y]$をとってくる。すると辺々引いて
+  \[
+  0 = (X-a)g(X,Y) - (Y-b)h(X,Y)
+  \]
+  が成り立つ。この等式は任意の$a,b \in k^{\times}$について成り立つので、$g=h=0 \in k[X,Y]$が判る。ゆえに$f$は定数となるがこれは矛盾。
+  \item[別解] (2)$\To$(1)を示す部分についてはHilbertの零点定理を知っていればすこし議論を省略できる。$k$が代数閉体だと仮定し$V(f) =\{ (0,0)\}$となる$f \in k[X,Y]$が存在するとしよう。$k[X,Y]$はUFDなので、$f$は既約であるとしてよい。すると$(f)$は根基イデアルなのでHilbertの零点定理により$(f) = (X,Y)$である。しかし右辺は単項イデアルではないので矛盾。
+\end{description}
+\end{sol}
+
+
+\newpage
+
+
+
+
+
+\subsubsection{} %{問2}
+\barquo{
+$p$を素数, $k,m$を正の整数で、$k$と$p^2 - p$は互いに素であるとする。位数$kp^m$の有限群$G$が次の性質を満たす部分群$N,H$をもつとする。
+\begin{description}
+  \item[(1)] $N$は位数$p^m$の巡回群で$G$の正規部分群である。
+  \item[(2)] $H$は位数$k$の群である。
+\end{description}
+このとき、$G$は$N$と$H$の直積であることを示せ。
+}
+\begin{sol}
+  $H \lhd G$を示せば十分である。(付録の「半直積とGalois群」を参照のこと) $N \lhd G$なので、$H$の共役による$N$への作用$\Phi \colon H \rightarrow \Aut N$を$\Phi_h(q)=hqh^{-1}$により定義できる。$H / \Ker \Phi$は$\Aut N$の部分群とみなせる。
+  \begin{align*}
+    \#(\Aut N) &= \#((\Z/ p^m \Z)^{\tm}) \\
+    &= p^m - p^{m-1}
+  \end{align*}
+  なので、$\#(H / \Ker \Phi)$は$\# H= k$と$ p^m - p^{m-1}$の両方を割り切る。したがって$\#(H / \Ker \Phi) \leq \gcd (k,p^m - p^{m-1})$であるが、右辺は仮定により1だから$\Phi$は自明な作用であって、$H$の元はすべての$N$の元と可換である。
+
+  よって、$G$の元$g=hq \; (h \in H, q \in N)$と$x \in H$に対して$g^{-1}xg = x^g =x^{hq} = (x^h)^q = x^h \; \in H$だから、$H \lhd G$が言えた。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{} %{問3}
+\barquo{
+多項式$X^7 - 11$の有理数体$\Q$上の最小分解体を$K \subset \C$とする。このとき、次の問に答えよ。
+\begin{description}
+  \item[(1)] 拡大次数$[K:\Q]$を求めよ。
+  \item[(2)] $\Q$と$K$の間の($\Q$でも$K$でもない)真の中間体の個数を求めよ。
+  \item[(3)] 上記(2)の中間体のうち、$\Q$上Galois拡大になるものの個数を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+\begin{description}
+  \item[(1)] $\gro = \exp (2\pi \sqrt{-1}/7)$とする。あきらかに$K = \Q(\gro, \sqrt[7]{11})$である。状況を図式で表すと次のようになる。
+  \[
+  \xymatrix{& K &  \\  \Q(\gro) \ar[ur]^{\leq 7} & & \Q(\sqrt[7]{11}) \ar[ul]_{\leq 6} \\  &  \Q \ar[ul]^{6} \ar[ur]_{7} &
+  }
+  \]
+  円分体の一般論から$6= [\Q(\gro):\Q]$である。また$X^7 - 11$はEisenstein多項式なので既約であり$7=[\Q(\sqrt[7]{11}):\Q]$である。$7$と$6$は互いに素なので$\Q(\gro) \cap \Q(\sqrt[7]{11}) = \Q$である。
+  $\Q(\gro) / \Q$はGalois拡大なので、Galois拡大の推進定理により$\Gal(K/ \Q(\sqrt[7]{11})) \cong \Gal(\Q(\gro) / \Q)$であり、とくに$[K: \Q(\sqrt[7]{11})] = [\Q(\gro):\Q] = 6$である。したがって、$[K:\Q]=42$である。
+  \item[(2)] $G = \Gal(K/ \Q)$とする。付録「半直積とGalois群」により、$G$は半直積
+  \[
+\Gal(K/ \Q(\gro)) \rtimes \Gal(K/ \Q(\sqrt[7]{11}))
+  \]
+  と同型である。素数次数なので$\Gal(K/ \Q(\gro)) = \Z / 7 \Z$であり、
+  円分体の一般論から
+\[
+\Gal(K/ \Q(\sqrt[7]{11})) \cong \Gal(\Q(\gro) / \Q) = (\Z / 7 \Z)^{\tm} = \Z / 6 \Z
+\]
+  である。つまりともに有限巡回群である。$\grs \in \Gal(K/ \Q(\gro))$を$\grs(\sqrt[7]{11}) = \sqrt[7]{11} \gro$により定め、
+  $\tau \in \Gal(K/ \Q(\sqrt[7]{11}))$を$\tau(\gro) = \gro^3$により定める。$\grs$, $\tau$はそれぞれ生成元となる。$\tau \grs \tau^{-1}(\sqrt[7]{11}) = \sqrt[7]{11} \gro^3$より
+  $\tau \grs \tau^{-1} = \grs^3$である。したがって次の表示
+  \[
+  G \cong \setmid{\grs,\tau}{\grs^7 = \tau^6 = 1, \tau \grs \tau^{-1} = \grs^3} \cong \Z / 7 \Z \rtimes \Z / 6 \Z
+  \]
+  を得る。
+
+  Galoisの基本定理により、$G$の自明でない部分群の個数を求めればよい。そこでまずすべての元の位数を決定する。$\kakko{\grs} \rtimes \kakko{\tau} \to \kakko{\tau}$は群準同型なので、$x = \grs^i \tau^j \in G$の共役は$\grs^{*} \tau^j$という形をしている。具体的には
+    \begin{align*}
+      \grs x \grs^{-1} &= \grs \grs^i \tau^j \grs^{-1} \\
+      &= \grs \grs^i (\tau^j \grs^{-1} \tau^{-j} ) \tau^j \\
+      &= \grs \grs^i (\grs^{3^j})^{-1} \tau^j \\
+      &= \grs^{1 - 3^j} \grs^i \tau^j \\
+      &= \grs^{1 - 3^j} x
+    \end{align*}
+    である。
+  そこで共役元を求めることにより次のような位数の表をつくることができる。
+  \begin{center}
+  \begin{tabular}{ccc}
+   \hline
+位数 & 元 & 個数 \\
+   \hline \hline
+   1 & 1 & 1 \\
+   2 & $\grs^i \tau^3 \; (0 \leq i \leq 6)$ &  7 \\
+  3 & $\grs^i \tau^2 \; (0 \leq i \leq 6)$, $\grs^i \tau^4 \; (0 \leq i \leq 6)$ &  14  \\
+  6 & $\grs^i \tau \; (0 \leq i \leq 6)$, $\grs^i \tau^5 \; (0 \leq i \leq 6)$ & 14 \\
+  7 & $\grs^i \; ( 1 \leq i \leq 6)$ & 6
+   \end{tabular}
+  \end{center}
+  次に部分群を列挙する作業に移る。$G$の位数は42なので、自明でない部分群の位数としてありえるのは$2,3,6,7,14,21$である。まず位数2の部分群は位数2の元と同じ数だけあるので、7個である。位数3の部分群は、素数位数なのですべて巡回群であり、生成元はひとつの群に対して2つある。よって位数3の部分群は$14/2 = 7$個ある。
+
+  位数6の部分群$M \subset G$が与えられたとする。このとき次のような各行が完全な可換図式がある。
+\[
+\xymatrix{
+1 \ar[r] & \Z / 7 \Z \ar[r]^-j &  \Z / 7 \Z \rtimes \Z / 6 \Z \ar[r]^-p & \Z / 6 \Z \ar[r] & 1 \\
+1 \ar[r] & j^{-1}(M) \ar[r]^-j  \ar[u] & M  \ar[u] \ar[r]^-p & p(M) \ar[r] \ar[u] & 1
+}
+\]
+$j^{-1}(M) = 1$でなくてはならないため、$M \cong p(M)$でありしたがって$M$は巡回群である。位数6の巡回群の生成元はひとつの群に対して2つなので、位数6の部分群は$14/2 = 7$個ある。
+  位数7の部分群は、Sylow-7部分群なのですべて共役である。ところが$\kakko{\grs}$は正規部分群だったので、ひとつしかない。
+  位数14の部分群は、Sylowの定理より位数2の元と位数7の元で生成される。したがって$\kakko{\grs, \tau^3}$しかない。よって1個。位数21の部分群も、Sylowの定理により位数3の元と位数7の元で生成される。したがって$\kakko{\grs, \tau^2}$しかない。よって1個。以上により、次の表のようになる。
+  \begin{center}
+  \begin{tabular}{ccc}
+   \hline
+位数 & 部分群 & 個数 \\
+   \hline \hline
+   2 & $\kakko{\grs^i \tau^3}  \; (0 \leq i \leq 6)$ &  7 \\
+  3 & $\kakko{\grs^i \tau^2} \; (0 \leq i \leq 6)$ &  7  \\
+  6 & $\kakko{\grs^i \tau} \; (0 \leq i \leq 6)$ & 7 \\
+  7 & $\kakko{\grs}$ & 1 \\
+  14 & $\kakko{\grs, \tau^3}$ & 1 \\
+  21 & $\kakko{\grs, \tau^2}$ & 1
+   \end{tabular}
+  \end{center}
+  したがって非自明な部分群は$7 + 7 + 7 + 1 + 1 + 1 = 24$個ある。
+  \item[(3)] Galoisの基本定理により、$G$の自明でない正規部分群の個数を求めればよい。$x = \grs^i \tau^j \in G$の共役$\grs x \grs^{-1}$は$\grs^{1 - 3^j} x$
+    であることを思い出そう。これをみると、位数$2,3,6$の群のなかに正規部分群は存在しない。また、位数7,14,21の群はすべて正規部分群である。よって自明でない正規部分群は3個である。
+\end{description}
+\end{sol}

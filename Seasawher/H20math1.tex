@@ -1,0 +1,195 @@
+\section{平成20年度 数学I}
+
+\subsubsection{}%1
+\barquo{
+$V$と$W$を複素数体上の有限次元ベクトル空間とし、$f \colon V \to V$, $g \colon W \to W$をそれぞれ線形変換とする。さらに、$f$と$g$は同じ固有値を持たないとする。線形写像$\vp \colon V \to W$が、条件$\vp \circ f = g \circ \vp$を満たしているとき、$\vp = 0$となることを示せ。
+}
+\begin{proof}
+  ハイリホーによる。$\Im \vp \neq 0$と仮定しよう。$f$の$V$上での最小多項式を$P$, $g$の$W$上での最小多項式を$Q$とする。$0 = \vp \circ P(f) = P(g) \circ \vp$により$P(g)$は$\Im \vp$上でゼロ。よって$P$は$g$の$\Im \vp$上での最小多項式$Q_{\vp}$で割り切れる。
+  一方で$Q_{\vp}$は$Q$も割り切るので、$P$と$Q$に共通因子があることになり矛盾。よって$\Im \vp=0$である。
+\end{proof}
+
+\begin{com}
+  広義固有分解を使った別解がある。広義固有空間を$E$で表すことにしよう。つまり$\grl \in \C$に対して
+  \begin{align*}
+    E(f,\grl) & = \setmid{ v \in V}{\exists m \st (f - \grl \id_V)^m v = 0 } \\
+    E(g,\grl) & = \setmid{ w \in W}{\exists m \st (g - \grl \id_W)^m w = 0 }
+  \end{align*}
+  と定める。$f$の異なる固有値を$\grl_1, \cdots , \grl_k$とおく。任意に$v \in V$が与えられたと仮定する。
+  \[
+  V = \bigoplus_{i=1}^k E(f, \grl_i)
+  \]
+  なので$v \in E(f, \grl_j)$なる$j$がある。すると仮定から十分大きい$m$に対して
+  \begin{align*}
+    0 = \vp \circ (f - \grl_j \id_V)^m v = (g - \grl_j \id_W)^m \circ \vp (v)
+  \end{align*}
+  が成り立つ。つまり$\vp(v) \in E(g, \grl_j)$である。ところが$g$と$f$に共通の固有値はないと仮定していたので$E(g, \grl_j)= 0$である。よって$\vp(v)=0$がわかる。$v \in V$は任意だったから$\vp = 0$が結論される。
+\end{com}
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+$f$と$g$を$\R$上定義された一様連続な実数値関数とする。このとき、次の問に答えよ。
+\begin{description}
+  \item[(1)] 関数
+  \[
+  \f{f(x)}{1 + \abs{x}}
+  \]
+  は$\R$上有界であることを示せ。
+  \item[(2)] 関数
+  \[
+  \f{f(x)g(x)}{1 + \abs{x}}
+  \]
+  は$\R$上一様連続であることを示せ。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)] 次の補題を準備する。
+
+    \lem{
+    $f$は$\R$上の一様連続関数とする。このときある$\grd > 0$が存在して、すべての自然数$n \geq 1$に対して
+    \[
+    \abs{x} \leq \grd n \to \abs{f(x) - f(0)} \leq n
+    \]
+    が成り立つ。
+    }
+    \begin{proof}
+      $f$は一様連続と仮定したので
+      \[
+      \abs{x - y } \leq \grd \to \abs{f(x) - f(y)} \leq 1 \quad \quad  (*)
+      \]
+      となるような$\grd > 0$が存在する。この$\grd$が条件を満たすことを、帰納法により示す。$n=1$で成立することは($*$)に$y=0$を代入してみればあきらか。$n$が$k$以下のとき成立すると仮定する。このとき($*$)に$y = k \grd$を代入すると
+      \[
+      k \grd  \leq x \leq (k+1) \grd \to \abs{f(x) - f(0)} \leq \abs{f(x) - f(\grd k)} + \abs{f(\grd k) - f(0)} \leq k+1
+      \]
+      が成り立つ。さらに(*)に$y = - k \grd$を代入して
+      \[
+        -(k+1) \grd  \leq x \leq -k \grd \to \abs{f(x) - f(0)}  \leq k+1
+      \]
+      も得る。よって$n=k+1$のときにも成立する。ゆえに帰納法が回り、示すべきことがいえた。
+    \end{proof}
+
+    上記の補題において、とくに$\abs{x}/ \grd$の小数点以下を切り上げたものを$n$としても成立する。すなわち、自然数$n$を
+    $\abs{x}/ \grd \leq n < \abs{x}/ \grd + 1$なるものとしてとる。このとき補題により
+    \[
+    \abs{f(x) - f(0)} \leq \f{ \abs{x} }{ \grd } + 1
+    \]
+    が成り立つ。ゆえに
+    \begin{align*}
+      \abs{ \f{f(x)}{1 + \abs{x} } } &\leq    \f{ \abs{f(0)} }{1 + \abs{x}}  +  \f{ \abs{x} + \grd }{ \grd( 1 + \abs{x} ) }
+    \end{align*}
+    だから極限をとって
+    \[
+    \limsup_{\abs{x} \to \infty}   \abs{ \f{f(x)}{1 + \abs{x} } } \leq \f{1}{\grd}
+    \]
+    である。$f(x)/(1 + \abs{x})$は連続なので、十分外で有界ならば全体で有界である。ゆえに、示すべきことがいえた。
+    \item[(2)] $\ve > 0$が与えられたとする。$j(x) = f(x)/(1 + \abs{x})$, $k(x) = g(x)/(1 + \abs{x})$とおく。(1)により$j$と$k$は有界である。そこで$M = \sup \abs{j(x)}$, $N = \sup \abs{k(x)}$とおく。$f$と$g$は一様連続なので
+    \[
+    \abs{x -y } < \grd \to \max{ \abs{ f(x) - f(y) },  \abs{ g(x) - g(y) }} < \ve
+     \]
+     なる$\grd > 0$がある。ここで$\abs{x - y} < \min{\grd, \ve}$とすると
+     \begin{align*}
+      \abs{ \f{f(x)g(x)}{1 + \abs{x}} - \f{f(y)g(y)}{1 + \abs{y}} } &\leq \abs{  j(x)g(x) - k(y)f(y)   } \\
+      &\leq   \abs{  j(x)(g(x)-g(y)) + k(y)(f(x)-f(y)) + g(y)j(x)  - f(x)k(y)    } \\
+      &\leq M \ve + N \ve + \abs{  g(y)j(x)  - f(x)k(y) } \\
+      &\leq M \ve + N \ve + \abs{  g(y)f(x) } \abs{ \f{1}{1 + \abs{x} } - \f{1}{1 + \abs{y} }} \\
+      &\leq M \ve + N \ve + \abs{  g(y)f(x) } \abs{ \f{1}{1 + \abs{x} } - \f{1}{1 + \abs{y} }} \\
+      &\leq M \ve + N \ve + \abs{  g(y)f(x) }  \f{ \abs{ \abs{y} - \abs{x} } }{ (1 + \abs{x})(1 + \abs{y})} \\
+      &\leq M \ve + N \ve + \abs{  j(x)k(y) } \abs{x - y }  \\
+      &\leq (M  + N  + MN) \ve
+     \end{align*}
+     より示すべきことがいえた。
+  \end{description}
+\end{proof}
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+$p,l$を素数とする。次数が$l$の$\F_p$上のモニックな一変数既約多項式の数を求めよ。ただし、$\F_p$は$p$個の元からなる体である。
+}
+\begin{proof}
+  $\gra \in \F_{p^l} \sm \F_p$に対して$\gra$の$\F_p$上の最小多項式を与える写像
+  \[
+  \vp \colon \F_{p^l} \sm \F_p \to \F_p[t]
+  \]
+  を考える。$\F_p[\gra]$は$\F_{p^l} / \F_p$の中間体だが、$[\F_{p^l} : \F_p] = l$は素数だと仮定していたので$\F_p[\gra] = \F_{p^l}$でなくてはならない。よって
+  \[
+  C = \setmid{ f \in \F_p[t] }{ \text{$f$はモニック既約$l$次多項式} }
+  \]
+  としたとき$\vp$の像は$C$に含まれており、$\vp \colon \F_{p^l} \sm \F_p \to C$と考えられる。いま$f \in C$とすると有限体の一意性により$\F_{p^l} \cong \F_p[t]/(f)$であるから、$t \in \F_p[t]/(f)$に対応する$\F_{p^l}$の元を$\beta$とおけば$\vp(\beta) = f$である。
+  つまり$\vp$は全射。有限体の体拡大は分離拡大なので、$\vp$の$C$での各点におけるファイバーの位数はつねに$l$である。よって$\# C = (p^l-p)/l$である。
+\end{proof}
+
+\newpage
+\subsubsection{}%4
+\barquo{
+$S^n = \setmid{(x_0, \cdots , x_n) \in \R^{n+1}}{ x_0^2 + \cdots +  x_n^2 = 1 }$を$n$次元球面とする。次の問に答えよ。
+\begin{description}
+  \item[(1)] $n \geq 1$とし、$f \colon S^n \to \R$を連続写像とする。このとき、$f(x) = f(-x)$を満たす$x \in S^n$が存在することを示せ。
+  \item[(2)] $n \geq 2$とし、$f \colon S^n \to S^1$を連続写像とする。このとき、$f(x) = f(-x)$を満たす$x \in S^n$が存在することを示せ。
+\end{description}
+}
+\begin{proof}
+\begin{description}
+  \item[(1)] ハイリホーによる。つねに$f(x) \neq f(-x)$だとしよう。このとき$g \colon S^n \to S^0$を
+  \[
+  g(x) = \f{ f(x) - f(-x) }{ \abs{f(x) - f(-x)} }
+  \]
+  で定めると$g$は連続であり、とくに$g(S^n)$は連結である。よって$g(S^n) = \{ 1 \}$または$g(S^n) = \{ -1 \}$であるが、$g(-x) = - g(x)$であるから矛盾。ゆえに$f(x) = f(-x)$なる$x$が存在することがわかる。
+  \item[(2)] $f$が基本群の間に誘導する群準同型$f_* \colon \pi_1(S^n) \to \pi_1(S^1)$を考える。$n \geq 2$という仮定より、$\pi_1(S^n) = 0$だから$f_*$はゼロ写像である。したがって$S^1$の普遍被覆を$p \colon \R \to S^1$とすると、$f$のリフト$h$が存在する。つまりある$h \colon S^n \to \R$が存在して
+  \[
+  \xymatrix{
+  {} & \R \ar[d]^p \\
+  S^n \ar[ru]^h \ar[r]^f & S^1
+  }
+  \]
+  を可換にする。(1)より$h(x) = h(-x)$なる$x \in S^n$が存在する。この$x$について$f(x) = p \circ h(x) = p \circ h(-x) = f(-x)$も成り立つ。よって示すべきことがいえた。
+\end{description}
+\end{proof}
+
+
+\newpage
+
+\subsubsection{}%5
+\barquo{
+$f(z)$は領域$D = \setmid{z \in \C}{0 < \abs{z} < 1}$で定義された正則関数で、
+\[
+\int_D \abs{f(x + iy)}^2 \ dx dy < \infty
+\]
+を満たすとする。このとき、$z = 0$は$f(z)$の除去可能特異点であることを示せ。
+}
+\begin{proof}
+  ハイリホーによる。$z=0$が$f$の除去可能特異点でないとする。つまり$f$の$z=0$のまわりでのLaurent展開を
+  \[
+  f(z) = \sum_{n = - \infty}^{\infty} a_n z^n  \quad (0 < \abs{z} < L)
+  \]
+  としたとき$a_{-k} \neq 0$なる$k \geq 1$があるとする。
+
+  $x + i y = r e^{i \grt}$と変数変換する。すると$dx dy = r dr d\grt$であって、
+  \[
+  \int_D \abs{f(x + iy)}^2 \ dx dy = \lim_{\ve \to + 0} \lim_{R \to 1- 0} \int_0^{2 \pi} d\grt \int_{\ve}^{R} \abs{ \sum_{n = - \infty}^{\infty} a_n r^n e^{i n \grt} }^2 r dr
+  \]
+  である。$\ve > 0$と$R < L$をいったん固定する。Laurent級数の一様収束性より
+  \[
+  f_N(z) = \sum_{n = - N}^{N} a_n z^n
+  \]
+  とおくと$f_N$はコンパクト集合$\setmid{z}{\ve \leq \abs{z} \leq R }$上で$f$に一様収束する。よって
+  \[
+\int_0^{2 \pi} d\grt \int_{\ve}^{R} \abs{ \sum_{n = - \infty}^{\infty} a_n r^n e^{i n \grt} }^2 r dr = \lim_{N \to \infty}
+\int_0^{2 \pi} d\grt \int_{\ve}^{R} r \left( \sum_{n = - N}^{N} a_n r^n e^{i n \grt} \right) \left( \sum_{m = - N}^{N}  \ol{a_m} r^m e^{i  m \grt} \right)   dr
+  \]
+  である。ここで$l \neq 0$のとき
+  \[
+  \int_0^{2 \pi } e^{i l \grt} d\grt = 0
+  \]
+  だから
+  \begin{align*}
+  \int_0^{2 \pi} d\grt \int_{\ve}^{R} \abs{ \sum_{n = - \infty}^{\infty} a_n r^n e^{i n \grt} }^2 r dr &=
+  \lim_{N \to \infty} \int_0^{2 \pi} d \grt \int_{\ve}^{R} \sum_{n = -N}^{N} \abs{a_n}^2 r^{2n+1} dr \\
+  &\geq 2 \pi  \int_{\ve}^{R} \abs{a_{-k}}^2 r^{1-2k} dr
+\end{align*}
+である。$k=1$のときには$\log R/\ve$が現れ、$k>1$のときには$(\ve^{2-2k}-R^{2-2k})/2(k-1)$が現れる。どちらも$\ve \to +0$, $R \to 1 - 0$の極限では無限大になるため、矛盾が得られる。よって$z=0$は除去可能特異点である。
+\end{proof}

@@ -1,0 +1,176 @@
+\section{平成25年度 数学I}
+
+\subsubsection{}%1
+\barquo{
+複素数を成分とする$2$次正方行列全体の集合を$M_2(\C)$で表す。$A \in M_2(\C)$は単位行列のスカラー倍ではないとし、$S = \setmid{B \in M_2(\C)}{AB = BA}$とおく。このとき、$X,Y \in S$なら$XY = YX$であることを示せ。
+}
+\begin{sol}
+この解答では、単に環といったとき可換とは限らないものとする。$X \in M_n(\C)$に対して部分環$Z(X)$を
+\[
+Z(X) = \setmid{ B \in M_2(\C) }{ XB = BX }
+\]
+により定める。$Y \in M_2(\C)$と$X$が共役で、$Y = PXP^{-1}$なる$P \in GL_2(\C)$が存在するとき、$B \in Z(X)$に対して
+$  (PBP^{-1}) Y = PBXP^{-1} = PXBP^{-1} = Y (PBP^{-1})$
+であるから$PBP^{-1} \in Z(Y)$である。つまり写像
+\begin{align*}
+  Z(X) &\to Z(Y) \\
+  B &\mapsto PBP^{-1}
+\end{align*}
+が存在する。これは全単射であり、環としての同型である。
+
+  $A$のJordan標準形を考えることにより
+  \[
+  \grL := PAP^{-1} = \pmat{ \beta & \grg \\ 0 & \grd}
+  \]
+  となるような正則行列$P$の存在がいえる。ただし$\grg=0$または$\beta = \grd$であるものとする。スカラー行列でないという仮定から、$\grg=0$のとき$\beta \neq \grd$であり$\beta = \grd$のときでも$\grg \neq 0$である。$Z(\grL)$を特定しよう。$B \in M_2(\C)$が与えられたとし
+  \[
+  B = \pmat{a& b \\ c &d  } \quad \grL = \pmat{ \beta & \grg \\ 0 & \grd}
+  \]
+  と表されていたとする。このとき計算すると
+  \begin{align*}
+    B \grL - \grL B = \begin{cases}
+    \grg \pmat{-c & a-d \\ 0 & c} &(\beta=\grd, \grg \neq 0) \\
+    (\beta - \grg) \pmat{0 & b \\ c & 0} &(\beta \neq \grd, \grg =0)
+  \end{cases}
+  \end{align*}
+  だから$Z(\grL)$は次のように求まる。
+
+  \begin{description}
+    \item[(1)] $\beta=\grd, \grg \neq 0$のとき
+    \[
+    Z(\grL) = \setmid{ \pmat{a & b \\ 0 & a} }{a,b \in \C }
+    \]
+    \item[(2)] $\beta \neq \grd, \grg =0$のとき
+    \[
+    Z(\grL) = \setmid{ \pmat{a & 0 \\ 0 & d} }{a,d \in \C}
+    \]
+  \end{description}
+
+  したがっていずれにせよ$Z(\grL)$は可換環である。よってそれと同型な$Z(A)$も可換環。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$b>a>0$を実数、$f \colon [0,\infty) \to \R$を連続関数とする。このとき以下を示せ。
+\begin{description}
+  \item[(i)]
+  \[
+  \lim_{\ve \to + 0} \int_{a \ve}^{a \ve} \f{f(x) }{x} \ dx = f(0) \log \f{b}{a}
+  \]
+  \item[(ii)] 広義積分$\int_{1}^{\infty} \f{f(x) }{x} \ dx$が収束するなら
+  \[
+  \int_{1}^{\infty} \f{f(bx) - f(ax) }{x} \ dx = f(0) \log \f{a}{b}
+  \]
+  が成り立つ。
+\end{description}
+}
+\begin{sol} ${}$
+\begin{description}
+  \item[(i)] 任意に$c > 0$が与えられたとする。仮定より
+  \[
+  0 \leq x < \grd \to \abs{ f(x) - f(0)} < c
+  \]
+  なる$\grd > 0$がある。そこで$\ve < b^{-1}\grd$とおけば
+  \begin{align*}
+    \abs{ \int_{a \ve}^{a \ve} \f{f(x) }{x} \ dx - f(0) \log \f{b}{a} } &\leq \abs{ \int_{a \ve}^{a \ve} \f{f(x) -f(0) }{x} \ dx } \\
+    &\leq  \int_{a \ve}^{a \ve}  \f{ \abs{ f(x) -f(0) }  }{x} \ dx  \\
+    &\leq c  \int_{a \ve}^{a \ve} \f{dx}{x} \\
+    &\leq c \log \f{b}{a}
+  \end{align*}
+  である。$c>0$は任意だったので、示すべきことがいえた。
+  \item[(ii)] $\ve > 0$をとる。このとき
+  \begin{align*}
+    \int_{\ve}^{\infty} \f{f(bx) - f(ax) }{x} \ dx - f(0) \log \f{a}{b} &=   \int_{b \ve}^{\infty} \f{ f(x) }{x} \ dx -  \int_{a \ve}^{\infty} \f{ f(x) }{x} \ dx +  f(0) \log \f{b}{a} \\
+    &= - \int_{a \ve}^{b \ve} \f{ f(x) }{x} \ dx + f(0) \log \f{b}{a}
+  \end{align*}
+  であるから(i)より従う。
+\end{description}
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%3
+\barquo{
+$p$を素数とする。アーベル群$A$は位数$p^4$であり、位数$p$の部分群$N$で$A/N \cong \zyu{p^3}$となるものをもつとする。このような$A$を同型を除いてすべて求めよ。
+}
+\begin{sol}
+有限生成Abel群の基本定理により$A$は次のいずれかに同型である。
+\begin{description}
+  \item[(1)] $\zyu{p^4}$
+  \item[(2)] $\zyu{p^3} \oplus \zyu{p}$
+  \item[(3)] $\zyu{p^2} \oplus \zyu{p^2}$
+  \item[(4)] $\zyu{p^2} \oplus (\zyu{p})^2$
+  \item[(5)] $(\zyu{p})^4$
+\end{description}
+一方で仮定により$A/N \cong \zyu{p^3}$である。よって$A/N$には位数が$p^3$以上であるような元が存在する。したがって(3),(4),(5)はありえないと判る。逆に(1)ならば$N = \kakko{p^3}$, (2)ならば$N = \kakko{(0,1)}$とおけば条件を満たす。よって$A$は$\zyu{p^4}$または$\zyu{p^3} \oplus \zyu{p}$に同型である。
+\end{sol}
+
+
+\newpage
+
+\subsubsection{}%4
+\barquo{
+写像$F \colon \R^4 \to \R^4$を$F(x, y , z, w) = (xy, y, z, w)$と定め、写像$f \colon S^3 \to \R^4$を$F$の$3$次元球面
+\[
+S^3 = \setmid{ (x,y,z,w) \in \R^4 }{ x^2 + y^2 + z^2 + w^2 = 1 }
+\]
+への制限とする。$S^3$の各点$p$における$f$の微分$df_p$の階数を求めよ。
+}
+\begin{sol}
+$g \colon \R^4 \to \R$を$g(x,y,z,w) = x^2 + y^2 + z^2 + w^2 - 1$で定める。$df_p$は$F$のヤコビアン$JF_p$を$\Ker dg_p$に制限したものと等しい。よって
+\[
+\Ker df_p = \Ker \pmat{JF_p \\ dg_p}
+\]
+であるので
+\[
+\rank df_p = \rank \pmat{JF_p \\ dg_p} - 1
+\]
+である。ここで$p=(x,y,z,w)$とおくと
+\begin{align*}
+  \rank \pmat{JF_p \\ dg_p} = \rank \pmat{y &0& 0& 0 \\ 0& 1& 0& 0 \\ 0& 0& 1& 0 \\ 0& 0& 0& 1 \\ x& 0& 0& 0  }
+\end{align*}
+なので
+\[
+\rank df_p = \begin{cases}
+2 &(x=y=0) \\
+3  &(x \neq 0 \text{または} y \neq 0)
+\end{cases}
+\]
+\end{sol}
+
+\newpage
+
+\subsubsection{}%5
+\barquo{
+$a,b>0$を実数、$n \geq 2$を整数とするとき、次の広義積分を求めよ。
+\[
+I_n = \int_{- \infty }^{\infty} \f{ \exp(ia (x-ib) )  }{ (x-ib)^n } \ dx
+\]
+}
+\begin{sol}
+$R > 0$とし、半径$R$の半円$C_R = \setmid{Re^{i \grt}}{ 0 \leq \grt \leq \pi}$を考える。$C_R$には$\grt$が増加する向きに向きが入っているものとする。
+\[
+f(z) = \f{ \exp(ia (z-ib) )  }{ (z-ib)^n }
+\]
+とおくと、留数定理により、任意の$R > b$に対して
+\[
+\int_{-R}^R f(x) \ dx + \int_{C_R} f(z) \ dz = 2 \pi i \Res(f,ib)
+\]
+である。いま計算すると
+\[
+\int_{C_R} \abs{f(z)} \ dz \leq \f{R e^{ab}\pi }{(R-b)^n}
+\]
+だから$n \geq 2$という仮定により$\lim_{R \to \infty} \int_{C_R} \abs{f(z)} \ dz = 0$である。よって$I_n = 2 \pi i \Res(f,ib)$である。
+\[
+f(z) = \f{1}{(z-ib)^n} \sum_{k=0}^{\infty} \f{ (ia)^k }{k!} (z-ib)^k
+\]
+だから
+\[
+I_n = \f{ 2\pi i (ia)^{n-1} }{ (n-1)! }
+\]
+と求まる。
+\end{sol}

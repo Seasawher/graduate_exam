@@ -1,0 +1,299 @@
+\section{平成27年度 基礎科目 II}
+
+\subsubsection{}%問1
+\barquo{
+$f(x), \phi(x)$は区間$[0,\infty)$上の実数値連続関数とし、さらに$\phi(x)$は
+\begin{gather*}
+  \phi(x) = \phi(x+1) \quad (x \geq 0) \\
+  \int_0^1 \phi(x) \ dx = 1
+\end{gather*}
+をみたすとする。このとき、任意の実数$a > 0$に対し
+\[
+\lim_{\grl \to \infty} \int_0^a f(x)\phi(\grl x) \ dx = \int_0^a f(x) \ dx
+\]
+が成り立つことを示せ。
+}
+\begin{sol}
+  示すべきことは
+  \[
+  \lim_{\grl \to \infty} \int_0^a f(x)(\phi(\grl x) - 1) \ dx = 0
+  \]
+  なので$\psi(x) = \phi(x) -1$とおく。$\ve > 0$が任意に与えられたとする。
+  \[
+  I_{\grl} = \int_0^a f(x)\psi(\grl x) \ dx
+  \]
+  とおく。すると
+  \[
+  I_{\grl} = \f{1}{\grl}  \int_0^{a\grl} f( y/ \grl) \psi(y) \ dy
+  \]
+  である。$a\grl = n + b$なる$n \in \Z$と$0 \leq b < 1$をとると
+  \[
+  I_{\grl} = \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} f( y/ \grl) \psi(y) \ dy + \f{1}{\grl}  \int_n^{n+b} f( y/ \grl) \psi(y) \ dy
+  \]
+  となるが、ここで$M = \int_0^1 \abs{\psi(x)} \ dx$とすると
+  \[
+  \int_n^{n+b}  \abs{f( y/ \grl) \psi(y) }  \ dy \leq \sup_{0 \leq x \leq a} \abs{f(x)} M
+  \]
+  だから$\grl \to \infty$のとき第2項は無視してよい。よって
+  \[
+    I_{\grl} = \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} f( y/ \grl) \psi(y) \ dy + O(1/\grl)
+  \]
+  であるが、
+  \[
+  0 = \f{1}{\grl}\sum_{k=0}^{n-1} f(k/\grl) \int_k^{k+1} \psi(y) \ dy
+  \]
+  であることから
+  \[
+  \abs{ I_{\grl} } \leq  \f{1}{\grl}  \sum_{k=0}^{n-1}  \int_k^{k+1} \abs{f( y/ \grl)  - f(k/\grl) } \abs{\psi(y)} \ dy + O(1/\grl)
+  \]
+  である。ここで$0 \leq y \leq n$のとき$0 \leq y/\grl \leq a$であることに注意する。$f$は$[0,a]$上一様連続なので
+  \[
+  \abs{x-y} < \grd \to \abs{f(x) - f(y)} < \ve
+  \]
+  なる$\grd > 0$がある。そこで$\grl > 1/\grd$とすると
+  \begin{align*}
+    \abs{I_{\grl}} &\leq \f{n \ve }{\grl} M + O(1/\grl) \\
+    &\leq aM\ve + O(1/\grl)
+  \end{align*}
+  が成り立つ。$\grl \to \infty$として$\limsup_{\grl \to \infty} \abs{I_{\grl}} \leq a \ve M$を得る。$\ve > 0$は任意だったので$\lim_{\grl \to \infty } I_{\grl} = 0$である。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%問2
+\barquo{
+$n$を正の整数とし、$A$を$n$次実正方行列で、交代行列であるとする。すなわち$A$の転置行列${}^t A$が$-A$に一致するとする。このとき、以下の問に答えよ。
+\begin{description}
+  \item[(i)] 任意の列ベクトル$\bfu \in \R^n$に対し$\norm{ (E-A) \bfu} \geq \norm{\bfu}$が成立することを示せ。ただし$E$は単位行列であり、$\bfu$はユークリッドノルム$\sqrt{ {}^t \bfu \bfu}$である。
+  \item[(ii)] $E-A$は正則行列であり、$(E+A)(E-A)^{-1}$は直行行列となることを示せ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $A$は実行列と仮定したので$A$の随伴行列は${}^t A$に等しい。よって
+    \begin{align*}
+      \kakko{ (E-A)\bfu, (E-A)\bfu} &= \kakko{ \bfu - A \bfu, \bfu - A \bfu} \\
+      &= \kakko{ \bfu, \bfu} - \kakko{ \bfu, A \bfu} - \kakko{ A \bfu, \bfu} + \kakko{A \bfu, A \bfu} \\
+      &= \kakko{ \bfu, \bfu} - \kakko{ {}^t A \bfu,  \bfu} - \kakko{ A \bfu, \bfu} + \kakko{A \bfu, A \bfu} \\
+      &= \kakko{ \bfu, \bfu} + \kakko{A \bfu, A \bfu} \\
+      &\geq  \kakko{ \bfu, \bfu}
+    \end{align*}
+    である。
+    \item[(ii)] (i)より、$\bfu \neq 0$ならば$(E-A)\bfu \neq 0$なので$E-A$は正則。$B = (E-A)^{-1}$とおく。このとき$\bfu, \bfv \in \R^n$に対して
+    \begin{align*}
+      \kakko{(E+A)B \bfu, (E+A)B \bfv} &= \kakko{ {}^t (E+A) (E+A)B \bfu, B \bfv } \\
+      &= \kakko{ (E-A) (E+A)B \bfu, B \bfv } \\
+      &= \kakko{ (E+A) (E-A)B \bfu, B \bfv } \\
+      &= \kakko{ (E+A)  \bfu, B \bfv } \\
+        &= \kakko{   \bfu, {}^t (E+A)B \bfv } \\
+    &= \kakko{   \bfu, \bfv }
+    \end{align*}
+    であるから$(E+A)B $は等長、つまり直行行列である。
+  \end{description}
+\end{sol}
+
+\newpage
+
+\subsubsection{}%問3
+\barquo{
+$a$を正の実数とするとき、次の広義積分を求めよ。
+\[
+\int_{-\infty}^{\infty} \f{x \sin x}{(x^2 + a^2)^2} \ dx
+\]
+}
+\begin{sol}
+$z \in \C$に対して
+\[
+f(z) = \f{z e^{iz} }{ (z^2 + a^2 )^2 }
+\]
+とおく。求める積分は
+\[
+I = \Im \int_{-\infty}^{\infty} f(x) \ dx
+\]
+である。$R > 0$に対して、反時計まわりに半径$R$の半円$\setmid{Re^{i\grt} }{0 \leq \grt \leq \pi}$を描くような積分路を$C_R$とかく。$S_R = [-R,R] \cup C_R$とおこう。このとき留数定理から
+\[
+\forall R > 0 \quad \int_{S_R} f(z) \ dz = 2 \pi i \Res(f, ai)
+\]
+が成り立つ。
+
+$R \to \infty $のときの$C_R$上での積分を評価しよう。$z = R e^{i\grt}$とおいて計算すると
+\begin{align*}
+  \int_{S_R} \abs{ f(z)} \ dz &\leq \f{ R^2 }{ (R^2 - a^2)^2 } \int_0^{\pi} e^{-R \sin \grt} \ d\grt \\
+  &\leq \f{ R^2 \pi }{ (R^2 - a^2)^2 }
+\end{align*}
+である。したがって$R \to \infty$のとき左辺は収束して$0$になる。これにより
+\[
+\int_{-\infty}^{\infty} f(x) \ dx = 2 \pi i \Res(f, ai)
+\]
+が判ったことになる。
+
+$b=ai$とおく。$f$の$b$での留数を求めたい。
+\[
+g(z) = \f{z e^{iz} }{ (z+b)^2 }
+\]
+とすると$g(z)(z-b)^{-2} = f(z)$である。$g$は$z = b$で正則なので、$g$の$z=b$の周りでのTaylor展開の一次の係数を求めればよい。つまり
+\[
+\Res(f, ai) = g'(b)
+\]
+である。計算すると
+\[
+g'(z) = \f{ e^{iz} ( (1+iz)(z+b) - 2z ) }{ (z+b)^3 }
+\]
+だから代入して
+\[
+g'(b) = \f{i e^{ib} }{4b} = \f{ e^{-a} }{ 4a }
+\]
+を得る。よって
+\[
+I = \Im \left( 2\pi i \cdot \f{ e^{-a} }{ 4a } \right) = \f{\pi e^{-a} }{2a }
+\]
+である。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%問4
+\barquo{
+$1$以上$3500$以下の整数$x$のうち、$x^3 + 3x$が$3500$で割り切れるものの個数を求めよ。
+}
+\begin{sol}
+$3500 = 2^2 \tm 5^3 \tm 7$なので、中国式剰余定理より$\Z / 3500 \Z \cong \Z / 4\Z \tm \Z / 125 \Z \tm \Z / 7\Z$である。
+いま$\Z / 4\Z$で$x$に値を代入することにより調べると$x^3 + 3x = 0 \in \Z / 4 \Z \iff x = 0, \pm 1$がわかる。
+
+$\Z / 7 \Z$で考えると$x^3 + 3x = x(x^2 + 3) = x(x^2 - 4)= x(x+2)(x-2)$であり、$\Z / 7 \Z$は整域だから$x^3 + 3x = 0 \in \Z / 7 \Z \iff x = 0, \pm 2$が判る。
+
+$\Z / 125 \Z$で考える。$x^3 + 3x = x(x^2 + 3)$であるが、$x^2 + 3$は決して$5$の倍数にならないので$\Z / 125 \Z$において常に単元である。よって$x^3 + 3x = 0 \in \Z / 125 \Z \iff x = 0$が判る。
+
+以上の議論により求める$x$の個数は$3 \tm 3 \tm 1 = 9$個である。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%5
+\barquo{
+$2$次元球面
+\[
+S^2 = \setmid{ (x,y,z) \in \R^3 }{ x^2 + y^2 + z^2 = 1 }
+\]
+上の関数
+\[
+f(x,y,z) = xy + yz + zx
+\]
+の臨界点をすべて求め、それらが非退化かどうかも答えよ。
+
+ただし、$p \in S^2$が$f$の臨界点であるとは、$S^2$の$p$のまわりの局所座標$(u,v)$に関して
+\[
+\f{\del f}{\del u}(p) = \f{\del f}{\del v}(p) = 0
+\]
+となることである。また、$f$の臨界点$p$は
+\[
+\pmat{
+\f{\del^2 f}{\del u^2}(p) & \f{\del^2 f}{\del u \del v}(p) \\
+  \f{\del^2 f}{\del u \del v}(p) & \f{\del^2 f}{\del v^2}(p)
+}
+\]
+が正則行列であるとき非退化であるという。なおこれらの定義は$(u,v)$のとり方にはよらない。
+}
+\begin{sol}
+  まず$f$の臨界点を求めよう。$P = (x,y,z) \in S^2$をとる。$\wt{f}$を$f$の$\R^3$への延長とし、写像$g \colon \R^3 \to \R$を$g(x,y,z) = x^2 + y^2 + z^2 - 1$で定める。このとき
+  \begin{align*}
+    \text{$p$が$f$の臨界点} &\iff \dim \Ker df_p = 2 \\
+    &\iff \dim \Ker \pmat{ J\wt{f}_p \\ dg_p} = 2 \\
+    &\iff \rank \pmat{ J\wt{f}_p \\ dg_p} = 1 \\
+    &\iff \rank \pmat{ y + z & x + z & x+z \\ 2x & 2y & 2z} = 1 \\
+    &\iff x+y+z=0 \;  \text{または} \; x=y=z
+  \end{align*}
+  である。ゆえに$f$の臨界点は$C = \setmid{(x,y,z) \in S^2}{x+y+z=0}$の点と、
+  \[
+  P = \left( \f{1}{\sqrt{3}} ,  \f{1}{\sqrt{3}} ,  \f{1}{\sqrt{3}} \right),
+  \quad Q =  \left( \f{-1}{\sqrt{3}} ,  \f{-1}{\sqrt{3}} ,  \f{-1}{\sqrt{3}} \right)
+  \]
+  である。$f$の非退化な臨界点の集合は、$C \cup \{ P \} \cup \{ Q \}$の中で孤立点でなくてはならないはずなので、$C$の点はすべて非退化ではない。
+
+  北極からの立体射影
+  \[
+  \vp(x,y,z) = \left( \f{x}{1-z}, \f{y}{1-z} \right) = (s,t)
+  \]
+  を考える。$\vp$の逆写像は$K = (1 + s^2 + t^2)/2$とおけば
+  \[
+  \vp^{-1}(s,t) = \left( \f{s}{K}, \f{t}{K}, \f{K-1}{K}  \right)
+  \]
+  とかける。よって$f= ((x+y+z)^2 -1)/2$により$T = s+t-1$とおくと
+  \[
+  h = f \circ \vp^{-1}(s,t) = \f{(2K+T) T}{2K^2}
+  \]
+  である。したがって面倒極まる計算を実行すると
+  \begin{align*}
+    \f{\del h}{\del s} &= \f{(K-sT)(K-T)}{K^3} \\
+      \f{\del h}{\del t} &= \f{(K-tT)(K-T)}{K^3} \\
+    \f{ \del^2 h}{\del s^2} &= \f{ K^2(3s-t) +KT(t-s-4s^2 -1) +3sT^2 }{K^4} \\
+  \f{ \del^2 h}{\del t^2} &= \f{ K^2(3t-s) +KT(s-t-4t^2 -1) +3tT^2 }{K^4} \\
+  \f{ \del^2 h}{\del s \del t} &= \f{ -(s+t+1)K^2 + 2(s+t+st)KT - 3stT^2 }{ K^4 }
+  \end{align*}
+  がわかる。ここで
+  \begin{align*}
+    \vp(P) &= \left( \f{1+\sqrt{3} }{2},  \f{1+\sqrt{3} }{2} \right)     \\
+\left( \f{1+\sqrt{3} }{2} \right)^2 &= \f{ 2 + \sqrt{3} }{2}  \\
+K(P ) &= \f{ \sqrt{3} (1+ \sqrt{3} ) }{2} \\
+K(P )^2 &= \f{ 3 (2+ \sqrt{3} ) }{2}
+  \end{align*}
+  を代入して忍耐強く計算すると
+  \begin{align*}
+    \f{ \del^2 h}{\del s^2}(\vp(P)) &= \f{ \del^2 h}{\del t^2}(\vp(P)) = \f{ -7-3\sqrt{3} }{2K(P)^4 } \\
+    \f{ \del^2 h}{\del s \del t}(\vp(P) ) &= 0
+  \end{align*}
+  を得る。よって$P$でのHessianは正則なので$P$は非退化。$\f{ \del^2 h}{\del s^2}$や$\f{ \del^2 h}{\del s \del t}$は$\Q$係数の有理式なので
+  \begin{align*}
+    \f{ \del^2 h}{\del s^2}(\vp(Q)) &= \f{ \del^2 h}{\del t^2}(\vp(Q)) = \f{ -7+3\sqrt{3} }{2K(Q)^4 } \\
+    \f{ \del^2 h}{\del s \del t}(\vp(Q) ) &= 0
+  \end{align*}
+  であり、$Q$も非退化。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%6
+\barquo{
+$a$は実数で$0 < a < \f{1}{4}$とする。このとき、区間$(0,\infty)$における常微分方程式
+\[
+\f{d^2 y}{d x^2} + \f{a}{x^2} y = 0
+\]
+の任意の解$y(x)$は$\lim_{x \to + 0} y(x) = 0$をみたすことを示せ。
+}
+\begin{sol}
+$y = x^{\beta}$とおくと
+\[
+\f{d^2 y}{dx^2} = \f{\beta (\beta -1)}{x^2} y
+\]
+である。ゆえに$\beta^2 - \beta + a = 0$なる$\beta$に対して$y = x^{\beta}$は特殊解である。$\beta^2 - \beta + a = 0$の解は
+\begin{align*}
+  \beta_1 &= \f{1}{2} + \sqrt{ \f{1}{4} - a} \\
+  \beta_2 &= \f{1}{2} - \sqrt{ \f{1}{4} - a}
+\end{align*}
+である。$0 < a< 1/4$という仮定より$\beta_1, \beta_2$はともに正の実数である。係数である$a/x^2$は区間$(0,\infty)$上で連続なので、常微分方程式の初期値問題の解の存在と一意性定理が適用できて、与えられた微分方程式の解空間は$2$次元ベクトル空間である。よって$x^{\beta_1}$と$x^{\beta_2}$は一次独立なので任意の解$y$は$x^{\beta_1}$と$x^{\beta_2}$の線形結合で書ける。よって$\lim_{x \to + 0} y(x)=0$である。
+
+\end{sol}
+
+
+\newpage
+
+\subsubsection{} %{問7}
+\barquo{
+$A$を実正方行列とする。このとき、ある正の整数$k$が存在して$\tr (A^k) \geq 0$となることを示せ。ただし$\tr$は行列のトレースを表す。
+}
+\begin{sol}
+  行列$A$のサイズを$n$とする。$A$の固有多項式の根を重複を込めて
+  \[
+  \grl_1, \cdots , \grl_r, \grl_{r+1}, \ol{\grl_{r+1}}, \cdots , \grl_{r+s}, \ol{\grl_{r+s}} \quad (r+2s = n)
+  \]
+  とおく。するとトレースは固有値の和なので
+  \[
+  \tr A^k = \sum_{i=1}^r \grl_i^k + 2  \sum_{i=1}^s \Re \grl_{r+i}^k
+  \]
+  と書ける。ここで$\grl_i$の偏角を考える。$\arg \grl_i = 2\pi \gra_i$ $(0 \leq \gra_i < 1)$とおく。このときDirichletの近似定理から
+  \[
+  \exists k \in \Z_{\geq 1} \; \forall 1 \leq i \leq s+r \; \exists m_i \in \Z \quad \abs{k\gra_i - m_i} < \f{1}{4}
+  \]
+  が成り立つ。この$k$について$\forall i \quad \arg \grl_i^k \in [0, \pi/2) \cup (3\pi / 2, 2\pi)$だから$\tr A^k \geq 0$が成り立つ。
+\end{sol}

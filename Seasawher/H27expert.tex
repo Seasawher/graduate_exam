@@ -1,0 +1,179 @@
+\section{平成27年度 専門科目}
+
+\subsubsection{}
+\barquo{
+$G$は非可換群で次の条件$(*)$を満たすとする。
+
+$(*)$ $N_1,N_2 \subset G$が相異なる自明でない (つまり${1}$とも$G$とも異なる) 正規部分群なら、$N_1 \not\subset N_2$である。
+
+このとき、以下の問に答えよ。
+\begin{description}
+  \item[(i)] $N_1, N_2$が相異なる$G$の自明でない正規部分群なら、$G = N_1 \tm N_2$であることを証明せよ。
+  \item[(ii)] $G$の自明でない正規部分群の数は高々$2$個であることを証明せよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] 仮定より$N_1 \cap N_2 \subsetneq N_i \subset G$かつ$N_1 \cap N_2 \lhd G$なので$N_1 \cap N_2 = 1$である。また$1 \subsetneq N_i \subsetneq N_1 N_2 $かつ$N_1 N_2 \lhd G$より$N_1 N_2 = G$である。したがって交換子が
+    $[N_1,N_2] \subset N_1 \cap N_2 = 1$より自明になるので、$N_1$と$N_2$の元は互いに可換。よって積をとる写像$N_1 \tm N_2 \to G$は準同型でかつ全単射なので同型である。
+    \item[(ii)] ハイリホーによる。相異なる$3$つの自明でない正規部分群$N_1, N_2, N_3$が存在したとしよう。相異なるという仮定から、(i)により$N_i N_j = G \; (i \neq j)$であり、$i \neq j$である限り$N_i$と$N_j$の元は互いに可換である。したがって$G = N_1 N_2$と$N_3$の元は可換なので、とくに$N_3$はAbel群である。同様にして各$N_i$がAbel群であることが判る。よってとくに$G$はAbel群であるが、$G$は非可換群であったはずなので矛盾。ゆえに示すべきことがいえた。
+\end{description}
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%問2
+\barquo{
+$X,Y,T$を変数とし、$A=\Z[X,Y]/(Y^2-6X^2)$, $B = \Z[X,T]/(T^2-6)$とおく。また、$A$における$X,Y$の剰余類を$x,y$, $B$における$X,T$の剰余類を$x',t$とする。$A$のイデアル$P_1,P_2$と$B$のイデアル$Q_1$を
+\[
+P_1 = xA + yA + 5A, \; P_2 = (x-y)A + 5A, \; Q_1 = x'B + (t+1)B
+\]
+と定めるとき、以下の問に答えよ。
+\begin{description}
+  \item[(i)] 単射な環準同型$\phi \colon A \to B$で$\phi(x)=x'$, $\phi(y)=x't$であるものが存在することを証明せよ。
+  \item[(ii)] $P_1,P_2$は$A$の素イデアルで$P_2 \subsetneq P_1$であることを証明せよ。
+  \item[(iii)] (i)により$A$を$B$の部分環とみなすとき、$Q_1$は$B$の素イデアルで$Q_1 \cap A = P_1$であることを証明せよ。
+  \item[(iv)] $B$の素イデアル$Q_2$で$Q_2 \subset Q_1$, $Q_2 \cap A = P_2$となるものは存在しないことを証明せよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+\item[(i)] $\wt{\phi} \colon \Z[X,Y] \to B$を$\wt{\phi}(X) = x'$, $\wt{\phi}(Y) = x't$で定める。このときあきらかに$(Y^2 - 6X^2) \subset \Ker \wt{\phi}$である。逆に$f \in \Ker \wt{\phi}$とする。このとき
+\[
+f(X,Y)=f_0(X) + f_1(X) Y + g(X,Y)(Y^2 - 6X^2)
+\]
+なる$f_0, f_1 \in \Z[X]$と$g \in \Z[X,T]$がある。よって
+\[
+f_0(X) + f_1(X,T)XT \in (T^2 - 6)
+\]
+であるが、$T$についての次数の考察から$f_0 = f_1 = 0$でなくてはならない。$f \in \Ker \wt{\phi}$は任意だったから$\Ker \wt{\phi} = (Y^2 - 6X^2)$である。したがってそのような単射$\phi$は存在する。
+\item[(ii)] 商環を計算すると
+\begin{align*}
+  A/P_1 &\cong \Z[X,Y]/(Y^2 - 6X^2, X, Y , 5) \\
+  &\cong \F_5 \\
+  A/P_2 &\cong \Z[X,Y]/(Y^2 - 6X^2, X-Y , 5) \\
+  &\cong \F_5[X]
+\end{align*}
+であり、それぞれ整域なので$P_1$と$P_2$は素イデアル。$P_2 \subset P_1$はあきらかであろう。また商環が異なるので$P_1 \neq P_2$である。
+\item[(iii)] やはり商環の計算により示す。
+\begin{align*}
+  B/Q_1 &\cong \Z[X,T]/(T^2 - 6, X,T+1) \\
+  &\cong \F_5
+\end{align*}
+より$\F_5$は整域なので$Q_1$は素イデアルである。また
+\begin{align*}
+  B/P_1 B &\cong \Z[X,T]/(T^2-6,X,XT,5) \\
+  &\cong \Z[X,T]/(T^2-1,X,5) \\
+  &\cong \F_5[T]/(T-1)(T+1) \\
+  &\cong \F_5 \tm \F_5
+\end{align*}
+により$P_1B = (x', t+1)(x', t-1)$がわかる。よって$P_1 B \subset Q_1$であり、とくに$P_1 \subset Q_1 \cap A$である。$Q_1 \cap A$は素イデアルで、$P_1$は極大イデアルなので$P_1 = Q_1 \cap A$でなくてはいけない。
+\item[(iv)] ハイリホーによる。そのような$Q_2$が存在したとする。
+\begin{align*}
+  B/P_2B &\cong  \Z[X,T]/(T^2-6,5,X-XT) \\
+  &\cong \F_5[X,T]/(T^2-1,5,X(1-T) ) \\
+  &\cong \F_5[X,T]/(T-1)(T+1, X) \\
+  &\cong \F_5[X] \tm \F_5
+\end{align*}
+により$P_2B = (t-1)(t+1,x')$である。$Q_2$は素イデアルと仮定したことから、$P_2B \subset Q_2$なので$(t-1) \subset Q_2$あるいは$Q_1 =  (t+1,x') \subset Q_2$でなくてはいけない。$P_1 \neq P_2$なので、$(t-1) \subset Q_2$ということになる。しかしこのとき
+\begin{align*}
+  Q_1 &= Q_1 + Q_2 \\
+  &\supset (t-1, t+1,x') \\
+  &\supset B
+\end{align*}
+となり矛盾。よって示すべきことがいえた。
+  \end{description}
+\end{sol}
+
+\newpage
+
+\subsubsection{}%問3
+\barquo{
+$\C(t)$を$\C$上の$1$変数有理関数体とする。$a$を複素数とし、$s=t^3 + 3t^2 + at \in \C(t)$とおく。$\C$上$s$で生成された$\C(t)$の部分体を$\C(s)$とするとき、以下の問に答えよ。
+\begin{description}
+\item[(i)] 拡大次数$[\C(t):\C(s)]$を求めよ。
+\item[(ii)] $\C(t)/\C(s)$がガロア拡大となる複素数$a$をすべて求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(i)] $t$は$\C(s)$係数の多項式
+    \[
+    F := X^3 + 3X^2 + aX -(t^3+3t^2+at)
+    \]
+    の根である。よって$[\C(t):\C(s)] \leq 3$である。
+
+    まず$[\C(t):\C(s)] \geq 2$を示そう。ハイリホーによる。仮に$t \in \C(s)$だったとする。$s$は$\C$上超越的なので$\C[s]$はPIDであり、とくに整閉である。よって$t$は$\C[s]$上整なので$t \in \C[s]$である。しかし$s \in \C[t]$は$3$次式なのでこれは矛盾。よって$[\C(t):\C(s)] \geq 2$である。
+
+    次に$[\C(t):\C(s)] \geq 3$を示そう。ハイリホーによる。仮に$[\C(t):\C(s)] = 2$だったとしよう。$t$の$\C(s)$上の共役を$\{t,\ol{t} \}$とする。$2$次拡大は正規拡大なので$\ol{t} \in \C(t)$であるが、
+    $\ol{t}$は$\C[t]$上整なので$\ol{t} \in \C[t]$である。仮定より$F$は$\C(s)$係数の多項式として可約な$3$次式なので$1$次式を因数として含む。よって$F$の根$u$であって$u \in \C(s)$なるものがある。むろん$\C[s]$の整閉性により実際には$u \in \C[s]$である。このとき$\C[t]$において
+    \[
+    ut\ol{t} = t^3 +3t^2 + at
+    \]
+    だから$u\ol{t} = t^2 +3t + a$であり、右辺の次数が$2$なので$u \in \C$である。よって$\ol{t}$は$2$次式ということになるが、これは$t + \ol{t} \in \C[s]$に矛盾。以上により$[\C(t):\C(s)] = 3$が結論される。
+    \item[(ii)] $\C(t)/\C(s)$がGalois拡大であるという命題を(P)であらわすことにする。(P)は次と同値である。
+\begin{oframed}
+  \textbf{(P1)} \quad $\C(s)$係数の多項式$F$のすべての根は$\C(t)$に含まれる。
+\end{oframed}
+  多項式の根が$\C(t)$に入ることと、$\C(t)$で因数分解できることは同じなので(P1)は次と同値。
+  \begin{oframed}
+    \textbf{(P2)} \quad ある$f,g,h \in \C(t)$が存在して$F(X) = (X-f)(X-g)(X-h)$が成り立つ。
+  \end{oframed}
+  $F$は$\C[t]$係数のモニック多項式であり、かつ$\C[t]$は整閉なので$f,g,h \in \C[t]$としてよい。つまり(P2)は次と同値。
+  \begin{oframed}
+    \textbf{(P3)} \quad ある$f,g,h \in \C[t]$が存在して
+    \begin{align*}
+      f+g+h &= -3 \\
+      fg + gh + hf &= a \\
+      fgh &= t(t-\beta)(t-\grg)
+    \end{align*}
+    が成り立つ。ただし$\beta,\grg$は$t^2 + 3t + a= (t-\beta)(t-\grg)$なる$\C$の元とする。
+  \end{oframed}
+  $f+g+h$が定数で$fgh$が$3$次式という条件より、$\deg f = \deg g = \deg h = 1$でなくてはならない。$f,g,h$を適当に並び替えることにより、ある$b,c,d \in \C$が存在して$f(t) =bt$, $g(t) =c(t-\beta)$, $h(t) =d (t-\grg)$と表せるとしてよい。このとき計算すると
+  \begin{align*}
+    f+g+h + 3&= (b+c+d)t - c\beta -d\grg +3 \\
+    fg + gh + hf-a &= (bc+cd+db)t^2 + (-bc\beta +3cd - bd\grg)t +(cd-1)a \\
+    fgh &= bcd t(t-\beta)(t-\grg)
+  \end{align*}
+  である。よって$b,c,d$は次を満たさなくてはならない。
+  \begin{align*}
+    b+c+d&=0 \\
+    bc+cd+db &= 0 \\
+    bcd &= 1 \\
+    c\beta + d\grg - 3 &= 0 \\
+    -bc\beta + 3cd - bd \grg &= 0 \\
+    (cd-1)a &= 0
+  \end{align*}
+  前半の$3$つの条件は、$b,c,d$が$X^3-1$の異なる$3$つの根であることを意味する。残りの条件も使うと
+  \[
+  3b^2 =  b^2(c\beta +d\grg) = 3bcd = 3
+  \]
+  より$b=1$が得られる。よって$c,d$は$X^2 + X + 1$の異なる$2$つの根である。よって、与えられた条件は
+  \[
+  c\beta + d\grg = 3
+  \]
+  と要約できる。つまり(P3)は次と同値である。
+  \begin{oframed}
+    \textbf{(P4)} \quad $X^2+X+1$の異なる$2$つの根$c,d$をうまく選べば$c\beta + d\grg = 3$が成り立つ。
+  \end{oframed}
+  いま(P4)が成り立つと仮定する。$-3 = \beta + \grg$により$(1+c)\beta + (1+d)\grg = 0$であるが、これは$1+d+c=0$により$d\beta + c\grg=0$を意味する。よって
+  \begin{align*}
+    0 &= (c\beta + d\grg )( d\beta + c\grg) \\
+    &= \beta^2 + \grg^2 - a \\
+    &= (\beta + \grg)^2 - 3a \\
+    &= 9 -3a
+  \end{align*}
+  である。これは$a=3$ということである。逆に$a=3$だと仮定しよう。このとき$\beta,\grg$が
+  \begin{align*}
+    \beta &= \f{-3 + \sqrt{-3}}{2} = \sqrt{3} e^{5\pi i/6} \\
+        \grg &= \f{-3 - \sqrt{-3}}{2} = \sqrt{3} e^{7 \pi i/6}
+  \end{align*}
+  と与えられていたとすると、$d = e^{2\pi i/3}$, $c = e^{4\pi i/3}$とおけば
+  \[
+  c\beta + d\grg = \sqrt{3} ( e^{\pi i/6}  +  e^{11 \pi i/6} ) = 3
+  \]
+  となり(P4)が成立する。ゆえに求める条件をみたす$a$は$a=3$である。
+  \end{description}
+\end{sol}

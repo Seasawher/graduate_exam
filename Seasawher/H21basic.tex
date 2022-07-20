@@ -1,0 +1,88 @@
+\section{平成21年度 基礎数学}
+
+\subsubsection{}%1
+\barquo{
+次の$4$次実行列が逆行列を持たないような実数$x$の値をすべて求めよ。
+\[
+\pmat{x& 1& 0& 0 \\ 1& x& 1& 0 \\ 0& 1& x& 1 \\ 0& 0& 1& x}
+\]
+}
+\begin{sol}
+  固有多項式が$x^4 - 3x^2 + 1$なので答えは$x = \pm (\s{5} \pm 1)/2 $ (復号任意)である。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$a,b$を複素数とし、$4$次複素正方行列$A,B$を
+\[
+A = \pmat{ a & 1& 6& 8 \\ 1& a& -1& 2 \\ 0& 0& b& 7 \\ 0& 0& 0& 2}, \quad
+B = \pmat{ 9 & 0& 0& 0 \\ -7& 2& 0& 0 \\ 4& 1& 7& 0 \\ -8& 5& 3& 4}
+\]
+で定める。
+\begin{description}
+  \item[(1)] 行列$A,B$の固有値を求めよ。
+  \item[(2)] 複素数を成分にもつ正則行列$P$で$PAP^{-1} = B$をみたすものが存在するような$a,b$を求めよ。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $B$の固有値は$2,4,7,9$である。一方$A$の固有多項式は$(t-a+1)(t-a-1)(t-b)(t-2)$なので、$A$の固有値は$a-1,a+1,b,2$である。
+    \item[(2)] そのような$P$が存在するとする。このとき$A$と$B$の固有値の集合は等しくなくてはいけないので$a=8, b=4$である。逆に$a=8, b=4$のとき$A$も$B$も対角化可能であるので、そのような$P$は存在する。よって条件を満たすのは$a=8, b=4$である。
+  \end{description}
+\end{sol}
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+次の重積分を計算せよ。
+\[
+\iint_D \s{a^2 - x^2 - xy - y^2} dx dy
+\]
+ただし、$a$は正定数で、$D = \setmid{(x,y) \in \R^2}{x^2 + xy + y^2 \leq a^2}$とする。
+}
+\begin{sol}
+  $x^2 + xy  + y^2 = (x + y/2)^2 + (\s{3}y/2)^2$であることに目を付け
+\[
+s = x +  \f{y}{2} , \quad t = \f{ \s{3}}{2} y
+\]
+とおく。すると$ds dt = \s{3}/ 2 dx dy $であって
+\begin{align*}
+  \iint_D \s{a^2 - x^2 - xy - y^2} dx dy &= \f{2}{\s{3}} \iint_{s^2 + t^2 \leq a^2} \s{a^2 - s^2 - t^2} ds dt \\
+  &= \f{2}{\s{3}} \int_0^{2 \pi} \ d\grt \int_0^a r \s{a^2 - r^2} dr \\
+  &= \f{2 \pi}{\s{3}} \int_0^{a^2}  \s{a^2 - u} du \\
+  &= \f{ 4 \pi a^3 }{ 3 \s{3}}
+\end{align*}
+と計算できる。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%4
+\barquo{
+閉区間$[0,1]$上の函数$f_n$を$f_n(x) = x(1-x)^n \; (x \in [0,1])$で定める。
+\begin{description}
+  \item[(1)] 函数列$\{ f_n \}_{n=1}^{\infty}$は$[0,1]$上一様収束することを示せ。
+  \item[(2)] 函数列$\{ f'_n \}_{n=1}^{\infty}$は$[0,1]$上一様収束しないことを示せ。ただし、$f'_n$は$f_n$の導函数とする。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] 微分すると$f'(x) = (1-x)^{n-1} (1 - (n+1)x)$である。よって$[0,1]$上での増減を考えると
+\[
+\norm{f_n} \leq f \left( \f{1}{n+1} \right) = \f{1}{n+1} \left( 1 + \f{1}{n} \right)^{-n}
+\]
+であることが判る。よって$f_n$は$[0,1]$上$0$に一様収束する。
+\item[(2)] 見たところ
+\[
+\lim_{n \to \infty} f_n'(x) = \begin{cases}
+1 &(x=0) \\
+0 &(0 < x \leq 1)
+\end{cases}
+\]
+なので$f_n'$の各点収束極限は連続にならない。よって一様収束していない。
+  \end{description}
+\end{sol}

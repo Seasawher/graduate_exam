@@ -1,0 +1,222 @@
+\section{平成26年度 基礎科目II}
+
+\subsubsection{}%1
+\barquo{
+実数値関数$f(x)$は$[0,\infty)$で連続で$\lim_{x \to \infty} f(x) = 1$とする。このとき
+\[
+\lim_{n \to \infty} \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx = 1
+\]
+であることを証明せよ。
+}
+\begin{sol}
+  Gamma関数についてのよく知られた事実として
+  \[
+  \int_0^{\infty} e^{-x} x^n \ dx = n !
+  \]
+  が成り立つことを注意しておく。$\ve > 0$が与えられたとする。仮定より
+  \[
+  x \geq R \to \abs{f(x) - 1} < \ve
+  \]
+  なる$R > 0$がある。このとき
+  \begin{align*}
+    \abs{ \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx - 1} &= \f{1}{n !}  \abs{ \int_0^{\infty} f(x) e^{-x} x^n \ dx - \int_0^{\infty} e^{-x} x^n \ dx} \\
+    &\leq \f{1}{n !} \int_0^{\infty} \abs{  f(x) - 1} e^{-x} x^n  \ dx \\
+    &\leq \ve + \f{1}{n !} \int_0^{R} \abs{  f(x) - 1} e^{-x} x^n  \ dx
+  \end{align*}
+  である。よって
+  \[
+  \limsup_{n \to \infty} \abs{ \f{1}{n !} \int_0^{\infty} f(x) e^{-x} x^n \ dx - 1} \leq \ve
+  \]
+  が従う。$\ve > 0$は任意だったので、示すべきことがいえた。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$n,m$を正の整数とする。$x$を変数とする$n$次以下の$\C$係数多項式の全体を$V_n$とし、和・差・スカラー倍により$V_n$を$\C$上のベクトル空間とみなす。$m$個の複素数$\gra_1, \cdots , \gra_m$に対し、線形写像$F \colon V_n \to \C^m$を
+\[
+F(f) = (f(\gra_1), \cdots , f(\gra_m)))
+\]
+で定める。このとき
+\begin{description}
+\item[(i)] $F$が単射になるための必要十分条件を$n,m,\gra_1, \cdots , \gra_m$のみを用いて述べよ。
+\item[(ii)] $F$が全射になるための必要十分条件を$n,m,\gra_1, \cdots , \gra_m$のみを用いて述べよ。
+\end{description}
+}
+\begin{sol}
+  $\gra_1, \cdots , \gra_m$のうち相異なるものの数を$k$とする。適当に番号を付けなおすことにより$\gra_1, \cdots , \gra_k$が相異なるとしてよい。$V_n$の基底$\{1,x , \cdots , x^n\}$と$\C^m$の標準基底について$F$を行列表示すると
+  \[
+  \pmat{ 1 & \gra_1 & \cdots &  \gra_1^n \\  1 & \gra_2 & \cdots &  \gra_2^n \\ \vdots & \vdots & & \vdots \\ 1 & \gra_m & \cdots &  \gra_m^n}
+  \]
+  となる。したがって
+  \[
+  \rank F = \rank \pmat{ 1 & \gra_1 & \cdots &  \gra_1^n \\  1 & \gra_2 & \cdots &  \gra_2^n \\ \vdots & \vdots & & \vdots \\ 1 & \gra_k & \cdots &  \gra_k^n}
+  \]
+  である。右辺の行列のサイズが$s := \min\{ k,n+1 \}$の部分正方行列
+  \[
+  \grD = \pmat{ 1 & \gra_1 & \cdots &  \gra_1^{s-1} \\  1 & \gra_2 & \cdots &  \gra_2^{s-1} \\ \vdots & \vdots & & \vdots \\ 1 & \gra_s & \cdots &  \gra_s^{s-1}}
+  \]
+  の行列式はVandermondeの行列式であって
+  \[
+  \abs{\det \grD} = \prod_{i > j} \abs{ \gra_i - \gra_j } \neq 0
+  \]
+  である。したがって$\rank F = \min\{ k,n+1 \}$である。ここまでの準備をもってすれば問に答えることはやさしい。
+  \begin{description}
+    \item[(i)] $F$が単射であることは$\rank F = \dim V_n$と同値。つまり$n+1 \leq k$である。
+    \item[(ii)] $F$が全射であることは$\rank F = \dim \C^m$と同値。つまり$m = k \leq n+1$である。
+  \end{description}
+
+\end{sol}
+
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+$L_R (R>0)$は複素平面において$-R + 2i$を始点、$R+2i$を終点とする線分を表す。このとき
+\[
+\lim_{R \to \infty} \int_{L_R} \f{\cos z}{z^2 + 1} \ dz
+\]
+の値を求めよ。
+}
+\begin{sol}
+  $z = t + 2i$と変数変換して整理すると
+  \[
+  \int_{L_R} \f{\cos z}{z^2 + 1} \ dz = \f{e^{-2}}{2} \int_{-R}^{R} \f{ e^{it} }{ (t+3i)(t+i) } \ dt + \f{e^{2}}{2} \int_{-R}^{R} \f{ e^{-it} }{ (t+3i)(t+i) } \ dt
+  \]
+  である。そこで
+  \begin{align*}
+    f(z) &= \f{ e^{iz} }{ (z+3i)(z+i) } \\
+    g(z) &= \f{ e^{-iz} }{ (z+3i)(z+i) }
+  \end{align*}
+  とおく。上半平面を反時計回りにまわる半円を$C_R = \setmid{Re^{i\grt} }{0 \leq \grt \leq \pi}$とし、下半平面を反時計周りにまわる半円を$D_R = \setmid{ Re^{i\grt} }{ \pi \leq \grt \leq 2\pi}$とする。留数定理により任意の$R>3$について
+  \begin{align*}
+    \int_{-R}^R f(t) \ dt + \int_{C_R} f(z) \ dz &= 0 \\
+    - \int_{-R}^R g(t) \ dt + \int_{D_R} g(z) \ dz &= 2\pi i (\Res (g,-3i) + \Res(g, -i))
+    \end{align*}
+    である。計算すると
+    \[
+    \lim_{R \to \infty} \int_{C_R} f(z) \ dz = \lim_{R \to \infty} \int_{D_R} g(z) \ dz = 0
+    \]
+    であるから、ゆえに
+\begin{align*}
+  \int_{- \infty}^{\infty} f(t) \ dt  &= 0 \\
+  - \int_{-\infty}^{\infty} g(t) \ dt  &= 2\pi i (\Res (g,-3i) + \Res(g, -i))
+\end{align*}
+である。$g$の$z = -3i$および$z=-i$における極は一位なので
+\begin{align*}
+  \Res (g,-3i) &= \f{i}{2e^3} \\
+  \Res(g, -i) &=  - \f{i}{2e}
+\end{align*}
+である。ゆえに
+\[
+\int_{-\infty}^{\infty} g(t) \ dt = \pi (e^{-3} - e^{-1})
+\]
+であることが判ったので
+\[
+\lim_{R \to \infty} \int_{L_R} \f{\cos z}{z^2 + 1} \ dz = \f{ \pi(1-e^2) }{2e}
+\]
+が結論される。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%4
+\barquo{
+群$G = (\zyu{4}) \tm (\zyu{6} ) \tm (\zyu{9})$の指数$3$の部分群の個数を求めよ。
+}
+\begin{sol}
+  $3G = \setmid{3g}{g \in G}$とする。$G$の指数$3$の部分群$H$は$3G \subset H$を満たすので、$G/3G \cong \zyu{3} \tm \zyu{3}$の位数$3$の部分群と対応する。位数$3$の群は巡回群なので、位数$3$の部分群の数は位数$3$の元の数のちょうど半分である。よって求める部分群の数は$(9-1)/2 = 4$個である。
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%5
+\barquo{
+$f \colon S^2 \to S^1$を$C^{\infty}$級写像とする。ただし、$S^n$は$n$次元球面
+\[
+\setmid{ (x_0, \cdots , x_n) \in \R^{n+1} }{ \sum_{i=0}^n x_i^2 = 1 }
+\]
+を表す。このとき$S^2$上の少なくとも$2$点において$f$の微分は零写像になることを示せ。
+}
+\begin{sol}
+  被覆写像$p \colon \R \to S^1$をとる。これは普遍被覆である。$q \in S^2$, $r \in \R$とし$f(q ) = p(r)$であるものとする。このとき$\pi_1(S^2, q) = 1$だから
+  \[
+  f_*( \pi_1(S^2, q) ) \subset p_*( \pi_1(\R,r))
+  \]
+  である。よって$f$の$p$に関するリフト$g \colon S^2 \to \R$が存在して次を可換にする。
+  \[
+  \xymatrix{
+  {} & \R \ar[d]^p \\
+  S^2 \ar[ru]^g  \ar[r]^f & S^1
+  }
+  \]
+  $p$は局所的に微分同相なので$g$も$C^{\infty}$級である。ここで$S^2$はコンパクトなので$g$は最大値と最小値を持つ。したがって$g$は少なくとも$2$つの臨界点を持つ。任意の$x \in S^2$に対して$df_x = dp_{g(x)} \circ dg_x$だから、$f$も少なくとも$2$つの臨界点を持つことになる。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%6
+\barquo{
+$a$は$0$でない実数、$p(t)$は$\R$上の連続な周期関数で周期$T \; (T>0)$をもつとする。このとき常微分方程式
+\[
+\f{d}{dt} x(t) = ax(t) + p(t)
+\]
+の解$x(t)$で、周期$T$を持つ周期関数となるものが唯一つ存在すること証明せよ。
+}
+\begin{sol}
+  $p$は連続なので常微分方程式の初期値問題の解の存在と一意性定理が適用できる。よって周期$T$の解が唯一存在するということは、$x(t+T) - x(t)$が恒等的にゼロになるような初期値$x(0)$が唯一つ存在することと同じことである。いま与えられた関数$p$の周期性から解$x$は
+  \[
+  \f{d}{dt} ( x(t+T) - x(t) ) = a( x(t+T) - x(t))
+  \]
+を満たす。よって$ x(t+T) - x(t) = Ce^{at}$を満たすような定数$C$が存在する。$C = x(T)-x(0)$であるから、問題は$x(T)-x(0)=0$となるような初期値$x(0)$の存在と一意性を示すことに帰着する。
+
+与えられた微分方程式は線形非斉次なので$x(t)=e^{at} y(t)$と変数変換すれば解くことができて、解は
+\[
+x(t) = e^{at} \int_0^t e^{-as} p(s) \ ds + e^{at} x(0)
+\]
+である。ゆえに$M =  \int_0^T e^{-as} p(s) \ ds$とおけば
+\[
+x(T) - x(0) = e^{aT} M + (e^{aT} - 1)x(0)
+\]
+である。ゆえに求める周期解は初期値
+\[
+x(0) = - \f{ e^{aT} M }{ e^{aT} - 1}
+\]
+に対応しているわけで、これで存在と一意性がいえた。
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%7
+\barquo{
+$n$を正の整数とし、$n$次実正方行列$A=(a_{ij})_{1 \leq i,j \leq n}$において、不等式
+\[
+\abs{a_{ii}} > \sum_{1 \leq j \leq n, j \neq i} \abs{a_{ij}}
+\]
+がすべての$i = 1, \cdots , n$に対して成立しているとする。ただし、右辺の和は$1$から$n$までの整数$j$で$i$以外のものにわたる。このとき、$A$は正則であることを示せ。
+}
+\begin{sol}
+  $Av=0$なる$v \in \R^n$が与えられたとする。
+  \[
+  \abs{v_m} = \max_i \abs{v_i}
+  \]
+  とおく。このとき
+  \begin{align*}
+    \abs{ a_{mm} v_m } &= \abs{ a_{mm} v_m - \sum_{j=1}^n a_{mj} v_j } \\
+    &= \abs{\sum_{j \neq m} a_{mj} v_j } \\
+    &\leq \sum_{j \neq m} \abs{ a_{mj}} \abs{  v_j } \\
+    &\leq \abs{v_m} \sum_{j \neq m}  \abs{  a_{mj} }
+  \end{align*}
+  だから
+  \[
+  \abs{v_m} ( \abs{a_{mm}} - \sum_{j \neq m}  \abs{  a_{mj} } ) \leq 0
+  \]
+  であり、仮定から$\abs{v_m} = 0$でなくてはいけない。これは$A$が正則であることを意味する。
+\end{sol}

@@ -1,0 +1,72 @@
+\section{平成24年度 数学II}
+
+\subsubsection{}%1
+\barquo{
+$1$以上の整数$a$に対して$K = \Q( \s{3 + a \s{5}})$が$\Q$のGalois拡大体となるものを求め、そのような$a$に対してGalois群$\Gal(K/\Q)$を求めよ。
+}
+\begin{sol}
+  以下、この解答では$[\Q(\s{2},\s{5}): \Q] = 4$は認めて使う。
+
+  $\beta = \s{3 + a \s{5}}$とおく。$\beta$は$f(X) = X^4 - 6X^2 + 9 -5a^2 \in \Z[X]$の根である。$\beta$の共役元を調べたいので、$f$の既約性をいいたい。そのために$[K:\Q]=4$を示そう。$M := \Q(\s{5})$とおく。$[K:M]=2$を示せば十分である。
+
+  ハイリホーで$[K:M]=2$を示そう。仮にそうでないとする。このとき$\beta \in M$である。$\beta^2 = 3 + a\s{5}$より、
+  \[
+  \Norm_{M/\Q} (\beta)^2 = 9 - 5a^2
+  \]
+  である。$\beta \in M$は$\Z$上整なので、$\Norm_{M/\Q} (\beta) \in \Z$であり、したがって$9 - 5a^2 \in \Z$は平方数である。これは$a=1$でなくてはならないことを意味する。このとき、そもそも
+  \[
+  \beta = \s{3 + \s{5}} = \f{ 1 + \s{5}}{ \s{2}}
+  \]
+  だから$\s{2} \in M$ということになる。これは矛盾。したがって$[K:M]=2$であり、とくに$f \in \Q[X]$は既約多項式である。
+
+  よって$\grg := \s{3 - a\s{5}}$としたとき$\beta$の$\Q$上の共役元は$\{ \pm \beta, \pm \grg \}$である。ゆえに$K$の$\Q$上のGalois閉包を$L$とおくと$L = \Q(\beta, \grg) = K(\s{9-5a^2})$である。これにより$a \geq 2$のとき$K \neq L$なので$K/\Q$はGalois拡大ではない。
+  よって$K/\Q$がGalois拡大になるのは$a=1$のときである。
+
+  $a=1$とすると先述のように$\beta = (1+\s{5})/\s{2}$なので$\Q(\s{2},\s{5}) \subset K$である。$\Q$上の拡大次数が同じなので$\Q(\s{2},\s{5}) = K$であり、Galois拡大の推進定理から$\Gal(K/\Q) = \zyu{2} \tm \zyu{2}$であることが判る。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+\begin{description}
+  \item[(1)] $n$は$2$以上の整数とし、$\zeta_n$を$1$の原始$n$乗根とする。$\C[[x,y]]$は変数$x,y$についての$\C$上の二変数形式的ベキ級数環とする。
+  \[
+  R = \setmid{ f(x,y) \in \C[[x,y]]  }{ f(\zeta_n x, \zeta_n^{-1} y) = f(x,y) }
+  \]
+  とおく。環$R$は$\C$上の二変数形式的ベキ級数環に$\C$代数として同型ではないことを示せ。
+  \item[(2)] 環
+  \[
+  S = \setmid{ f(x,y) \in \C[[x,y]]  }{ f(\zeta_n x, \zeta_n y) = f(x,y)   }
+  \]
+  は$n > 2$のとき、$\C$代数として$R$に同型ではないことを示せ。
+\end{description}
+}
+\begin{sol} ${}$
+\begin{description}
+\item[(1)] $R$の元は$x^i y^j \; (i-j \in n\Z)$という形の元の形式和なので$R = \C[[x^n,xy,y^n]]$であって、$R$は$\frakm_R = (x^n,xy,y^n)$を極大イデアルとする局所環である。$\C$ベクトル空間$\frakm_R / \frakm_R^2$の次元を求めよう。
+\[
+\frakm_R / \frakm_R^2 = (x^n,xy,y^n) / (x^{2n}, x^2 y^2, y^{2n}, x^{n+1}y, x^ny^n , xy^{n+1})
+\]
+である。$x^n,xy,y^n$は$\frakm_R / \frakm_R^2$において線形独立なので次元は$3$以上。また$\frakm_R / \frakm_R^2$は$3$つの元で生成されているので次元は$3$以下であることもいえる。よって$\dim_{\C} \frakm_R / \frakm_R^2 = 3$であることが判った。
+
+一方で局所環$\C[[x,y]]$の極大イデアルを$\frakm = (x,y)$とすると
+\[
+\frakm / \frakm^2 = (x,y) /(x^2 , xy , y^2)
+\]
+であるから$\dim_{\C} \frakm / \frakm^2 = 2$なので同型ではない。
+\item[(2)] $S$の元は$x^i y^j \; (i+j \in n\Z)$という形の元の形式和なので
+\[
+S = \C[[x^n, x^{n-1}y, \cdots , xy^{n-1} , y^n]]
+\]
+と表せる。局所環$S$の極大イデアル$\frakm_S$は
+\[
+\frakm_S = (x^n, x^{n-1}y, \cdots , xy^{n-1} , y^n)
+\]
+と表される。$\frakm_S^2$は次数が$2n$であるような元で生成されるので、$\frakm_S / \frakm_S^2$において
+\[
+\{ x^n, x^{n-1}y, \cdots , xy^{n-1} , y^n \}
+\]
+は線形独立である。よって$\dim_{\C} (\frakm_S / \frakm_S^2) \geq n+1 $である。いま$n \geq 3$と仮定したので、これで示すべきことがいえたことになる。
+\end{description}
+\end{sol}

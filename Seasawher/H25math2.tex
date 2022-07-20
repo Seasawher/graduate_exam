@@ -1,0 +1,114 @@
+\section{平成25年度 数学II}
+
+\subsubsection{}%1
+\barquo{
+体$K = \Q(\s{N}, \s{i+1})$が$\Q$上のGalois拡大となるような最小の正の整数$N$と、そのときのGalois群$\Gal (K/ \Q)$を求めよ。ただし$i = \I$とする。
+}
+\begin{sol}
+  以下この解答では$[\Q(\s{2},i): \Q]=4$は認めて使う。
+
+$\s{i+1}$は$(T^2-1)^2 + 1=T^4 - 2T^2 +2$の根のひとつである。$T^4 - 2T^2 +2 \in \Z[T]$は$p=2$についてEisenstein多項式なので$T^4 - 2T^2 +2 \in \Q[T]$は既約元である。とくに$[\Q(\s{i+1}):\Q]=4$がわかる。さらに
+\begin{align*}
+  T^4 - 2T^2 +2 &= (T^2 -1)^2 + 1 \\
+  &= (T^2 - 1 + i)(T^2 - 1 - i) \\
+  &= (T^2 - \s{2} e^{- \pi i/4} )(T^2 - \s{2} e^{\pi i/4} ) \\
+  &= (T - \sqrt[4]{2} e^{- \pi i/8} )(T + \sqrt[4]{2} e^{- \pi i/8} )(T - \sqrt[4]{2} e^{\pi i/8} )(T + \sqrt[4]{2} e^{ \pi i/8} )
+\end{align*}
+であるから、$\gra = \sqrt[4]{2} e^{\pi i/8}$とおいたとき$\s{i+1}$の共役は$\gra, \ol{\gra},- \gra, - \ol{\gra} $である。したがって$K$の$\Q$上のGalois閉包を$\wt{K}$とすると$\gra \ol{\gra} = \s{2}$より
+$\wt{K} = \Q(\s{N}, \s{2}, \gra)$である。だから$N=2$とおけば$K/\Q$はGalois拡大である。
+
+$N=2$が最小であることを示すには、$\Q(\gra)/\Q$がGalois拡大でないことを言わねばならない。ハイリホーで示す。$\Q(\gra)/\Q$がGalois拡大だと仮定する。このとき$\ol{\gra} \in \Q(\gra)$なので$\s{2} \in \Q(\gra)$である。$i \in \Q(\gra)$はあきらかなので$\Q(i, \s{2}) \subset \Q(\gra)$であり、
+$\Q$上の拡大次数が同じだから$\Q(i, \s{2}) = \Q(\gra)$である。$G := \Gal(\Q(\gra)/ \Q) = \Gal(\Q(i, \s{2}) / \Q)$とする。このとき$\grs \in G$を
+\[
+\begin{cases}
+  \grs(\s{2}) = - \s{2} \\
+  \grs(i) = i
+\end{cases}
+\]
+により定め、$\tau \in G$を複素共役とすると$G = \{1, \grs , \tau , \tau \grs \}$である。このとき$\grs(\gra)$は何になるか、ということを考える。$\grs(\gra) = \gra$とすると$\grs$が恒等写像となってしまうのでおかしい。$\grs(\gra) = \ol{\gra}$とすると、$\grs$と$\tau$が一致してしまうことになりおかしい。$\grs(\gra) = - \gra$なら、
+\[
+- \s{2} = \grs( \s{2} ) = \grs( \gra \ol{\gra} ) = - \gra \grs( \ol{\gra} )
+\]
+より$\grs(\ol{\gra}) = \ol{\gra} $である。これは$\ol{\gra}$が$\kakko{\grs}$の不変体$\Q(i)$に属することを意味しており、$[\Q(\gra):\Q] > [\Q(i): \Q]$に矛盾。もしも$\grs(\gra) = - \ol{\gra}$なら、
+\[
+- \s{2} =  - \ol{\gra} \grs( \ol{\gra} )
+\]
+より$\grs(\ol{\gra}) = \gra$である。これは$\grs^2(\gra) = - \grs(\ol{\gra}) = - \gra$を意味し、$\grs^2 = 1$であることに矛盾。いずれにせよ矛盾が得られたので、$\Q(\gra)/\Q$はGalois拡大ではない。とくに$\s{2}$は$\Q(\gra)$の元ではなく、$K/\Q(\gra)$が$2$次拡大であることも従う。
+
+あとは$K = \Q(\s{2}, \gra)$としてGalois群$G := \Gal(K/\Q)$を求めよう。$K$は中間体$N := \Q(\s{2})$と$M := \Q(\gra)$の合成体として得られるので、$G$の部分群として$\Gal (K/N) \cap \Gal(K/M) = 1$である。$[K:\Q] = 8$より$[K:N]=4$であり、積をとる写像(準同型とはいっていない)
+\[
+\Gal (K/N) \tm \Gal(K/M) \to G
+\]
+は全単射である。$N/\Q$がGalois拡大であることにより$\Gal(K/N) \lhd G$であることも含めると、$G$が次の半直積で表されることがわかる。
+\[
+G \cong \Gal (K/N) \rtimes \Gal(K/M)
+\]
+
+しかし半直積で表された、で済ますわけにはいかない。次に$\Gal(K/N)$の元を決定しよう。$\gra \in K$は$N$上の多項式$T^4 - 2T^2 + 2 \in N[T]$の根である。$[K:N]=4$なのでこれは既約多項式。したがって$K$は既約多項式$T^4 - 2T^2 +2 \in N[T]$の$N$上の最小分解体だから、
+$\Gal(K/N)$は根の集合$\{ \gra, \ol{\gra} , - \gra, - \ol{\gra} \}$に推移的に作用する。
+\[
+\gra_1 = \gra , \quad \gra_2 = \ol{\gra} , \quad \gra_3 = - \gra , \quad \gra_4 = - \ol{\gra}
+\]
+と添え字付けることにより、$\Gal(K/N) \subset G \subset \frakS_4$とみなす。複素共役を$\tau \in \Gal(K/N)$とおくと、$\tau = (12)(34)$である。推移性により、ある$\grs \in \Gal(K/N)$であって$\grs(\gra ) = - \gra$なるものがある。このとき
+\[
+\s{2} = \grs( \gra \ol{\gra} ) = - \gra  \grs(\ol{\gra} )
+\]
+より$\grs( \ol{\gra}) = - \ol{\gra}$であることが判る。つまり$\grs = (13)(24)$である。$\grs , \tau \in \frakS_4$は互いに可換であり、これで$\Gal(K/N) = \kakko{(12)(34) , (13)(24) } = \{ 1, (1 3)(2 4), (1  4)(2  3), (1  2)(3  4) \}$であることがいえた。
+
+次に$\Gal(K/M)$の元を決定する。$k \in \Gal(K/M)$を$k(\s{2}) = -\s{2}$なる元とする。このとき
+\[
+- \s{2} = k( \gra \ol{\gra}) = \gra k( \ol{\gra})
+\]
+より$k(\ol{\gra}) = - \ol{\gra}$であって、$k = (2 4)$であることがわかった。まとめると
+\[
+G = \kakko{ (1 3)(2 4), (1  2)(3  4) , (2 4) } \subset \frakS_4
+\]
+である。$(12)(34)(24)=(1234)$なので、これは
+\[
+G = \kakko{ (1234), (24) } \cong D_4
+\]
+であることを意味している。なお位数$8$の有限群であって、正規でない部分群を持つのは$D_4$だけであることを知っているなら、それを使ってもよい。
+\end{sol}
+
+
+\newpage
+
+
+\subsubsection{}%2
+\barquo{
+$A = \C[x,y]$を$\C$上の$2$変数多項式環とし、$A$の部分環$B$を
+\[
+B = \setmid{ f(x,y) \in A }{  f(-x,-y) = f(x,y) }
+\]
+と定める。このとき、次の問(1),(2)に答えよ。
+\begin{description}
+  \item[(1)] $A$の極大イデアル$m_0 = (x,y)$, $m_1 = (x-1,y)$に対し、$n_0 = m_0 \cap B$, $n_1 = m_1 \cap B$とおく。このとき、剰余環$A/n_0 A$, $A/ n_1 A$の$\C$上のベクトル空間としての次元を求めよ。
+  \item[(2)] $A$が$B$加群として自由加群ではないことを証明せよ。
+\end{description}
+}
+\begin{sol} ${}$
+\begin{description}
+  \item[(1)] $B$は偶数次の項だけからなる$A$の元全体と一致するので、
+  \[
+B = \C[x^2, xy, y^2]
+  \]
+  である。いま$(x^2,xy,y^2)B \subset n_0$であるが、$(x^2,xy,y^2)B$は極大イデアルで$n_0$は素イデアルなので$(x^2,xy,y^2)B = n_0$であり、
+\begin{align*}
+  A/ n_0 A &\cong \C[x,y]/(x^2,xy,y^2) \\
+  &\cong \C^{3}
+\end{align*}
+と求まる。また$(x^2-1,xy,y^2)B \subset n_1$であるが、$(x^2 - 1,xy,y^2)B$が極大イデアルであることと$n_1$が素イデアルであることにより$(x^2 - 1,xy, y^2)B = n_1$である。よって
+\begin{align*}
+  A/ n_1 A &\cong \C[x,y]/(x^2 - 1,xy, y^2) \\
+  &\cong \C[x,y]/(x - 1,xy, y^2)(x + 1,xy, y^2) \\
+  &\cong \C[x,y]/(x - 1,y)(x + 1,y) \\
+  &\cong \C^2
+\end{align*}
+である。
+\item[(2)] ハイリホーによる。仮に$A$が自由$B$加群だったと仮定すると、$A \cong B^{\oplus k}$なる$k$がある。このとき$i$によらずに
+\[
+A/ n_i A \cong A \ts_B B / n_i \cong (B/ n_i)^{\oplus k} \cong \C^{\oplus k}
+\]
+となるはずなので、矛盾。よって$A$は自由$B$加群ではない。
+\end{description}
+\end{sol}

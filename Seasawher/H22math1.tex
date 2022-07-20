@@ -1,0 +1,164 @@
+\section{平成22年度 数学I}
+
+\subsubsection{}%1
+\barquo{
+$A^5 = 2E_n$を満たす$n$次正方行列で成分がすべて有理数のものが存在するための、$n$に関する必要十分条件を求めよ。(ただし、$E_n$は$n$次単位行列である)
+}
+\begin{sol}
+  $A^5 = 2E_n$なる$A \in M_n(\Q)$が存在したとする。このとき$(\det A)^5 = 2^n$より$\det A \in \Q$は$\Z$上整である。よって$\Z$が整閉であることから$\det A \in \Z$であり、$n$は$5$の倍数である。
+
+  逆に$n$が$5$の倍数だと仮定する。$A^5 = 2E_n$となるような$A$を構成したいが、ブロック分けすることにより$n=5$の場合に帰着できる。だから$n=5$としよう。固有多項式を$\Phi$で表すことにする。
+
+  このとき$A^5 = 2E_5$であることと$\Phi_A(t) = t^5 -2$であることは同値である。なぜならば！$\Phi_A(t) = t^5 -2$ならばCaly-Hamiltonの定理より$A^5 = 2E_5$であることが直ちにわかる。逆に$A^5 = 2E_5$とする。このとき$A$の$\Q$上の最小多項式は$t^5 -2$を割り切るはずだが、
+  $t^5 -2 \in \Q[t]$は既約多項式なので、$t^5 -2$が最小多項式である。ゆえに再びCaly-Hamiltonの定理より$t^5 - 2$は$\Phi_A(t)$を割り切ることがわかるが、どちらも$5$次モニック多項式なので両者は一致していなくてはならない。よって$\Phi_A(t)=t^5 -2$が従う。ゆえにかくのごとし。そこで$\Phi_A(t) = t^5 -2$となるような$A$を構成すればいいことになるが、それは
+  \[
+  t^5 - 2 = \det \pmat{ t& -1& 0& 0& 0 \\ 0& t& -1& 0& 0 \\ 0& 0& t& -1& 0  \\ 0& 0& 0& t& -1 \\ -2 &0& 0& 0& t}
+  \]
+  なので
+  \[
+  A =  \pmat{ 0& 1& 0& 0& 0 \\ 0& 0& 1& 0& 0 \\ 0& 0& 0& 1& 0  \\ 0& 0& 0& 0& 1 \\ 2 &0& 0& 0& 0}
+  \]
+  とおけば$\Phi_A(t)=t^5 - 2$となる。以上により求める必要十分条件は、$n$が$5$の倍数であることである。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+$f$を、点$0$を含む開区間で$C^1$級の函数とするとき、極限
+\[
+\lim_{h \to + 0} \f{1}{h^2} \left\{ \int_0^h f(x) \ dx - h f(0) \right\}
+\]
+を求めよ。
+}
+\begin{sol}
+  $g(x) = f(x) - f(0)$とおく。$\ve > 0$を$g \in C^1[-\ve, \ve]$となるようにとっておく。このとき
+  \[
+ \f{1}{h^2} \left\{ \int_0^h f(x) \ dx - h f(0) \right\} = \f{1}{h} \int_0^1 g(hy) \ dy
+  \]
+  である。ここでLebesgueの収束定理を使うことができる。なぜならば！$h_n \to 0$なる点列$0 < h_n < \ve$が与えられたとする。このとき$h_n$によらず$[0,1]$上で一様に
+  \[
+  \abs{ \f{g(h_n y) }{h_n}  } =   \abs{ \f{g(h_n y) - g(0) }{h_n y}  } \abs{y} \leq M \abs{y}
+  \]
+  と抑えられる。ただし$M$は
+\[
+M = \sup_{x \in [- \ve, \ve]} \abs{ \f{g(x) - g(0)}{x}  }
+\]
+と定められる定数である。$g$の$0$の近傍での微分可能性により、$(g(x)-g(0))/x$は連続函数であり$M < \infty$であることに注意する。$M\abs{y}$は$[0,1]$上可積分なので収束定理が使える。ゆえにかくのごとし。したがって
+\begin{align*}
+  \lim_{h \to + 0} \f{1}{h^2} \left\{ \int_0^h f(x) \ dx - h f(0) \right\} &= g'(0) \int_0^1 y \ dy \\
+  &= \f{g'(0)}{2} \\
+  &= \f{f'(0)}{2}
+\end{align*}
+となることが判る。
+\end{sol}
+
+
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+$(\zyu{525})^{\tm}$の元で位数が$4$であるものの個数を求めよ。ただし$(\zyu{525})^{\tm}$は可換環$\zyu{525}$の可逆な元全体の作る群である。
+}
+\begin{sol}
+  $525 = 3 \tm 5^2 \tm 7$なので、中国式剰余定理により
+  \[
+  (\zyu{525})^{\tm} = (\zyu{3})^{\tm} \tm (\zyu{25})^{\tm} \tm (\zyu{7})^{\tm}
+  \]
+  である。$(\zyu{3})^{\tm}$と$(\zyu{7})^{\tm}$は有限体の乗法群なので巡回群。$(\zyu{25})^{\tm}$も巡回群である。なぜならば！$2 \in (\zyu{25})^{\tm}$を考える。計算するとこのとき$\# \kakko{2} = 20$である。一方で$\# (\zyu{25})^{\tm} = 25 -5 = 20$なので$2$は全体を生成する。ゆえにかくのごとし。以上により
+  \begin{align*}
+      (\zyu{525})^{\tm} &\cong \zyu{2} \oplus \zyu{20} \oplus \zyu{6} \\
+      &\cong (\zyu{2})^2 \oplus \zyu{4} \oplus \zyu{3} \oplus \zyu{5}
+  \end{align*}
+  だから、位数$4$の元は$4 \tm 2 \tm 1 \tm 1 = 8$個である。
+\end{sol}
+
+\newpage
+
+\subsubsection{}%4
+\barquo{
+$X$を位相空間、$e \in X$とし
+\[
+\grO = \setmid{\gra \colon [0,1] \to X}{\text{$\gra$は連続写像、$\gra(0)=\gra(1)=e$}}
+\]
+とする。$\grO$の同値関係$\simeq$を次で定義する。
+
+$\gra , \beta \in \grO$に対して、連続写像$F \colon [0,1] \tm [0,1] \to X$で
+\begin{align*}
+  F(t,0) &= \gra(t) \quad (0 \leq t \leq 1) \\
+  F(t,1) &= \beta(t) \quad (0 \leq t \leq 1) \\
+  F(0,s) &= F(1,s)= e \quad (0 \leq s \leq 1)
+\end{align*}
+を満たすものが存在するとき、$\gra \simeq \beta$と定める。また、位相空間$X$は
+\[
+\mu(x,e) = \mu(e,x) = x \quad (x \in X)
+\]
+を満たす連続写像$\mu \colon X \to X \to X$をもつものとする。$\gra , \beta \in \grO$に対して$\grO$の元$\gra * \beta$と$\gra \sh \beta$を次で定義する。
+\begin{align*}
+  (\gra * \beta)(t) &= \begin{cases}
+  \gra(2t) &(0 \leq t \leq 1/2) \\
+  \beta(2t-1) &(1/2 \leq t \leq 1)
+\end{cases} \\
+(\gra \sh \beta)(t) &= \mu(\gra(t), \beta(t)) \quad (0 \leq t \leq 1)
+\end{align*}
+このとき、次の命題(1),(2),(3)を示せ。
+\begin{description}
+  \item[(1)] $\gra , \beta, \gra',\beta' \in \grO$に対して$\gra \simeq \beta$, $\gra' \simeq \beta'$ならば$\gra \sh \gra' \simeq \beta \sh \beta'$である。
+  \item[(2)] $\gra , \beta \in \grO$に対して$\gra \sh \beta \simeq \gra * \beta$である。
+  \item[(3)] $\gra , \beta \in \grO$に対して$\gra \sh \beta \simeq \beta * \gra$である。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+    \item[(1)] $\gra$から$\beta$へのホモトピーを$F$とし、$\gra'$から$\beta'$へのホモトピーを$F'$とする。ここで$H \colon [0,1] \tm [0,1] \to X$を$H(s,t) = \mu( F(t,s), F'(t,s) )$で定める。この$H$が$\gra \sh \gra'$から$\beta \sh \beta'$へのホモトピーを与える。
+    \item[(2)] 形式的に$\gra \beta$平面を考える。つまり$X$の元であって$\mu(\gra(s), \beta(t))$と表される点のことを$(s,t)_{\mu}$と書くことにするのである。すると曲線$\gra * \beta$は$\gra \beta$平面では原点$e = (0,0)_{\mu}$を出発して直進し$P =(1,0)_{\mu}$で左折して$R=(1,1)_{\mu}$に至るような曲線$\grg$に対応する。
+    対して$\gra \sh \beta$は$e$と$R$をまっすぐつなぐ線分$\grd$に対応する。$\gra * \beta$から$\gra \sh \beta$へのホモトピーを作ることは、$\grg$から$\grd$へのホモトピーを作ることに対応している。
+
+    そこでたとえば点$( (2-s)/2, s/2 )$を経由して$e$と$R$をつなぐ折れ線を考えれば、それがホモトピーになることがわかる。つまり$K \colon [0,1] \tm [0,1] \to X$を
+    \begin{align*}
+      K(s,t) &= \begin{cases}
+      ( (2-s)t, st )_{\mu} &(0 \leq t \leq 1/2) \\
+      (  (2-s)/2 + s(2t-1)/2, s/2 + (2-s)(2t-1)/2  )_{\mu} &(1/2 \leq t \leq 1)
+    \end{cases} \\
+    &= \begin{cases}
+    \mu( \gra((2-s)t), \beta(st) ) &(0 \leq t \leq 1/2) \\
+    \mu(  \gra( st - s + 1 ),\beta(s-st + 2t -1 ) ) &(1/2 \leq t \leq 1)
+  \end{cases}
+    \end{align*}
+    と定めればよい。
+    \item[(3)] $\gra * \beta$から$\beta * \gra$へのホモトピーを作れば十分だが、それには$L(s,t) = K(2s,t)$とすればよい。
+  \end{description}
+\end{sol}
+
+\newpage
+
+
+\subsubsection{}%5
+\barquo{
+次の積分を求めよ。
+\[
+\int_{- \infty}^{\infty} \f{ e^{ix} - 1 }{x(x^2 +1)} dx
+\]
+}
+\begin{sol}
+  被積分関数を
+  \[
+  f(z) = \f{ e^{iz} - 1 }{z(z^2 +1)}
+  \]
+  とおく。$f$は$\C$上有理型関数で、極は$z = \pm i$に$1$位のものがあるのみ。$z = 0$は除去可能特異点である。
+
+  複素平面の原点を中心とする半径$R$の円の上半分$C_R = \setmid{ Re^{i \grt} }{ 0 \leq \grt \leq \pi }$を考える。留数定理により、すべての$R > 1$に対して
+  \[
+  \int_{C_R} f(z) \ dz + \int_{-R}^R f(x) \ dx = 2 \pi i \Res(f,i)
+  \]
+  が成り立つ。ここで計算すると
+  \[
+  \abs{\int_{C_R} f(z) \ dz  } \leq \f{ 2\pi }{ R^2 - 1 }
+  \]
+  だから$R \to \infty$とすると
+  \[
+  \int_{- \infty}^{\infty} f(x) \ dx = i \pi (  1 - e^{-1})
+  \]
+  が得られる。
+\end{sol}

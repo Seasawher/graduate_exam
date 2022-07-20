@@ -1,0 +1,231 @@
+\section{令和２年度 基礎科目}
+
+\subsubsection{}%1
+\barquo{
+次の積分を計算せよ。
+\[
+\iiint_D xyz \ dx dy dz
+\]
+ただし、$D = \setmid{(x,y,z) \in \R^3}{x^2 + y^2 + z^2 \leq 1, x \geq 0, y \geq 0, z \geq 0}$とする。
+}
+\begin{sol}
+  球面極座標を使う。$x = r \cos \grt \cos \psi$, $y = r \sin \grt \cos \psi$, $z = r \sin \psi \quad (0 \leq \grt < 2 \pi, -\pi/2 \leq \psi \leq \pi/2, r \geq 0)$とおく。
+  $dx dy dz = r^2 \abs{\cos \psi} dr d\grt d\psi$である。この変換により$D$は
+  \[
+  E = \setmid{ (r , \grt , \psi)  \in \R^3}{ 0\leq r \leq 1, 0 \leq \grt \leq \pi/2 , 0 \leq \psi \leq \pi/2}
+  \]
+  に移される。よって
+  \begin{align*}
+    \iiint_D xyz \ dx dy dz = \int_0^1 r^5 dr \int_0^{\pi/2} \cos \grt \sin \grt d\grt \int_0^{\pi/2} \cos^3 \psi \sin \psi d\psi = \f{1}{48}
+  \end{align*}
+  である。
+\end{sol}
+
+
+\newpage
+
+\subsubsection{}%2
+\barquo{
+$a$を複素数とし、３次複素正方行列$A$を次のように定める。
+\[
+A = \pmat{1 &0& 1 \\ -1 & 1 &0 \\ 1& a- 1& 1}
+\]
+このとき、$A$の固有値をすべて求めよ。また、各固有値に対する固有空間の次元を求めよ。
+}
+\begin{sol}
+  固有多項式を計算すると$t(t-a)(t-2)$になるので、固有値は$0,2,a$である。
+  \[
+  \rank(aE - A(a)) = \rank \pmat{a-1& 0& -1 \\ 1& a-1& 0 \\ -1 &1-a& 0 } = 2
+  \]
+  だから$a$の値によらずに($a=0$または$a=2$のときであっても)
+  \[
+  \dim E(0,a) = \dim E(2,A) = \dim E(a,A) = 1
+  \]
+  である。
+\end{sol}
+
+
+\newpage
+
+\subsubsection{}%3
+\barquo{
+$V,W$を有限次元複素ベクトル空間、$f \colon V \to W$, $g \colon W \to V$を線形写像とし、任意の$w \in W$に対して$f(g(w)) = w$が成り立つものとする。このとき$V$の部分空間$V_0,V_1$で、以下の３条件(i),(ii),(iii)をすべて満たすようなものが存在することを示せ。
+\begin{description}
+  \item[(i)] $V=V_0 \oplus V_1$, すなわち$V$は$V_0$と$V_1$の直和である。
+  \item[(ii)] 任意の$v \in V_0$に対し、$g(f(v)) = 0$
+  \item[(iii)] 任意の$v \in V_1$に対し、$g(f(v)) = v$
+\end{description}
+}
+\begin{rem}
+  $V,W$が有限次元という仮定は必要がない。
+\end{rem}
+\begin{proof}
+  $V_0 = \Ker f$, $V_1 = \Im g$とおけば条件を満たすことを示そう。
+
+  $v \in \Ker f \cap \Im g$とする。$v = g(w)$なる$w \in W$がある。よって$0 = f(v) = f(g(w)) = w$だから$v = g(0) = 0$である。$v$は任意だったから、$\Ker f \cap \Im g = 0$である。
+
+  また$v \in V$が任意に与えられたとする。$v - g(f(v)) \in \Ker f$なので、$v = (v - g(f(v))) + g(f(v)) \in \Ker f + \Im g$である。よって(i)が満たされる。(ii)と(iii)が成り立つことはあきらかなので、これで示すべきことがいえた。
+\end{proof}
+
+\newpage
+
+
+\subsubsection{}%4
+\barquo{
+開区間$(0,\infty)$上の実数値連続関数$f$が広義単調減少、つまり$0 < x \leq y$ならば$f(x) \geq f(y)$とする。さらに広義積分$\int_0^{\infty} f(x) dx$が収束するとする。
+\begin{description}
+  \item[(1)] 任意の$x \in (0, \infty)$に対して$f(x) \geq 0$となることを示せ。
+  \item[(2)] $\lim_{x \to + 0} xf(x) = \lim_{x \to \infty} xf(x) = 0$を示せ。
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[(1)] ハイリホーによる。仮に$f(c) < 0$なる$c >0$が存在したとする。このとき任意の$R > c$について
+    \[
+    \int_c^R f(x) dx \leq \int_c^R f(c) dx \leq (R-c) f(c)
+    \]
+    だから$\int_c^{\infty} f(x) dx = - \infty$となる。これは広義積分$\int_0^{\infty} f(x) dx$が収束するという仮定に矛盾する。
+    \item[(2)] $R > 0$をとると
+    \begin{align*}
+      \int_R^{2R} f(x) dx \geq \int_R^{2R} f(R) dx
+      &\geq \f{1}{2}( 2R f(2R) )
+    \end{align*}
+    である。仮定より$R \to \infty$または$R \to + 0$のとき左辺はゼロに収束する。よってそのとき$R f(R) \to 0$である。
+  \end{description}
+\end{proof}
+
+\newpage
+
+\subsubsection{}%5
+\barquo{
+$\gra$は$0 < \gra < 1$を満たす定数とする。このとき広義積分
+\[
+\int_0^{\infty} \f{x^{\gra}}{1+x^2} \ dx
+\]
+を求めよ。
+}
+\begin{proof}
+  $f(z) = z^{\gra}/ (1 + z^2)$とおく。
+  $z^{\gra} = \exp( \gra \log z )$なので$f$は$z=0$を分岐点とする多価関数になっている。また$f$は$z=\I$と$z=- \I$に一位の極を持つ。$z > 0$のとき$f(z) > 0$となるような分枝を選んでおく。
+
+  二つの向き付けられた半円を用意する。$\ve>0$と$R>0$に対し、
+  \begin{align*}
+    C_R &= \setmid{ R e^{i \grt} }{ 0 \leq \grt \leq \pi  } \\
+    C_{\ve} &= \setmid{ \ve e^{i (\pi - \grt)} }{ 0 \leq \grt \leq \pi  }
+  \end{align*}
+  により定義された半円$C_R$と$C_{\ve}$を考える。
+\[
+I_{\ve} = \int_{C_{\ve}} f(z) \ dz , \quad I_{R} = \int_{C_{R}} f(z) \ dz
+\]
+とおく。留数定理により、任意の$0 < \ve < 1$と$1 < R$に対して
+\[
+ \int_{\ve}^R f(x) dx + \int_{-R}^{\ve} f(x) dx + I_{\ve} + I_{R} = 2\pi \I \Res(f,i)
+\]
+である。(分岐点を迂回するように積分路をとらねばならないことに注意)ここで$\ve \to + 0$, $R \to \infty$のとき
+\begin{align*}
+  \abs{ I_{\ve}} &\leq \f{ \pi \ve^{1+\gra} }{ 1 - \ve^2 } \to 0 \\
+    \abs{ I_{R}} &\leq \f{ \pi R^{1+\gra} }{ R^2 - 1 } \to 0
+\end{align*}
+なので$\gro = \exp(\pi \gra \I / 2)$とおくと
+\[
+(1 + \gro^2) \int_0^{\infty} f(x) \ dx = \pi \gro
+\]
+である。よって
+\[
+\int_0^{\infty} f(x) \ dx = \f{\pi \gro}{1 + \gro^2} = \f{ \pi }{ \gro + \ol{\gro} } = \f{\pi}{2 \cos(\pi \gra /2)}
+\]
+である。
+\end{proof}
+
+\newpage
+
+
+\subsubsection{}%6
+\barquo{
+$2$次元球面$S^2 = \setmid{(x,y,z) \in \R^3}{ x^2 + y^2 + z^2 =1 }$に対し、$S^2 \tm S^2$の部分空間
+\[
+X = \setmid{(u,v) \in S^2 \tm S^2}{n \cdot v = 0}
+\]
+を考える。ここで$u= (u_1, u_2, u_3)$, $v = (v_1, v_2 , v_3) \in \R^3$に対して
+\[
+u \cdot v = u_1 v_1 + u_2 v_2 + u_3 v_3
+\]
+とする。このとき$X$はコンパクトな微分可能多様体であることを示せ。
+}
+\begin{proof}
+  $X$が$S^2 \tm S^2$の部分多様体であることは、示せとは言われていないので示さなくてよいことに注意する。
+
+$S^2$はコンパクトなので$S^2 \tm S^2$もコンパクト。$X$はその閉部分集合なので、$X$もコンパクトである。
+
+  $g \colon \R^6 \to \R^3$を
+  \[
+  g(x,y,z,s,t,u) = \pmat{x^2 + y^2 + z^2 -1, s^2 + t^2 + u^2 -1 , xs + yt + zu}
+  \]
+  で定める。$0$が$g$の正則値であることを言えばよい。$p=(x,y,z,s,t,u) \in g^{-1}(0)$をとる。このとき
+  \[
+  Jg_p = \pmat{2x & 2y & 2z & 0 &0& 0\\ 0 &0 &0& 2s& 2t& 2u\\ s &t &u &0& 0& 0  }
+  \]
+  である。$p$の取り方から、$(x \;  y \;  z)$と$(s \; t \; u)$は直交するので特に一次独立であり、したがって$\rank Jg_p = 3$である。これは$p$が正則点であることを意味する。よって$X$は微分可能多様体。これで示すべきことがいえた。
+\end{proof}
+
+\newpage
+
+
+\subsubsection{}%7
+\barquo{
+関数$f \colon \R \to \R$が$C^1$級のとき、極限
+\[
+\lim_{n \to \infty} \left( \sum_{k=1}^n f\left( \f{k}{n} \right) - n \int_0^1 f(x) \ dx \right)
+\]
+を求めよ。
+}
+\begin{proof}
+  $f$は$C^1$級なので$f'$は$[0,1]$上一様連続である。$\ve > 0$が任意に与えられたとする。$x,y \in [0,1]$に対して
+  \[
+  \abs{x -y } \leq \f{1}{N} \to \abs{f'(x) - f'(y)} < \ve
+  \]
+  となるような$N \geq 1$をとっておく。$n \geq N$とする。このとき
+  \[
+  I_n = \sum_{k=1}^n f\left( \f{k}{n} \right) - n \int_0^1 f(x) \ dx
+  \]
+  とおくと
+  \begin{align*}
+    I_n &= \sum_{k=1}^n f\left( \f{k}{n} \right) - n \int_0^1 f(x) \ dx \\
+    &= n \left( \f{1}{n} \sum_{k=1}^n f\left( \f{k}{n} \right) -  \int_0^1 f(x) \ dx \right) \\
+    &= n \left( \f{1}{n} \sum_{k=1}^n f\left( \f{k}{n} \right) -  \sum_{k=1}^n \int_{(k-1)/n}^{k/n} f(x) \ dx \right) \\
+    &= n \sum_{k=1}^n \left( \f{1}{n}  f\left( \f{k}{n} \right) -   \int_{(k-1)/n}^{k/n} f(x) \ dx \right) \\
+    &= n \sum_{k=1}^n \int_{(k-1)/n}^{k/n} \left(   f\left( \f{k}{n} \right) -    f(x)  \right) \ dx
+  \end{align*}
+  である。$f$は$C^1$級なので平均値の定理により
+  \[
+  f(k/n) - f(x) = (k/n - x) f'(x_k)
+  \]
+  なる$x_k \in [(k-1)/n, k/n]$がある。$x_k$は$x$に依存するが、$f'$の一様性から($n \geq N$のとき)
+  \[
+  \abs{f'(x_k) - f'(k/n)} < \ve
+  \]
+  である。よって
+  \[
+  J_n =  n \sum_{k=1}^n \int_{(k-1)/n}^{k/n} \left( \f{k}{n} - x \right)  f'\left( k/n \right) \ dx
+  \]
+  とくと$n \geq N$のとき
+  \begin{align*}
+    \abs{I_n - J_n} &\leq \ve n  \sum_{k=1}^n \int_{(k-1)/n}^{k/n} \left( \f{k}{n} - x \right)   \ dx \\
+    &\leq \ve n  \sum_{k=1}^n \int_{0}^{1/n} t \ dt \\
+    &\leq \ve n \sum_{k=1}^n \f{1}{2n^2} \\
+    &\leq \f{\ve}{2}
+   \end{align*}
+   である。よって$\lim_{n \to \infty} J_n$を求めれば十分である。
+
+   いま
+   \begin{align*}
+     J_n &= n \sum_{k=1}^n f'\left( k/n \right)  \int_{(k-1)/n}^{k/n} \left( \f{k}{n} - x \right)   \ dx \\
+     &= n \sum_{k=1}^n f'\left( k/n \right)  \int_{0}^{1/n} t \ dt \\
+     &= \f{1}{2} \left( \f{1}{n} \sum_{k=1}^n  f'\left( k/n \right) \right)
+   \end{align*}
+   である。$f'$は連続なのでRiemann積分可能で、
+   \[
+   \lim_{n \to \infty} J_n = \f{1}{2} \int_0^1 f'(x) \ dx = \f{f(1) - f(0)}{2}
+   \]
+   である。
+\end{proof}

@@ -1,0 +1,127 @@
+\section{平成27年度 基礎科目I}
+
+\subsubsection{} %{問1}
+\barquo{
+次の広義積分を求めよ。
+\[
+\iint_D \f{y^2 e^{-xy} }{ x^2 + y^2 } \ dx dy
+\]
+ここで、$D=\setmid{(x,y) \in \R^2 }{0 < y \leq x}$とする。
+}
+\begin{sol}
+  $x=r \cos \grt$, $y = r\sin \grt$とおくと$dx dy = r dr d\grt$であって
+  \begin{align*}
+    \iint_D \f{y^2 e^{-xy} }{ x^2 + y^2 } \ dx dy &= \int_0^{\pi/4} \ d\grt \int_0^{\infty} r \sin^2 \grt e^{- r^2 \sin \grt \cos \grt} \ dr \\
+    &= \f{1}{2} \int_0^{\pi/4} \sin^2 \grt \left( \int_0^{\infty}   e^{- s \sin \grt \cos \grt} \ ds \right) \ d\grt \\
+    &= \f{1}{2} \int_0^{\pi/4} \f{ \sin \grt }{\cos \grt } \ d\grt \\
+    &= - \f{1}{2} \int_1^{1/ \sqrt{2} } \f{dt}{t} \\
+    &= \f{\log 2}{4}
+  \end{align*}
+\end{sol}
+
+\newpage
+
+\subsubsection{} %{問2}
+\barquo{
+$\R^2$で定義された関数
+\[
+f(x,y) = \f{4x^2 + (y+2)^2}{x^2 + y^2 +1}
+\]
+のとりうる値の範囲を求めよ。
+}
+\begin{sol}
+  $f \geq 0$であり$f(0,-2) = 0$なので$\min f = 0$はあきらか。最大値を求めよう。$x = r \cos \grt$, $y = r \sin \grt$とおくと
+  \[
+  f(x,y) = 4 + \f{ - 3 r^2 \sin^2 \grt + 4r \sin \grt }{ r^2 + 1 }
+  \]
+  である。$t = \sin \grt$とおく。このとき$-1 \leq t \leq 1$であって
+  \[
+  f-4 = \f{ 3r^2}{r^2 +1} \left( -\left( t - \f{2}{3r} \right)^2+ \f{4}{9r^2} \right)
+  \]
+  である。したがって
+  \[
+  g = -\left( t - \f{2}{3r} \right)^2+ \f{4}{9r^2}
+  \]
+  としたとき
+  \[
+  \max (f -4) = \max_{r \geq 0} \f{ 3r^2}{r^2 +1} \left( \max_{-1 \leq t \leq 1} g(r,t) \right)
+  \]
+  である。いま
+  \[
+  \max_{-1 \leq t \leq 1} g(r,t) = \begin{cases}
+  g(2/3r) = 4/(9r^2) &(2/3 \leq r) \\
+  g(1) = (4-3r)/3r &(0 \leq r \leq 2/3)
+\end{cases}
+  \]
+  だから
+  \[
+  \max (f-4) = \max \left\{  \max_{r \geq 2/3} \f{4}{3(r^2 + 1)} , \; \max_{0 \leq r \leq 2/3} \f{r(4-3r)}{r^2+1} \right\}
+  \]
+  が判る。あきらかに
+  \[
+  \max_{r \geq 2/3} \f{4}{3(r^2 + 1)} = \f{12}{13}
+  \]
+である。また$h(r) = r(4-3r)/ (r^2+1)$とおくと$h'(r) = -4(r - 1/2)(r+2)/ (r^2 + 1)^2 $だから
+\[
+\max_{0 \leq r \leq 2/3} h(r) = h(1/2) =1
+\]
+である。すなわち$\max f = 5$である。$f$は連続関数なのでとりうる値の範囲は区間$[0, 5]$ということになる。
+\end{sol}
+
+
+\newpage
+
+
+
+\subsubsection{} %{問3}
+\barquo{
+$a,b$を複素数とする。3次正方行列
+\[
+A = \pmat{
+2 &a& a \\ b &2 &0 \\ -b& 0 &2
+}, \quad
+B = \pmat{
+ 2 &1 &0 \\ 0 &2 &0 \\ 0 &0 &2
+}
+\]
+について、以下の問に答えよ。
+\begin{description}
+  \item[(i)] 行列$A$の固有値を求めよ。
+  \item[(ii)] 行列$A$と行列$B$が相似となるような複素数$a,b$をすべて求めよ。ただし、$A$と$B$が相似であるとは、複素正則行列$P$で$A = P^{-1}AP$をみたすものが存在するときをいう。
+\end{description}
+}
+\begin{sol} ${}$
+  \begin{description}
+\item[(i)] 固有多項式$\Phi_A(\grl)$は$(\grl - 2)^3$なので、固有値は$2$のみ。
+\item[(ii)] $A$のJordan標準形が$B$になるのはいつかを求めればよい。それは$\rank (2 - A) = 1$と同値である。計算すると
+\[
+\rank (2 - A) = \rank \pmat{
+0 &a& a \\ b& 0& 0 \\ 0& 0& 0
+}
+\]
+だから$A$と$B$が相似になるのは$a=0, b \neq 0$または$a \neq 0, b=0$のとき。
+  \end{description}
+\end{sol}
+
+\newpage
+
+
+\subsubsection{} %{問4}
+\barquo{
+$a,b,c,d$を複素数とする。次の行列の階数を求めよ。
+\[
+\pmat{
+2 &-3 &6 &0 &-6 &a \\ -1 &2 &-4 &1 &8 &b \\ 1 &0 &0 &1 &6 &c \\ 1 &-1 &2 &0 &-1& d
+}
+\]
+}
+\begin{sol}
+  問題の行列を$A$とおく。行基本変形で変形していくと
+  \begin{align*}
+    A &\sim \pmat{ 2 &-3& 6& 0& -6& a \\ -1& 2& -4& 1& 8& b \\ 1& 0& 0& 1& 6& c \\ 1& -1& 2& 0& -1& d } \\
+    &\sim \pmat{ 0 &-1& 2& 0& -4& a-2d \\ 0& 1& -2& 1 &7& b+d \\ 0& 1& -2& 1& 7& c+d \\  1& -1& 2& 0& -1& d }  \\
+    &\sim \pmat{ 0 &-1& 2& 0& -4& a-2d \\  0& 0& 0& 1& 3& a+b-d \\ 0& 0& 0& 1& 3& a + c - 3d \\ 1& 0& 0& 0& 3& -a+3d} \\
+    &\sim \pmat{ 0& -1& 2& 0& -4& a-2d \\ 0& 0& 0& 1& 3& a+b-d \\ 0& 0& 0& 0& 0& -b+c-2d \\  1& 0& 0& 0& 3& -a+3d}
+  \end{align*}
+  だから$-b+c-2d \neq 0$のとき$\rank A = 4$であり、$-b+c-2d = 0$のとき$\rank A = 3$である。
+\end{sol}
