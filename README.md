@@ -18,7 +18,7 @@
 
 1. まずGitHubにアカウントを作ります．
 
-1. [このリポジトリ](https://github.com/Seasawher/graduate_exam)をForkします．
+1. このリポジトリをForkします．
 
 2. Forkしたリポジトリに新しく `(アカウント名)/README.md` というファイルを作ります．そうすると (アカウント名) という名前のディレクトリができます．
  
