@@ -3,9 +3,7 @@
 ## なにこれ
 京都大学 数学・数理解析専攻の院試の問題と解答です．2020年2月10日にいちおう完成．
 
-問題文は
-https://www.math.kyoto-u.ac.jp/ja/past-exams
-から入手したものを使用しています．
+問題文は[数学教室のHP](https://www.math.kyoto-u.ac.jp/ja/past-exams)から入手したものを使用しています．
 
 次に示すGoogleドライブのリンクからも解答を見ることができます．
 
