@@ -22,9 +22,9 @@
 
 には H31年度基礎 問4 を解いていただきました．以下の方も協力してくださいました．
 
-- キヅ @28Vittorio　
+- キヅ [@28Vittorio](https://twitter.com/28Vittorio)
 
-- ひろ @azureh97
+- ひろ [@azureh97](https://twitter.com/azureh97)
 
 また，ナカトウ氏による解答も大変参考にさせていただきました．
 
